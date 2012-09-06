@@ -1,13 +1,12 @@
 Mixd CSS Framework
 ==================
 
-Mixd's framework for beginning any front end web build, containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library. Use of this framework should adhere to the following rules which complement its architecture &mdash; **based around Jonathan Snook's [SMACSS](http://smacss.com/)**
+Mixd's framework for beginning any front end build &mdash; containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library. Use of this framework should adhere to the following rules which complement its architecture **based around Jonathan Snook's [SMACSS](http://smacss.com/)**
 
 ## License
 
-This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/deed.en_US)
-
-You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)
+- This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/deed.en_US)
+- You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)
 
 ## Pre-Processing
 
@@ -18,7 +17,7 @@ You must attribute the work in the manner specified by the author or licensor (b
 
 ## Configuration
 
-- Global variables are set in `vars.scss` which is a good starting point &mdash; set your colours, `font-families` etc. first
+- Global variables are set in `vars.scss` which is a good starting point &mdash; set your colours, font families etc. first
 - Place **any variables** you use during the project here, and **any mixins** within `mixins.scss`
 - Import any external mixin libraries within `includes.scss`
 
@@ -35,35 +34,34 @@ You must attribute the work in the manner specified by the author or licensor (b
 
 ## Layout
 
-- Layout rules define major content areas e.g. `<header>`, `<footer>` and grids.
-- Use `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`.
-- *Layout* is reserved for layout components only, use nested elements or target modules within *theme* for appearance..
+- Layout rules define major content areas e.g. container, header, footer and grids.
+- Use `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
+- *Layout* is reserved for layout components only, use nested elements or target modules within *theme* for appearance
 
 **Read:**
-* [http://goo.gl/S5inY](http://goo.gl/S5inY)
+* [goo.gl/S5inY](http://goo.gl/S5inY)
 
 ## Modules
 
-- Modules (e.g. primary navigation) are nested inside layout components and can always be moved to a different part of the page without breaking.
+- Modules (e.g. `.panel`) are nested inside layout components and can always be moved to a different part of the page without breaking.
 - Use classes to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`.
 - Objects are re-useable abstractions that do one job. First, look for existing objects to help you build a new module
+- Common modules are included by default and explained
 - When building modules, consider re-use and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it.
-
-**Read:**
-- [http://goo.gl/QKEuz](http://goo.gl/QKEuz)
-
-**Notes:**
 - Use *theme* to define backgrounds, typography, colours etc. even if they relate to a module
 - Use explicit properties e.g. `border-width`, `border-style` then define `border-color` in *theme*
-- Use *state* to define e/g/ `:hover`, `:active`. even if they relate to a module
+- Use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
 
 **Read:**
-- [http://goo.gl/tTQJg](http://goo.gl/tTQJg)
+- [goo.gl/QKEuz](http://goo.gl/QKEuz)
+- [goo.gl/tTQJg](http://goo.gl/tTQJg)
 
 ### Mixd Modules
 
-`/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup. Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion. This allows for greater re-use of code between projects. Modules should contain structure and layout only with **no theme information** (use explicit CSS properties). Theme for each module can then be styled on a per-project basis, with a full view of that project's cascade prior to styling.
+`/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup. Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion. This allows for greater re-use of code between projects.
+
+Modules should contain structure and layout only with **no theme information** (use explicit CSS properties). Theme for each module can then be styled on a per-project basis, with a full view of that project's cascade prior to styling.
 
 ## Theme
 
@@ -72,7 +70,7 @@ You must attribute the work in the manner specified by the author or licensor (b
 - Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
 
 **Read:**
-* [http://goo.gl/ThLKb](http://goo.gl/ThLKb)
+* [goo.gl/ThLKb](http://goo.gl/ThLKb)
 
 ## State
 
@@ -86,15 +84,18 @@ You must attribute the work in the manner specified by the author or licensor (b
 
 ## Breakpoints (**states**)
 
-**Create breakpoints when content requires**, not for specific devices/screen-sizes. Work small-screen upwards using `min-width` &mdash; four breakpoints are set up by default. Each breakpoint should have its own separate stylesheet with **one `@media` query per breakpoint**, rather than multiple `@media` queries per element.
-
-Use a prefix relevant for breakpoint-specific classes (e.g. `.bp1-cols-full`) to serve styles *only* from a given breakpoint upwards.
+- **Create breakpoints when content requires**, not for specific devices/screen-sizes.
+- Four breakpoints are set up by default &mdash; primarily work small-screen upwards using `min-width`
+- Each breakpoint should have its own separate stylesheet with **one `@media` query per breakpoint**, rather than multiple `@media` queries per element
+- Use a prefix for breakpoint-specific classes (e.g. `.bp1-cols-full`) to serve styles *only* at a given breakpoint upwards
 
 ## Internet Explorer
 
-IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop). If you add a new breakpoint you wish to include in IE, add to `ie.scss` appropriately. Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`.
-
-Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element.
+- IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop)
+- If you add a new breakpoint you wish to include in IE, add to `ie.scss` appropriately
+- Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`
+- Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
+- **Never polyfill IE with media query support**
 
 ## Javascript
 
@@ -118,9 +119,9 @@ Listen below are some general rules to adhere to when using this framework or wh
 
 ## Syntax and formatting
 
-We use multi-line CSS to help with version control (diffing single line CSS is a nightmare) and we order CSS declarations by relevance, **not** alphabetically.
+Use multi-line CSS to help with version control (diffing single line CSS is a nightmare) and we order CSS declarations by relevance, **not** alphabetically.
 
-We use hyphen delimited, lowercase selectors: `.thisIsBad{}`, `.this_is_also_bad{}` but `.this-is-correct{}`.
+Use hyphen delimited, lowercase selectors: `.thisIsBad{}`, `.this_is_also_bad{}` but `.this-is-correct{}`.
 
 Always use a trailing semi-colon on the last declaration in a ruleset to avoid any potential confusion and syntax errors over the life of the document.
 

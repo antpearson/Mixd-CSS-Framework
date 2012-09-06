@@ -17,7 +17,7 @@ img.alignright {
 
 /* -- WP caption images -- */
 .wp-caption {
-	text-align: center; @extend .baseline;
+	text-align: center; margin-bottom: $baseline;
 	
 	img {
 		display: inline;

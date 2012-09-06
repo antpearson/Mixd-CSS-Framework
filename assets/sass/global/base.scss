@@ -1,11 +1,7 @@
-/* Makes use of Normalize.css - http://goo.gl/jwWUj
- * Tweaked for personal defaults and opt-in typography
-/*----------------------------------------------------------------------------------------*/
 @import "../libs/normalize";
-
+/*----------------------------------------------------------------------------------------*/
 /* General defaults
 /*----------------------------------------------------------------------------------------*/
-/* -- Base -- */
 html { overflow-y: scroll; }
 
 /* -- Selections -- */
@@ -64,6 +60,7 @@ textarea { resize: vertical; }
 // expandingText jQuery plugin
 textarea, .expandingText { min-height: 8em; }
 
+/*----------------------------------------------------------------------------------------*/
 /* Project defaults
  * Set as a reasonable starting point, but may change
 /*----------------------------------------------------------------------------------------*/
@@ -138,10 +135,10 @@ blockquote p + .source { margin-top: -$baseline; }
 
 /*----------------------------------------------------------------------------------------*/
 /* Helper classes
- * Use these to Zero off global typographic styles when required
+ * Use these to zero off global typographic styles when required
 /*----------------------------------------------------------------------------------------*/
 .push-top { margin-top: $baseline; }
-.push-bottom { margin-top: $baseline; }
+.push-bottom, .baseline { margin-bottom: $baseline; }
 .zero-top { margin-top: 0; }
 .zero-bottom { margin-bottom: 0; }
 .unbold { font-weight: normal; }
@@ -151,6 +148,6 @@ blockquote p + .source { margin-top: -$baseline; }
 .list-numbers { list-style: decimal; }
 .list-bullets { list-style: disc; }	
 
-// Specific text styles
+/* -- Specific Text Styles -- */
 .intro { font-size: 1.25em; }
 .headline { border-bottom: 1px solid $color-keyline; padding-bottom: .45em; }

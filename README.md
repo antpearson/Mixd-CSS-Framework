@@ -96,10 +96,14 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 
 ## State
 
-
+* State rules override other styles in a given instance
+* Use .is- prefix when indicating specific state e.g. .is-shown, .is-current
+* READ MORE: http://goo.gl/Itlda
 
 ## CMS
 
+- CMS styles are specific to the CMS (WordPress) being used, including any plugins
+- Add .wp-content class to the containing element of the WordPress body
 
 
 ## Modernizr

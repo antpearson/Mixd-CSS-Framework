@@ -23,13 +23,51 @@
 </div>
 */
 
-.media,
+.media {
+	margin-bottom: $baseline;
+	
+	// Add .cf class for true OOCSS
+	// @include respond-min($bp1) {
+	//     .media { @extend .cf; }
+	// }		
+	
+}
+	
 .media-img img {
-	margin-bottom: $baseline; }
+	margin-bottom: $baseline;
+	
+	@include respond-min($bp1) {
+		margin-bottom: 0; }	
+}
+
+
+.media-body {
+
+	@include respond-min($bp1) {
+	
+		/* basic usage */
+		/*overflow: hidden;*/
+		
+		// OR
+		
+		/* if box-shadow needed - http://goo.gl/INzhl */
+		display: table-cell;
+	    width: 10000px;
+	    *width: auto;
+	    *zoom:1; }
+
+}
 
 .media-body :last-child {
 	margin-bottom: 0; }	
 
+.media-img {
+	
+	@include respond-min($bp1) {
+		float: left;
+		margin-bottom: 0;
+		margin-right: $media-img-gutter; }
+}
 	
 /* Island Object - http://goo.gl/1XYHG
 ----------------------------------*/

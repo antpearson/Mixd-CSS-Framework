@@ -63,6 +63,17 @@ textarea, .expandingText { min-height: 8em; }
 /*----------------------------------------------------------------------------------------*/
 /* Project Defaults
 /*----------------------------------------------------------------------------------------*/
+html {
+	font-size: 100%;
+	
+	@include respond-min($bp2) {
+		font-size: 125%; }
+		
+	@include respond-min($bp4) {
+		font-size: 137.5%; }
+	
+}
+
 body {
 	@include font-sans;
 	line-height: 1.5;
@@ -125,7 +136,15 @@ input[type=submit] {
 	background-color: $color-comp; }
 
 /* -- Blockquotes -- */
-blockquote { margin-left: 0; margin-right: 0; }
+blockquote {
+	margin-left: 0;
+	margin-right: 0;
+	
+	@include respond-min($bp2) {
+		padding-left: 2em;
+		padding-right: 2em; }
+	
+}
 blockquote { @include font-serif; font-style: italic; clear: both; }
 blockquote p { font-size: 1.35em; }
 blockquote p + .source { margin-top: -$baseline; }

@@ -12,7 +12,7 @@ $grid-col-class: grid-col;
 //-------------------------------------------------------
 // GRID MIXINS
 //-------------------------------------------------------
-$half-gutter : $gutter / 2;
+$half-gutter: $gutter / 2;
 
 @mixin grid-config {
 
@@ -79,5 +79,17 @@ $half-gutter : $gutter / 2;
 	.#{$namespace}-two-thirds       { width: 64.95%; }
 	.#{$namespace}-one-quarter      { width: 19.95%; }
 	.#{$namespace}-three-quarters   { width: 74.95%; }
+	
+}
+
+// add support for http://goo.gl/uwyT6
+@mixin grid-include($class) {
+
+	@if $old-ie {
+		@include grid-setup-oldie($class);
+	}
+	@else {
+		@include grid-setup($class);
+	}
 	
 }

@@ -36,11 +36,13 @@ This framework makes use of the following external libraries or services
 - [Selectivizr](http://selectivizr.com/)
 - [Fontello](http://fontello.com/)
 
-## General CSS notes, advice and guidelines
+---------------------------------------
+
+# General CSS notes, advice and guidelines
 
 Listen below are some general rules to adhere to when using this framework or when completing any front end work. Extracts are taken from [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines/blob/master/CSS%20Guidelines.md) written by Harry Roberts.
 
-### Syntax and formatting
+## Syntax and formatting
 
 We use multi-line CSS to help with version control (diffing single line CSS is a nightmare) and we order CSS declarations by relevance, **not** alphabetically.
 
@@ -48,17 +50,17 @@ We use hyphen delimited, lowercase selectors: `.thisIsBad{}`, `.this_is_also_bad
 
 Always use a trailing semi-colon on the last declaration in a ruleset to avoid any potential confusion and syntax errors over the life of the document.
 
-### Comments
+## Comments
 
 Comment as much as you can as often as you can. Where it might be useful, include a commented piece of markup which can help put the current CSS into context.
 
 Be verbose, go wild, CSS will be minified before it hits live servers.
 
-### Building components
+## Building components
 
 When building a new component write markup **before** CSS. This means you can visually see which CSS properties are naturally inherited and thus avoid reapplying redundant styles. Look for existing modules or objects to work with before beginning. **All modules go in `modules.scss`**.
 
-### OOCSS
+## OOCSS
 
 When building components try and keep a DRY, OO frame of mind. **Adding classes is not a crime** - use them wisely and efficiently.
 
@@ -71,7 +73,7 @@ If you have to build a new component split it into structure (modules) and skin 
 * [csswizardry.com/&hellip;/the-nav-abstraction](http://csswizardry.com/2011/09/the-nav-abstraction)
 * [stubbornella.org/&hellip;/the-media-object-saves-hundreds-of-lines-of-code](http://stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code)
 
-### Layout
+## Layout
 
 All components should be left totally free of widths; your components should always remain fluid and their widths should be governed by a grid system. **All layout styles go in `layout.scss`**.
 
@@ -81,7 +83,7 @@ Grid systems should be thought of as shelves. They contain content but are not c
 
 You should never apply any styles to a grid or layout container, they are for layout purposes only. Nest modules inside layout components.
 
-### Sizing
+## Sizing
 
 **Never use pixels** unless unavoidable. Use a combination of `ems`, `rems` and percentages. Only use `rems` if you need to reference a base measure. 
 
@@ -89,7 +91,7 @@ You should never apply any styles to a grid or layout container, they are for la
 
 * [csswizardry.com/&hellip;/measuring-and-sizing-uis-2011-style](http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style)
 
-### Font sizing
+## Font sizing
 
 Set a *relevant* base font-size on the `<html>` element. Use `ems` to define font sizing &mdash; do not define any font sizes in pixels. Define line heights unitlessly everywhere **unless** we are trying to align text to known heights. Do not use `rems` for font-sizing unless absolutely necessary due to compound nesting. If using `rems` - provide fall back for IE in `modernizr.scss` using the `.no-remunit` class. 
 
@@ -101,7 +103,7 @@ Before writing another font-size declaration, see if a class for it already exis
 
 * [csswizardry.com/&hellip;/pragmatic-practical-font-sizing-in-css](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css)
 
-### Shorthand
+## Shorthand
 
 It might be tempting to use declarations like `background:red;` but in doing so what we are actually saying is *I want no image to scroll, aligned top left and repeating X and Y and a background colour of red*. Nine times out of ten this won't cause any issues but that one time it does is annoying enough to warrant not using such shorthand. Instead use `background-color:red;`.
 
@@ -112,7 +114,7 @@ Be explicit in which properties you set and take care to not inadvertently unset
 Shorthand is good, but easily misused.
 
 
-### Selectors
+## Selectors
 
 Keep selectors efficient and portable.
 
@@ -169,7 +171,7 @@ In this case you _know_ that every `a` in `.promo` needs a blanket rule because 
 **Write selectors that target what you want, not what happens to be there already.**
 
 
-### IDs and classes
+## IDs and classes
 
 **Do not use IDs in CSS** at all. They can be used in your markup for JS and fragment-identifiers but use only classes for styling. We don't want to see a single ID in this (or any other) stylesheet.
 
@@ -180,14 +182,14 @@ Classes come with the benefit of being reusable (even if we don't want to, we ca
 * [csswizardry.com/&hellip;/when-using-ids-can-be-a-pain-in-the-class](http://csswizardry.com/2011/09/when-using-ids-can-be-a-pain-in-the-class)
 
 
-### `!important`
+## `!important`
 
 It is okay to use `!important` on helper classes only. To add `!important` preemptively is fine, e.g. `.error{ color:red!important }`, as you know you will **always** want this rule to take precedence.
 
 Using `!important` reactively, e.g. to get yourself out of nasty specificity situations, is not advised. Rework your CSS and try to combat these issues by refactoring your selectors. Keeping your selectors short and avoiding IDs will help out here massively.
 
 
-### Magic numbers and absolutes
+## Magic numbers and absolutes
 
 A magic number is a number which is used because *it just works*. These are bad because they rarely work for any real reason and are not usually very futureproof or flexible/forgiving. They tend to fix symptoms and not problems.
 

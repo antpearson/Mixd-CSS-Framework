@@ -1,7 +1,7 @@
 Mixd CSS Framework
 ==================
 
-Mixd's framework for beginning any front end build &mdash; containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library. Use of this framework should adhere to the following rules which complement its architecture **based around Jonathan Snook's [SMACSS](http://smacss.com/)**
+Mixd's framework for beginning any front end build &mdash; containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library. Users of this framework should follow the guidelines below, which complement its architecture **based around Jonathan Snook's [SMACSS](http://smacss.com/)**
 
 ## License
 
@@ -104,6 +104,18 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 
 ## Modernizr
 
+- Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
+- Use `.no-` selectors (always code for better browsers first)
+- Utilise Sass nesting for browser capabilities e.g.
+
+	.no-svg {
+	
+		.logo { ...}
+		.sprite { .. }
+	
+	}
+
+
 ## Breakpoints
 
 - Each breakpoint has its own separation within `/states`
@@ -111,15 +123,24 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Four breakpoints are set up by default &mdash; primarily work small-screen upwards using `min-width`
 - Each breakpoint should have its own separate stylesheet with **one `@media` query per breakpoint**, rather than multiple `@media` queries per element
 - Use a prefix for breakpoint-specific classes (e.g. `.bp1-cols-full`) to serve styles *only* at a given breakpoint upwards
+- Breakpoint separations follow the same structural organisation (sections) as outlined above
 
 ## Internet Explorer
 
 - IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop) in `ie.scss`
 - When you add a new breakpoint you wish to include in IE &mdash; include it in `ie.scss`
 - Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`
-- Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
 - Support for Proportioanal Grids is also added via mixin for each breakpoint
 - **Never polyfill IE with media query support**
+- Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
+- Utilise Sass nesting for browser versions e.g.
+
+	.lt-ie8 {
+	
+		.fix { ...}
+		.another-fix { .. }
+	
+	}
 
 ## Javascript
 

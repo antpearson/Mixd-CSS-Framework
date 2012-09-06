@@ -728,20 +728,6 @@ blockquote p + .source {
 /*----------------------------------------------------------------------------------------*/
 /* $. MODULES (and objects)
 ------------------------------------------------------------------------------------------*/
-/* Modules (e.g. primary navigation) are nested inside layout and can be moved to a different part of the page without breaking
- * Use classes to define modules and prefix any child elements e.g. .panel-heading inside .panel, .nav-item inside .nav
- *
- * Objects are re-useable abstractions that do one job. First, look for existing objects to help you build a new module
- * When building modules, consider re-use and create abstractions if necessary
- * Don't modify a base object once created. Either extend it for your module or don't use it - http://goo.gl/QKEuz 
- *
- * NOTES:
- * - Use theme to define backgrounds, typography, colours etc. even if they relate to a module
- * - Use explicit properties e.g. border-width, border-style then define border-color in theme
- * - Use state to define hovers, actives etc. even if they relate to a module
- *
- * READ MORE: http://goo.gl/tTQJg
-/*----------------------------------------------------------------------------------------*/
 /* Media Object - http://goo.gl/Xf6MJ
 ----------------------------------*/
 /*

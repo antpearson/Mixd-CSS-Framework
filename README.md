@@ -44,7 +44,20 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 ### Proportional Grids
 
-This frameworks uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/blog/proportional-grids) for layout.
+This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/blog/proportional-grids) for layout. Classes are used on each grid column to determine which proportion is taken at which breakpoint e.g.
+
+	<div class="grid-wrap">
+	    <div class="grid-col bp1-col-one-half bp2-col-two-thirds">
+	        <p>Column 1</p>
+	    </div>
+	    <div class="grid-col bp1-col-one-half bp2-col-one-third">
+	        <p>Column 2</p>
+	    </div>
+	</div>
+	
+Here, `grid-col` starts life as a single column. The class `bp1-col-one-half` means that column becomes one-half at breakpoint 1. `bp2-col-two-thirds` means it becomes two-thirds at breakpoint 2. And so on.
+
+`bp2-col` is simply a namespace / prefix for that breakpoint. Grids are configured in `layout.scss` for each breakpoint, setting the namespace of the grid class to be used.	
 
 ## Modules
 
@@ -105,6 +118,7 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - When you add a new breakpoint you wish to include in IE &mdash; include it in `ie.scss`
 - Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`
 - Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
+- Support for Proportioanal Grids is also added via mixin for each breakpoint
 - **Never polyfill IE with media query support**
 
 ## Javascript

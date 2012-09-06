@@ -11,42 +11,47 @@ You must attribute the work in the manner specified by the author or licensor (b
 
 ## Pre-Processing
 
-- Code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, then compile to CSS.
-- We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac.
-- Directly compiled stylesheets sit at root level in this folder, with all other separations inside sub folders.
+- Code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, then compile to CSS
+- We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac
+- Directly compiled stylesheets sit at root level in the `/sass` folder, with all other separations inside sub folders
 - CSS should compile to the `/css` folder and will be minified upon launch.
 
 ## Configuration
 
-Global variables are set in `vars.scss` which is a good starting point &mdash; set your colours, `font-families` etc. first. Place **any variables** you use during the project here, and **any mixins** within `mixins.scss`.
-
-Import any external mixin libraries in `includes.scss`.
+- Global variables are set in `vars.scss` which is a good starting point &mdash; set your colours, `font-families` etc. first
+- Place **any variables** you use during the project here, and **any mixins** within `mixins.scss`
+- Import any external mixin libraries within `includes.scss`
 
 ## Global styles
 
-Coding small-screen first, all default (global) styles sit within the `/global` folder categorised into separations as-per [SMACSS](http://smacss.com/): 
+- Coding small-screen first, all default (global) styles sit within the `/global` folder
+- Global styles are categorised into separations as per [SMACSS](http://smacss.com/): 
 
 ## Base
 
-[Normalize.css](http://necolas.github.com/normalize.css/) is used to create consistency across all browsers. Project defaults are then set as reasonable starting point, but should be changed if needed.
-
-Helper classes are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left`
+- [Normalize.css](http://necolas.github.com/normalize.css/) is used to create consistency across all browsers
+- Project defaults are then set as reasonable starting point, but should be changed if needed
+- Helper classes are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left`
 
 ## Layout
 
-Layout rules define major content areas e.g. `<header>`, `<footer>` and grids. Use `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`. *Layout* is reserved for layout components only, use nested elements or target modules within *theme* for appearance..
+- Layout rules define major content areas e.g. `<header>`, `<footer>` and grids.
+- Use `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`.
+- *Layout* is reserved for layout components only, use nested elements or target modules within *theme* for appearance..
 
 **Read:**
 * [http://goo.gl/S5inY](http://goo.gl/S5inY)
 
 ## Modules
 
-Modules (e.g. primary navigation) are nested inside layout components and can always be moved to a different part of the page without breaking. Use classes to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`.
-
-Objects are re-useable abstractions that do one job. First, look for existing objects to help you build a new module When building modules, consider re-use and create abstractions if necessary **Don't modify a base object** once created. Either extend it for your module or don't use it.
+- Modules (e.g. primary navigation) are nested inside layout components and can always be moved to a different part of the page without breaking.
+- Use classes to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`.
+- Objects are re-useable abstractions that do one job. First, look for existing objects to help you build a new module
+- When building modules, consider re-use and create abstractions if necessary
+- **Don't modify a base object** once created. Either extend it for your module or don't use it.
 
 **Read:**
-* [http://goo.gl/QKEuz](http://goo.gl/QKEuz)
+- [http://goo.gl/QKEuz](http://goo.gl/QKEuz)
 
 **Notes:**
 - Use *theme* to define backgrounds, typography, colours etc. even if they relate to a module
@@ -54,7 +59,7 @@ Objects are re-useable abstractions that do one job. First, look for existing ob
 - Use *state* to define e/g/ `:hover`, `:active`. even if they relate to a module
 
 **Read:**
-* [http://goo.gl/tTQJg](http://goo.gl/tTQJg)
+- [http://goo.gl/tTQJg](http://goo.gl/tTQJg)
 
 ### Mixd Modules
 
@@ -62,7 +67,9 @@ Objects are re-useable abstractions that do one job. First, look for existing ob
 
 ## Theme
 
-Theme rules define look and feel e.g. tyopgraphy, backgrounds, colours etc. Use explicit properties e.g. `border-color` **not** `border` to style specifically. Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
+- Theme rules define look and feel e.g. tyopgraphy, backgrounds, colours etc.
+- Use explicit properties e.g. `border-color` **not** `border` to style specifically.
+- Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
 
 **Read:**
 * [http://goo.gl/ThLKb](http://goo.gl/ThLKb)

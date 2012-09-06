@@ -8,21 +8,29 @@ Mixd's framework for beginning any front end web build, containing HTML5, Sass &
 This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/deed.en_US)
 
 You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)
+---------------------------------------
 
-
-## Framework Instructions
+# Framework Instructions
 
 Use of this framework should adhere to the following rules which complement its architecture &mdash; based around Jonathan Snook's [SMACSS](http://smacss.com/)
 
-### Pre-Processing
+## Pre-Processing
 
 You should code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, and then compile to CSS. We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac. CSS will be minified upon launch.
 
-###
+## Breakpoints
 
-  
+**Create breakpoints when content requires**, not for specific devices/screen-sizes. Work small-screen upwards using `min-width` &mdash; four breakpoints are set up by default. Each breakpoint should have its own separate stylesheet with **one `@media` query per breakpoint**, rather than multiple `@media` queries per element.
 
-### Mixd Modules
+Use a prefix relevant for breakpoint-specific classes (e.g. `.bp1-cols-full`) to serve styles *only* from a given breakpoint upwards.
+
+## Internet Explorer
+
+IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop). If you add a new breakpoint you wish to include in IE, add to `ie.scss` appropriately. Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`.
+
+Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element.
+
+## Mixd Modules
 
 `assets/sass/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup. Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion. This allows for greater re-use of code between projects. Modules should contain structure and layout only with **no theme information** (use explicit CSS properties). Theme for each module can then be styled on a per-project basis, with a full view of that project's cascade prior to styling.
 
@@ -77,7 +85,7 @@ Be verbose, go wild, CSS will be minified before it hits live servers.
 
 ## Building components
 
-When building a new component write markup **before** CSS. This means you can visually see which CSS properties are naturally inherited and thus avoid reapplying redundant styles. Look for existing modules or objects to work with before beginning. **All modules go in `modules.scss`**.
+When building a new component write markup **before** CSS. This means you can visually see which CSS properties are naturally inherited and thus avoid reapplying redundant styles. Look for existing modules or objects to work with before beginning and always comment a new module with a title.
 
 ## OOCSS
 
@@ -112,9 +120,9 @@ You should never apply any styles to a grid or layout container, they are for la
 
 ## Font sizing
 
-Set a *relevant* base font-size on the `<html>` element. Use `ems` to define font sizing &mdash; **do not define any font sizes in pixels**. Define line heights unitlessly everywhere **unless** we are trying to align text to known heights.
+Set a *relevant* default font-size on the `<html>` element to supply global typographic elements. From there, use `ems` to define font sizing &mdash; **do not define any font sizes in pixels**. Define line heights unitlessly everywhere **unless** we are trying to align text to known heights.
 
-Do not use `rems` for font-sizing unless absolutely necessary due to compound nesting. If using `rems` - provide fall back for IE in `modernizr.scss` using the `.no-remunit` class. 
+Do not use `rems` for font-sizing unless absolutely necessary due to compound nesting. If using `rems` - provide pixel/<`em>` fallback for IE using the Modernizr `.no-remunit` class. 
 
 We want to avoid defining font sizes over and over; to achieve this we have a predefined scale of font sizes tethered to classes. We can recycle these rather than having to declare styles over and over.
 
@@ -126,20 +134,19 @@ Before writing another font-size declaration, see if a class for it already exis
 
 ## Shorthand
 
-It might be tempting to use declarations like `background:red;` but in doing so what we are actually saying is *I want no image to scroll, aligned top left and repeating X and Y and a background colour of red*. Nine times out of ten this won't cause any issues but that one time it does is annoying enough to warrant not using such shorthand. Instead use `background-color:red;`.
+It might be tempting to use declarations like `background:red;` but in doing so what you are actually saying is *I want no image to scroll, aligned top left and repeating X and Y and a background colour of red*. Nine times out of ten this won't cause any issues but that one time it does is annoying enough to warrant not using such shorthand. Instead use `background-color:red;`.
 
-Similarly, declarations like `margin:0;` are nice and short, but **be explicit**. If you're actually only really wanting to affect the margin on the bottom of an element then it is more appropriate to use `margin-bottom:0;`.
+Similarly, declarations like `margin:0;` are nice and short, but **be explicit**. If you're actually only really wanting to affect the margin on the bottom of an element then it is more appropriate to use `margin-bottom: 0;`.
 
 Be explicit in which properties you set and take care to not inadvertently unset others with shorthand. E.g. if you only want to remove the bottom margin on an element then there is no sense in blitzing all margins with `margin:0;`.
 
 Shorthand is good, but easily misused.
 
-
 ## Selectors
 
 Keep selectors efficient and portable.
 
-Heavily location-based selectors are bad for a number of reasons. For example, take `.sidebar h3 span{}`. This selector is too location-based and thus we cannot move that `span` outside of a `h3` outside of `.sidebar` and maintain styling.
+Heavily location-based selectors are bad for a number of reasons. For example, take `.sidebar h3 span {}`. This selector is too location-based and thus we cannot move that `span` outside of a `h3` outside of `.sidebar` and maintain styling.
 
 Selectors which are too long also introduce performance issues; the more checks in a selector (e.g. `.sidebar h3 span` has three checks, `.content ul p a` has four), the more work the browser has to do.
 
@@ -220,12 +227,6 @@ Instead we should use `.dropdown-nav li:hover ul{ top: 100%; }` which means no m
 Every time you hard code a number think twice; if you can avoid it by using keywords or aliases (i.e. `top:100%` to mean *all the way from the top*) or &mdash; even better &mdash; no measurements at all then you probably should.
 
 Every hard-coded measurement you set is a commitment you might not necessarily want to keep.
-
-## Conditional stylesheets
-
-Serve IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element. **We serve fixed-width, 960px wide container to IE8 and below**.
-
-Older IE (below IE7) recieves a wider, fixed-width mobile version via styles in `oldie.scss`
 
 ## Debugging
 

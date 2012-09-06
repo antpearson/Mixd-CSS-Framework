@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@import "config/includes";
+
+/**
+ * Serve breakpoints to old IE without the need to polyfil media queries
+ * READ MORE: http://goo.gl/06Y5N
+/*----------------------------------------------------------------------------------------*/
+@import "states/breakpoint-1";
+
+/* $. LAYOUT
+------------------------------------------------------------------------------------------*/
+/* Proportional Grids
+----------------------------------*/
+@include grid-config-oldie();
+@include grid-setup-oldie("oldie .col");
+@include grid-setup-oldie("oldie .bp1-col");
+
+/* $. IE SPECIFIC
+------------------------------------------------------------------------------------------*/
+.oldie .container {
+	width: 600px; }

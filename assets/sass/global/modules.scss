@@ -1,0 +1,125 @@
+/* Modules (e.g. primary navigation) are nested inside layout and can be moved to a different part of the page without breaking
+ * Use classes to define modules and prefix any child elements e.g. .panel-heading inside .panel, .nav-item inside .nav
+ *
+ * Objects are re-useable abstractions that do one job. First, look for existing objects to help you build a new module
+ * When building modules, consider re-use and create abstractions if necessary
+ * Don't modify a base object once created. Either extend it for your module or don't use it - http://goo.gl/QKEuz 
+ *
+ * NOTES:
+ * - Use theme to define backgrounds, typography, colours etc. even if they relate to a module
+ * - Use explicit properties e.g. border-width, border-style then define border-color in theme
+ * - Use state to define hovers, actives etc. even if they relate to a module
+ *
+ * READ MORE: http://goo.gl/tTQJg
+/*----------------------------------------------------------------------------------------*/
+// Import Mixd modules
+@import "../libs/mixd-modules";	
+
+/* Media Object - http://goo.gl/Xf6MJ
+----------------------------------*/
+/*
+<div class="media cf">
+	<img class="media-img" src="..." />
+	<div class="media-body">
+		<p>...</p>
+	</div>
+</div>
+
+- OR -
+
+<div class="media cf">
+	<div class="media-img">
+		<h2>...</h2>
+	</div>
+	<div class="media-body">
+		<p>...</p>
+	</div>
+</div>
+*/
+
+.media,
+.media-img img {
+	margin-bottom: $baseline; }
+
+.media-body :last-child {
+	margin-bottom: 0; }	
+
+	
+/* Island Object - http://goo.gl/1XYHG
+----------------------------------*/
+.island {
+	padding: $island-padding;
+	
+	> :last-child {
+		margin-bottom: 0; }
+	
+}
+
+.islet {
+	padding: $islet-padding; }
+
+	
+/* Nav Object - http://goo.gl/QjtO6
+----------------------------------*/
+.nav-inline {
+
+	li,
+	a {
+		display: inline-block;
+		*display:inline;
+        zoom:1; }
+	
+}
+
+// Use this to close whitespace gap between <li>'s
+.nav-floated {
+	//@extend .cf; - Add .cf class for true OOCSS
+	 
+	li {
+		float: left; }
+	
+}
+
+// Extends .nav-inline with dividers
+.nav-divided {
+
+	li {
+		border-left: 1px solid; }
+	
+	:first-child {
+	    border-left: none; }
+
+}
+
+.nav-stacked {
+
+	li {
+		display: list-item;
+		margin-bottom: 0; }
+	
+	a {
+		display: block;
+		padding: .5em 0; }
+
+}
+
+/* Tertiary Nav
+----------------------------------*/
+.nav-tertiary {
+
+	a {
+		padding: 0 .75em; }
+		
+	:first-child a {
+		padding-left: 0; }	
+}
+
+/* Blocked Nav Object
+----------------------------------*/
+.nav-blocked a {
+	display: block;
+	padding: .5em; }
+	
+/* Responsive Search Box
+----------------------------------*/
+@include responsive-search-box;

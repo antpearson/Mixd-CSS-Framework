@@ -1,0 +1,71 @@
+/* CMS styles are specific to the CMS (WordPress) being used, including any plugins
+ * Add .wp-content class to the containing element of the WordPress body
+/*----------------------------------------------------------------------------------------*/
+
+/* -- Ensure all WP images are responsive -- */
+.wp-content img,
+.wp-post-image,
+.wp-post-thumb,
+img[class*="wp-image"] {
+	width: auto !important; }
+
+/* -- Generic image styling -- */
+img.alignleft,
+img.alignright {
+	border: 1px solid #ccc;
+	padding: .25em; }
+
+/* -- WP caption images -- */
+.wp-caption {
+	text-align: center; @extend .baseline;
+	
+	img {
+		display: inline;
+	}
+}
+
+.wp-caption-text {
+	color: #999;
+	margin: 0;
+	padding: .5em 0;
+	font-size: .875em; }
+	
+/* Gravity Forms
+----------------------------------*/
+.validation_message,
+.flash	{
+	color: #900; }
+		
+.flash {
+	display: block;
+	background-color: #F4F5F5;
+	padding: .5em .8em; }
+
+.gfield_required {
+	font-weight: normal;
+	font-size: 80%;
+	color: #666;
+	margin-left: .5em; }
+
+.gfield_error input,
+.gfield_error textarea {
+	border-bottom-color: #900; }
+
+.gfield_description{
+	padding-top: .35em; }
+	
+.gfield.checkbox {
+	padding-left: 0;
+		
+	.gfield_checkbox {
+		margin-top: 0;	
+		
+		label {
+			font-weight: normal;
+			padding-bottom: 0; }	
+	}
+}
+
+/* WP Page Numbers
+----------------------------------*/
+@include wp-page-numbers;

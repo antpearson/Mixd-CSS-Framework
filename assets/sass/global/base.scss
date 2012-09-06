@@ -1,0 +1,156 @@
+/* Makes use of Normalize.css - http://goo.gl/jwWUj
+ * Tweaked for personal defaults and opt-in typography
+/*----------------------------------------------------------------------------------------*/
+@import "../libs/normalize";
+
+/* General defaults
+/*----------------------------------------------------------------------------------------*/
+/* -- Base -- */
+html { overflow-y: scroll; }
+
+/* -- Selections -- */
+::-moz-selection { background: rgba(102,102,102,.5); color: #FFF; text-shadow: none; }
+::selection { background: rgba(102,102,102,.5); color: #FFF; text-shadow: none; }
+a:link { -webkit-tap-highlight-color: rgba(102,102,102,.5); }
+
+/* -- Text-Level -- */
+hr { display: block; clear: both; height: 1px; border: 0; padding: 0; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { font-style: italic; font-weight: bold; }
+pre { overflow-x: auto; }
+address { white-space: pre-line; }
+
+/* -- Embedded -- */
+img { display: block; margin: 0 auto; font-style: italic; color: #666; vertical-align: middle; height: auto; }
+img, audio, canvas, embed, object, video { max-width: 100%; }
+iframe { display: block; }
+// Google maps image bug
+iframe[foo*="maps.google"] img { max-width: auto; margin: auto; }
+
+/* -- Tables -- */
+table { width: 100%; }
+td { vertical-align: top; }
+th, caption { text-align: left; }
+
+/* -- Forms -- */
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+label, select { cursor: pointer; }
+legend { padding: .3em .6em; *margin-left: -7px; }
+button, input { line-height: normal; }
+input, input[type=search], select, textarea { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+button, html input[type=button], input[type=reset], input[type=submit] { width: auto; }
+input[type=file] { width: auto; border: 0; padding: 0; }
+input[type=checkbox], input[type=radio] { vertical-align: baseline; background: none; border: none; height: .8em; width: .8em; }
+// helper class added via jQuery
+.checkbox {
+	position: relative;
+	padding: 0 0 0 1.35em;
+	
+	label {
+		padding-bottom: 0; }
+	
+	input {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		margin-top: -.4em; }	
+}
+form ul, form ol { list-style: none; margin-left: 0; margin-bottom: 1em; }
+form li { margin-bottom: .5em; }
+form li:last-child, fieldset:last-child { margin-bottom: 0; }
+form br { display: none; }
+textarea { resize: vertical; } 
+// expandingText jQuery plugin
+textarea, .expandingText { min-height: 8em; }
+
+/* Project defaults
+ * Set as a reasonable starting point, but may change
+/*----------------------------------------------------------------------------------------*/
+body {
+	@include font-sans;
+	line-height: 1.5;
+	color: $color-text;
+	background-color: $color-background; }
+
+a {
+	text-decoration: none;
+	color: $color-link; }
+
+/* -- Vertical Rhythm -- */
+h1, h2, h3, h4, h5, h6 { margin-bottom: .65em; margin-top: $baseline; }
+h1, blockquote, pre, p, ul, ol, dl, hr { margin-top: 0; }
+p, ul, ol, dl, hr, form, table, blockquote, pre { margin-bottom: $baseline; }
+hr { border-top: 1px solid $color-keyline; }
+blockquote > :last-child, ul > :last-child, ol > :last-child, dl > :last-child { margin-bottom: 0; }
+
+/* -- Headings -- */
+h1, .as-h1 { line-height: 1.333; font-size: 2em;  }	
+h2, .as-h2 { line-height: 1.4; font-size: 1.5em; }
+h3, .as-h3 { line-height: 1.5; font-size: 1.25em; }
+h4, .as-h4 { line-height: 1.5; font-size: 1.125em; }	
+h5, .as-h5 { line-height: 1.5; font-size: 1em; }
+h6, .as-h6 { line-height: 1.5; font-size: 0.875em; }
+	
+/* -- Lists -- */
+ul, ol { margin-left: 2em; padding-left: 0; }
+li { margin-bottom: .5em; }
+li ul, li ol { margin-top: $baseline / 2; margin-bottom: 0; }
+dt { font-weight: bold; }
+dd { margin-left: 0; margin-bottom: $baseline / 2; font-style: italic; }
+
+/* -- Tables -- */
+caption { padding-bottom: .5em; font-style: italic; }
+th, td { padding: .25em .5em; border: 1px solid $color-keyline; }
+tr:nth-child(odd) td { background-color: #F6F6F6; }
+th, legend { font-weight: bold; background: $color-comp; }	
+
+/* -- Forms -- */
+label { display: block; padding-bottom: .25em; font-weight: bold; }
+
+input,
+select,
+textarea {
+	padding: .5em;
+	border: 1px solid;
+	@include box-shadow(0, 0, 3px, 0.1);
+	color: #666;
+	background-color: #FFF;
+	border-color: #666 #CCC #CCC #666; }
+
+button,
+.btn:link,
+input[type=submit] {
+	display: inline-block;
+	padding: .5em 1em;
+	border: 0;
+	@include border-radius;
+	color: #FFF;
+	background-color: $color-comp; }
+
+/* -- Blockquotes -- */
+blockquote { margin-left: 0; margin-right: 0; }
+blockquote { @include font-serif; font-style: italic; clear: both; }
+blockquote p { font-size: 1.35em; }
+blockquote p + .source { margin-top: -$baseline; }
+.source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; }
+.source:before { content:"\2013\0020"; }
+
+/*----------------------------------------------------------------------------------------*/
+/* Helper classes
+ * Use these to Zero off global typographic styles when required
+/*----------------------------------------------------------------------------------------*/
+.push-top { margin-top: $baseline; }
+.push-bottom { margin-top: $baseline; }
+.zero-top { margin-top: 0; }
+.zero-bottom { margin-bottom: 0; }
+.unbold { font-weight: normal; }
+.unset-list { list-style: none; margin-left: 0; }
+.unset-list-items li { margin-bottom: 0; }
+.unset-dlist { dt { font-weight: normal; } dd { font-style: normal; margin-bottom: 0; }}
+.list-numbers { list-style: decimal; }
+.list-bullets { list-style: disc; }	
+
+// Specific text styles
+.intro { font-size: 1.25em; }
+.headline { border-bottom: 1px solid $color-keyline; padding-bottom: .45em; }

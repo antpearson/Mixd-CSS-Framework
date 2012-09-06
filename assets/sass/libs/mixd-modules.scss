@@ -1,0 +1,72 @@
+// Place re-useable modules here
+// Create a mixin for each to be called later on, not included by default
+// Document the HTML for each module in a comment unless it's obvious / simple
+@mixin responsive-search-box {
+
+	/*
+	<form class="search" action="/search/" method="get" role="search">
+		<label for="site_search">Search</label>
+		<span><input type="search" name="for" id="site_search" placeholder="Search the site"></span>
+		<button type="submit">
+			Search
+		</button>
+	</form>
+	*/
+	
+	.search {
+		position: relative;
+		
+		label {
+			height: 0;
+			padding: 0;
+			overflow: hidden; }
+			
+		span {
+			display: block;
+			margin-right: 5.25em }
+		
+		input {
+			outline: 0; }
+		
+		input,
+		button {
+			height: 2.25em; }
+			
+		button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 5em;
+			@include box-sizing; }			
+	
+	}	
+	
+}
+@mixin wp-page-numbers {
+
+	#wp_page_numbers {
+		border-top: 1px solid;
+		padding: .75em 0;
+		
+		ul {
+			@extend .unset-list;
+			@extend .cf;
+			margin-bottom: 0; }
+		
+		li {
+			padding-left: 0;
+			margin-right: .25em;
+			float: left; }
+			
+		a {
+			@include border-radius(3px);
+			padding: .15em .6em;
+			display: block; }	
+			
+		.page_info {
+			padding-top: .15em;
+			float: right; }
+	
+	}
+	
+}

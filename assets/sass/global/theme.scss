@@ -1,0 +1,33 @@
+/* Theme rules define look and feel e.g. tyopgraphy, backgrounds, colours etc
+ * Use explicit properties e.g. border-color NOT border
+ * Keeping theme separately allows for the extraction and re-use of modules between projects
+ * READ MORE: http://goo.gl/ThLKb
+/*----------------------------------------------------------------------------------------*/
+
+/* Theme Classes
+----------------------------------*/
+.brand {
+	color: $color-brand; }
+	
+.brand-bg {
+	background-color: $color-brand; } 	 
+
+/* Nav Objects
+----------------------------------*/
+.nav-divided li { border-left-color: #999; }
+.nav-blocked a { background-color: #F5F5F5; }
+
+/*----------------------------------------------------------------------------------------*/
+/* Icon Fonts
+ * Use fontello to compile your icon font with specific glyphs - http://goo.gl/UV0Lm
+ * When exporting, name your font "Fontello" and upload font files to /assets/fonts
+ * Paste icon codes / classes below, taken from fontello-codes.css in downloaded zip
+ * Name & path can be changed via settings in config/vars.sass
+ * .icon-large and .icon-pad classes extend icon codes
+ * .icon class can be @extended when adding a class isn't reasonable e.g. <li>
+/*----------------------------------------------------------------------------------------*/
+@charset "UTF-8";
+
+@include icon-font;
+
+// Place your icon font codes here

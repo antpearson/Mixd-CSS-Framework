@@ -9,58 +9,53 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Un
 
 You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)
 
+---------------------------------------
 
-## Framework Breakdown
+# Framework Breakdown
 
 Use of this framework should adhere to the following rules which complement its architecture &mdash; based around Jonathan Snook's [SMACSS](http://smacss.com/)
 
-### Assets
+## Assets
 
 All site assets go within `/assets/` including images, fonts, CSS and Javascript. 
 
-### Pre-Processing
-
-**Folder:** `/sass`
+## Pre-Processing
 
 Code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, then compile to CSS. We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac.
 
 Directly compiled stylesheets sit at root level in this folder, with all other separations inside sub folders. CSS should compile to the `/css` folder and will be minified upon launch.
 
-#### Configuration *(`/config`)*
-
-**Sub-folder:** `/config`
+## Configuration
 
 Global variables are set in `vars.scss` which is a good starting point &mdash; set your colours, `font-families` etc. first. Place **any variables** you use during the project here, and **any mixins** within `mixins.scss`.
 
 Import any external mixin libraries in `includes.scss` that you may wish to use at other breakpoints.
 
-#### Base *(`base.scss`)*
-
-**Sub-folder:** `/global`
+## Base
 
 - Normalize.css creates consistent defaults across all browsers
 - Project defaults are set as a reasonable starting point, but may change
 - Helper classes are used to alter global typographic styles when required
 
-#### Modules
+## Modules
 
-**Sub-folder:** `/global`
 
-#### Theme
 
-**Sub-folder:** `/global`
+## Theme
 
-#### State
 
-**Sub-folder:** `/global`
 
-#### CMS
+## State
 
-**Sub-folder:**
 
-#### Modernizr
 
-#### Breakpoints (**states**)
+## CMS
+
+
+
+## Modernizr
+
+## Breakpoints (**states**)
 
 **Create breakpoints when content requires**, not for specific devices/screen-sizes. Work small-screen upwards using `min-width` &mdash; four breakpoints are set up by default. Each breakpoint should have its own separate stylesheet with **one `@media` query per breakpoint**, rather than multiple `@media` queries per element.
 

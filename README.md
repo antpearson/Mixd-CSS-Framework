@@ -17,13 +17,14 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 ## Configuration
 
-- Global variables are set in `vars.scss` which is a good starting point &mdash; set your colours, font families etc. first
+- **This is a good starting point** (`/config`)
+- Global variables are set in `vars.scss` e.g. colours, font families etc.
 - Place **any variables** you use during the project here, and **any mixins** within `mixins.scss`
 - Import any external mixin libraries within `includes.scss`
 
 ## Global styles
 
-- Coding small-screen first, all default (global) styles sit within the `/global` folder
+- Coding small-screen first, all default styles sit within the `/global` folder
 - Global styles are categorised into separations as per [SMACSS](http://smacss.com/): 
 
 ## Base
@@ -41,16 +42,21 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 **Read:**
 * [goo.gl/S5inY](http://goo.gl/S5inY)
 
+### Proportional Grids
+
+This frameworks uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/blog/proportional-grids) for layout.
+
 ## Modules
 
-- Modules (e.g. `.panel`) are nested inside layout components and can always be moved to a different part of the page without breaking.
-- Use classes to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`.
+- **This is where the bulk of your css will go**
+- Modules (e.g. `.panel`) lie inside layout components and can **always** be moved to a different part of the page without breaking
+- Use classes to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
 - Objects are re-useable abstractions that do one job. First, look for existing objects to help you build a new module
 - Common modules are included by default and explained
 - When building modules, consider re-use and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it.
-- Use *theme* to define backgrounds, typography, colours etc. even if they relate to a module
-- Use explicit properties e.g. `border-width`, `border-style` then define `border-color` in *theme*
+- Use *theme* to define background, typography, colour styles even if they relate to a module
+- Use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
 - Use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
 
 **Read:**
@@ -61,16 +67,19 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 `/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup. Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion. This allows for greater re-use of code between projects.
 
-Modules should contain structure and layout only with **no theme information** (use explicit CSS properties). Theme for each module can then be styled on a per-project basis, with a full view of that project's cascade prior to styling.
+Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties). *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling.
 
 ## Theme
 
-- Theme rules define look and feel e.g. tyopgraphy, backgrounds, colours etc.
-- Use explicit properties e.g. `border-color` **not** `border` to style specifically.
+- **This is where you define appearance**
+- Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
+- Use explicit properties e.g. `border-color` **not** `border` to style elements specifically
 - Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
 
 **Read:**
 * [goo.gl/ThLKb](http://goo.gl/ThLKb)
+
+### Icon Fonts
 
 ## State
 
@@ -82,17 +91,18 @@ Modules should contain structure and layout only with **no theme information** (
 
 ## Modernizr
 
-## Breakpoints (**states**)
+## Breakpoints
 
-- **Create breakpoints when content requires**, not for specific devices/screen-sizes.
+- Each breakpoint has its own separation within `/states`
+- **Create breakpoints when content requires**, not for specific devices or screen-sizes
 - Four breakpoints are set up by default &mdash; primarily work small-screen upwards using `min-width`
 - Each breakpoint should have its own separate stylesheet with **one `@media` query per breakpoint**, rather than multiple `@media` queries per element
 - Use a prefix for breakpoint-specific classes (e.g. `.bp1-cols-full`) to serve styles *only* at a given breakpoint upwards
 
 ## Internet Explorer
 
-- IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop)
-- If you add a new breakpoint you wish to include in IE, add to `ie.scss` appropriately
+- IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop) in `ie.scss`
+- When you add a new breakpoint you wish to include in IE &mdash; include it in `ie.scss`
 - Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`
 - Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
 - **Never polyfill IE with media query support**

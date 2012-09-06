@@ -1,6 +1,6 @@
 @import "../libs/normalize";
 /*----------------------------------------------------------------------------------------*/
-/* General defaults
+/* General Defaults
 /*----------------------------------------------------------------------------------------*/
 html { overflow-y: scroll; }
 
@@ -61,8 +61,7 @@ textarea { resize: vertical; }
 textarea, .expandingText { min-height: 8em; }
 
 /*----------------------------------------------------------------------------------------*/
-/* Project defaults
- * Set as a reasonable starting point, but may change
+/* Project Defaults
 /*----------------------------------------------------------------------------------------*/
 body {
 	@include font-sans;
@@ -134,8 +133,7 @@ blockquote p + .source { margin-top: -$baseline; }
 .source:before { content:"\2013\0020"; }
 
 /*----------------------------------------------------------------------------------------*/
-/* Helper classes
- * Use these to zero off global typographic styles when required
+/* Helper Classes
 /*----------------------------------------------------------------------------------------*/
 .push-top { margin-top: $baseline; }
 .push-bottom, .baseline { margin-bottom: $baseline; }

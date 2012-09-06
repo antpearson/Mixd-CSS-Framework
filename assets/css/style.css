@@ -326,7 +326,7 @@ table {
   border-spacing: 0; }
 
 /*----------------------------------------------------------------------------------------*/
-/* General defaults
+/* General Defaults
 /*----------------------------------------------------------------------------------------*/
 html {
   overflow-y: scroll; }
@@ -469,8 +469,7 @@ textarea, .expandingText {
   min-height: 8em; }
 
 /*----------------------------------------------------------------------------------------*/
-/* Project defaults
- * Set as a reasonable starting point, but may change
+/* Project Defaults
 /*----------------------------------------------------------------------------------------*/
 body {
   font-family: sans-serif;
@@ -620,8 +619,7 @@ blockquote p + .source {
   content: "\2013\0020"; }
 
 /*----------------------------------------------------------------------------------------*/
-/* Helper classes
- * Use these to zero off global typographic styles when required
+/* Helper Classes
 /*----------------------------------------------------------------------------------------*/
 .push-top {
   margin-top: 1.5em; }
@@ -668,10 +666,6 @@ blockquote p + .source {
 /*----------------------------------------------------------------------------------------*/
 /* $. LAYOUT
 ------------------------------------------------------------------------------------------*/
-/* Layout rules define major content areas e.g. header, footer, grids
- * Use .l- prefix when indicating specific layout changes e.g. .l-full-width
- * READ MORE: http://goo.gl/S5inY
-/*----------------------------------------------------------------------------------------*/
 /* Container / Inner
 ----------------------------------*/
 .container {
@@ -896,11 +890,6 @@ a:visited {
 /*----------------------------------------------------------------------------------------*/
 /* $. THEME
 ------------------------------------------------------------------------------------------*/
-/* Theme rules define look and feel e.g. tyopgraphy, backgrounds, colours etc
- * Use explicit properties e.g. border-color NOT border
- * Keeping theme separately allows for the extraction and re-use of modules between projects
- * READ MORE: http://goo.gl/ThLKb
-/*----------------------------------------------------------------------------------------*/
 /* Theme Classes
 ----------------------------------*/
 .brand {

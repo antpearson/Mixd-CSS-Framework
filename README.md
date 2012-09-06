@@ -11,9 +11,10 @@ You must attribute the work in the manner specified by the author or licensor (b
 
 ## Pre-Processing
 
-Code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, then compile to CSS. We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac.
-
-Directly compiled stylesheets sit at root level in this folder, with all other separations inside sub folders. CSS should compile to the `/css` folder and will be minified upon launch.
+- Code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, then compile to CSS.
+- We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac.
+- Directly compiled stylesheets sit at root level in this folder, with all other separations inside sub folders.
+- CSS should compile to the `/css` folder and will be minified upon launch.
 
 ## Configuration
 

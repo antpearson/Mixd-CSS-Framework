@@ -16,7 +16,7 @@ Use of this framework should adhere to the following rules which complement its 
 
 ### Pre-Processing
 
-You should code [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, and then compile to CSS. We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac. CSS will be minified upon launch.
+You should code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, and then compile to CSS. We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac. CSS will be minified upon launch.
 
 ###
 
@@ -49,6 +49,25 @@ We use multi-line CSS to help with version control (diffing single line CSS is a
 We use hyphen delimited, lowercase selectors: `.thisIsBad{}`, `.this_is_also_bad{}` but `.this-is-correct{}`.
 
 Always use a trailing semi-colon on the last declaration in a ruleset to avoid any potential confusion and syntax errors over the life of the document.
+
+Here is the preferred convention and structure for defining CSS rules, comments and nested elements within Sass:
+
+	/* Tertiary Nav
+	----------------------------------*/
+	.nav-tertiary {
+	
+		a {
+			padding: 0 .75em; }
+			
+		:first-child a {
+			padding-left: 0; }	
+	}
+	
+	/* Blocked Nav Object
+	----------------------------------*/
+	.nav-blocked a {
+		display: block;
+		padding: .5em; }
 
 ## Comments
 
@@ -93,7 +112,9 @@ You should never apply any styles to a grid or layout container, they are for la
 
 ## Font sizing
 
-Set a *relevant* base font-size on the `<html>` element. Use `ems` to define font sizing &mdash; do not define any font sizes in pixels. Define line heights unitlessly everywhere **unless** we are trying to align text to known heights. Do not use `rems` for font-sizing unless absolutely necessary due to compound nesting. If using `rems` - provide fall back for IE in `modernizr.scss` using the `.no-remunit` class. 
+Set a *relevant* base font-size on the `<html>` element. Use `ems` to define font sizing &mdash; **do not define any font sizes in pixels**. Define line heights unitlessly everywhere **unless** we are trying to align text to known heights.
+
+Do not use `rems` for font-sizing unless absolutely necessary due to compound nesting. If using `rems` - provide fall back for IE in `modernizr.scss` using the `.no-remunit` class. 
 
 We want to avoid defining font sizes over and over; to achieve this we have a predefined scale of font sizes tethered to classes. We can recycle these rather than having to declare styles over and over.
 
@@ -133,15 +154,15 @@ Make sure styles aren't dependent on location where possible, and make sure sele
 
 ### Over-qualified selectors
 
-An over-qualified selector is one like `div.promo`. We could probably get the same effect from just using `.promo`. Of course sometimes we will _want_ to qualify a class with an element (e.g. if you have a generic `.error` class that needs to look different when applied to different elements (e.g. `.error{ color:red; }` `div.error{ padding:14px; }`)), but generally avoid it where possible.
+An over-qualified selector is one like `div.promo`. We could probably get the same effect from just using `.promo`. Of course sometimes we will _want_ to qualify a class with an element (e.g. if you have a generic `.error` class that needs to look different when applied to different elements (e.g. `.error { color: red; }` `div.error { padding: 14px; }`)), but generally avoid it where possible.
 
-Another example of an over-qualified selector might be `ul.nav li a{}`. As above, we can instantly drop the `ul` and because we know `.nav` is a list, we therefore know that any `a` _must_ be in an `li`, so we can get `ul.nav li a{}` down to just `.nav a{}`.
+Another example of an over-qualified selector might be `ul.nav li a {}`. As above, we can instantly drop the `ul` and because we know `.nav` is a list, we therefore know that any `a` _must_ be in an `li`, so we can get `ul.nav li a {}` down to just `.nav a{}`.
 
 ## Be explicit, don't make assumptions
 
 Instead of using selectors to drill down the DOM to an element, it is often best to put a class on the element you explicitly want to style. Let's take a specific example.
 
-Imagine you have a promotional banner with a class of `.promo` and in there there is some text and call-to-action link. If there is just one `a` in the whole of `.promo` then it may be tempting to style that call-to-action via `.promo a{}`.
+Imagine you have a promotional banner with a class of `.promo` and in there there is some text and call-to-action link. If there is just one `a` in the whole of `.promo` then it may be tempting to style that call-to-action via `.promo a {}`.
 
 The problem here should be obvious in that as soon as you add a simple text link (or any other link for that matter) to the `.promo` container it will inherit the call-to-action styling, whether you want it to or not. In this case you would be best to explicitly add a class (e.g. `.cta`) to the link you want to affect.
 
@@ -149,22 +170,21 @@ Be explicit; target the element you want to affect, not its parent. Never assume
 
 ### Key selectors should (typically) never be a type selector or an object/abstraction class
 
-You should never find yourself writing selectors whose key selector is a type selector (e.g. `.header ul{}`) or a base object (e.g. `.header .nav{}`). This is because you can never guarantee that there will only ever be one `ul` or `.nav` in that `.header`, the key selector is too loose/too broad.
+You should never find yourself writing selectors whose key selector is a type selector (e.g. `.header ul {}`) or a base object (e.g. `.header .nav {}`). This is because you can never guarantee that there will only ever be one `ul` or `.nav` in that `.header`, the key selector is too loose/too broad.
 
-It would be more appropriate to give the element in question an explicit class targeting that one and that one only, so `.header .nav{}` would be replaced with `.site-nav`, for example.
+It would be more appropriate to give the element in question an explicit class targeting that one and that one only, so `.header .nav {}` would be replaced with `.site-nav`, for example.
 
 The only time where a type selector may be appropriate is if you have a situation like this:
 
-    a{
-        color:red;
-    }
-    .promo{
-        background-color:red; 
-        color:white;
-    }
-        .promo a{
-            color:white;
-        }
+    a {
+        color:red; }
+        
+    .promo {
+        background-color: red; 
+        color: white; }
+    
+    .promo a {
+        color: white; }
 
 In this case you _know_ that every `a` in `.promo` needs a blanket rule because it would be unreadable without.
 
@@ -184,7 +204,7 @@ Classes come with the benefit of being reusable (even if we don't want to, we ca
 
 ## `!important`
 
-It is okay to use `!important` on helper classes only. To add `!important` preemptively is fine, e.g. `.error{ color:red!important }`, as you know you will **always** want this rule to take precedence.
+It is okay to use `!important` on helper classes only. To add `!important` preemptively is fine, e.g. `.error { color: red !important; }`, as you know you will **always** want this rule to take precedence.
 
 Using `!important` reactively, e.g. to get yourself out of nasty specificity situations, is not advised. Rework your CSS and try to combat these issues by refactoring your selectors. Keeping your selectors short and avoiding IDs will help out here massively.
 
@@ -193,9 +213,9 @@ Using `!important` reactively, e.g. to get yourself out of nasty specificity sit
 
 A magic number is a number which is used because *it just works*. These are bad because they rarely work for any real reason and are not usually very futureproof or flexible/forgiving. They tend to fix symptoms and not problems.
 
-For example, using `.dropdown-nav li:hover ul{ top:37px; }` to move a dropdown to the bottom of the nav on hover is bad, as 37px is a magic number. 37px only works here because in this particular scenario the `.dropdown-nav` happens to be 37px tall.
+For example, using `.dropdown-nav li:hover ul { top: 37px; }` to move a dropdown to the bottom of the nav on hover is bad, as 37px is a magic number. 37px only works here because in this particular scenario the `.dropdown-nav` happens to be 37px tall.
 
-Instead we should use `.dropdown-nav li:hover ul{ top:100%; }` which means no matter how tall the `.dropdown-nav` gets, the dropdown will always sit 100% from the top.
+Instead we should use `.dropdown-nav li:hover ul{ top: 100%; }` which means no matter how tall the `.dropdown-nav` gets, the dropdown will always sit 100% from the top.
 
 Every time you hard code a number think twice; if you can avoid it by using keywords or aliases (i.e. `top:100%` to mean *all the way from the top*) or &mdash; even better &mdash; no measurements at all then you probably should.
 

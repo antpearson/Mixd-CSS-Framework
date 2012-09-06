@@ -1,4 +1,4 @@
-Mixd-CSS-Framework
+Mixd CSS Framework
 ==================
 
 Mixd's framework for beginning any front end web build, containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library.
@@ -8,21 +8,54 @@ Mixd's framework for beginning any front end web build, containing HTML5, Sass &
 This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/deed.en_US)
 
 You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)
+
 ---------------------------------------
 
-# Framework Instructions
+# Framework Breakdown
 
 Use of this framework should adhere to the following rules which complement its architecture &mdash; based around Jonathan Snook's [SMACSS](http://smacss.com/)
 
-## Pre-Processing
+## Assets
 
-You should code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, and then compile to CSS. We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac. CSS will be minified upon launch.
+All site assets go within `/assets/` including images, fonts, CSS and Javascript. 
 
-## Breakpoints
+## Pre-Processing *(`/sass`)*
+
+Code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, then compile to CSS. We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac.
+
+Directly compiled stylesheets sit at root level in this folder, with all other separations inside sub folders. CSS should compile to the `/css` folder and will be minified upon launch.
+
+## Configuration *(`/config`)*
+
+Global variables are set in `vars.scss` which is a good starting point &mdash; set your colours, `font-families` etc. first. Place **any variables** you use during the project here, and **any mixins** within `mixins.scss`.
+
+Import any external mixin libraries in `includes.scss` that you may wish to use at other breakpoints.
+
+## Base *(`base.scss`)*
+
+- **Normalize.css** creates consistent defaults across all browsers
+- **Project defaults** are set as a reasonable starting point, but may change
+- **Helper classes** are used to alter global typographic styles when required
+
+## Modules *(`modules.scss`)*
+
+## Theme *(`theme.scss`)*
+
+## State *(`state.scss`)*
+
+## CMS *(`cms.scss`)*
+
+## Modernizr *(`modernizr.scss`)*
+
+## Breakpoints (**states**)
 
 **Create breakpoints when content requires**, not for specific devices/screen-sizes. Work small-screen upwards using `min-width` &mdash; four breakpoints are set up by default. Each breakpoint should have its own separate stylesheet with **one `@media` query per breakpoint**, rather than multiple `@media` queries per element.
 
 Use a prefix relevant for breakpoint-specific classes (e.g. `.bp1-cols-full`) to serve styles *only* from a given breakpoint upwards.
+
+## Mixd Modules
+
+`/assets/sass/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup. Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion. This allows for greater re-use of code between projects. Modules should contain structure and layout only with **no theme information** (use explicit CSS properties). Theme for each module can then be styled on a per-project basis, with a full view of that project's cascade prior to styling.
 
 ## Internet Explorer
 
@@ -30,9 +63,7 @@ IE8 and below is served a fixed-width, 960px wide container compiling styles fro
 
 Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element.
 
-## Mixd Modules
-
-`assets/sass/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup. Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion. This allows for greater re-use of code between projects. Modules should contain structure and layout only with **no theme information** (use explicit CSS properties). Theme for each module can then be styled on a per-project basis, with a full view of that project's cascade prior to styling.
+## Javascript
 
 ## External Libraries
 
@@ -43,6 +74,8 @@ This framework makes use of the following external libraries or services
 - [Modernizr](http://modernizr.com/)
 - [Selectivizr](http://selectivizr.com/)
 - [Fontello](http://fontello.com/)
+
+## Pattern library
 
 ---------------------------------------
 
@@ -102,7 +135,7 @@ If you have to build a new component split it into structure (modules) and skin 
 
 ## Layout
 
-All components should be left totally free of widths; your components should always remain fluid and their widths should be governed by a grid system. **All layout styles go in `layout.scss`**.
+All components should be left totally free of widths; your components should always remain fluid and their widths should be governed by a grid system.
 
 Heights should **never** be be applied to elements. Heights should only be applied to things which had dimensions _before_ they entered the site (i.e. images and sprites). Never ever set heights on `<p>`s, `<ul>`s, `<div>`s, anything. You can normally achieve the desired effect with `line-height` which is far more flexible.
 
@@ -112,7 +145,7 @@ You should never apply any styles to a grid or layout container, they are for la
 
 ## Sizing
 
-**Never use pixels** unless unavoidable. Use a combination of `ems`, `rems` and percentages. Only use `rems` if you need to reference a base measure. 
+**Never use pixels** unless unavoidable. Use a combination of `ems`, `rems` and percentages. Only use `rems` if you need to reference a base measure e.g. to make padding equal more easily 
 
 **Read:**
 
@@ -134,11 +167,11 @@ Before writing another font-size declaration, see if a class for it already exis
 
 ## Shorthand
 
-It might be tempting to use declarations like `background:red;` but in doing so what you are actually saying is *I want no image to scroll, aligned top left and repeating X and Y and a background colour of red*. Nine times out of ten this won't cause any issues but that one time it does is annoying enough to warrant not using such shorthand. Instead use `background-color:red;`.
+It might be tempting to use declarations like `background: red;` but in doing so what you are actually saying is *I want no image to scroll, aligned top left and repeating X and Y and a background colour of red*. Nine times out of ten this won't cause any issues but that one time it does is annoying enough to warrant not using such shorthand. Instead use `background-color: red;`.
 
-Similarly, declarations like `margin:0;` are nice and short, but **be explicit**. If you're actually only really wanting to affect the margin on the bottom of an element then it is more appropriate to use `margin-bottom: 0;`.
+Similarly, declarations like `margin: 0;` are nice and short, but **be explicit**. If you're actually only really wanting to affect the margin on the bottom of an element then it is more appropriate to use `margin-bottom: 0;`.
 
-Be explicit in which properties you set and take care to not inadvertently unset others with shorthand. E.g. if you only want to remove the bottom margin on an element then there is no sense in blitzing all margins with `margin:0;`.
+Be explicit in which properties you set and take care to not inadvertently unset others with shorthand. E.g. if you only want to remove the bottom margin on an element then there is no sense in blitzing all margins with `margin: 0;`.
 
 Shorthand is good, but easily misused.
 
@@ -161,7 +194,7 @@ Make sure styles aren't dependent on location where possible, and make sure sele
 
 ### Over-qualified selectors
 
-An over-qualified selector is one like `div.promo`. We could probably get the same effect from just using `.promo`. Of course sometimes we will _want_ to qualify a class with an element (e.g. if you have a generic `.error` class that needs to look different when applied to different elements (e.g. `.error { color: red; }` `div.error { padding: 14px; }`)), but generally avoid it where possible.
+An over-qualified selector is one like `div.promo`. We could probably get the same effect from just using `.promo`. Of course sometimes we will _want_ to qualify a class with an element (e.g. if you have a generic `.error` class that needs to look different when applied to different elements (e.g. `.error { color: red; }` `div.error { padding: 14px; }`), but generally avoid it where possible.
 
 Another example of an over-qualified selector might be `ul.nav li a {}`. As above, we can instantly drop the `ul` and because we know `.nav` is a list, we therefore know that any `a` _must_ be in an `li`, so we can get `ul.nav li a {}` down to just `.nav a{}`.
 
@@ -234,4 +267,4 @@ If you run into a CSS problem **take code away before you start adding more** in
 
 Delete chunks of markup and CSS until your problem goes away, then you can determine which part of the code the problem lies in.
 
-It can be tempting to put an `overflow:hidden;` on something to hide the effects of a layout quirk, but overflow was probably never the problem; **fix the problem, not its symptoms.**
+It can be tempting to put an `overflow: hidden;` on something to hide the effects of a layout quirk, but overflow was probably never the problem; **fix the problem, not its symptoms.**

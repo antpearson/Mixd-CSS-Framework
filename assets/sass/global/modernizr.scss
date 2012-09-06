@@ -1,6 +1,9 @@
 /* Modernizr styles offer fallbacks for non-supporting browsers
  * Use .no- selectors (code for better browsers first)
 /*----------------------------------------------------------------------------------------*/
- 
-.no-js .container {
-	opacity: 1; }
+.no-js {
+
+	.container {
+		opacity: 1; }
+		
+}	

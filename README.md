@@ -41,6 +41,9 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 **Example**
 
 	.media-img {
+		//global syles
+		margin-bottom: 1.5em;
+		// at breakpoint 1
 		@include respond-min($bp1) {
 			float: left;
 			margin-bottom: 0; }

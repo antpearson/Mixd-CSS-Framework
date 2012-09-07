@@ -10,7 +10,7 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 ## Pre-Processing
 
-- Code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, then compile to CSS
+- **This framework uses [Sass](http://sass-lang.com/)** with working files in the `.scss` files in the `/assets/sass` folder
 - We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac
 - Directly compiled stylesheets sit at root level in the `/sass` folder, with all other separations inside sub folders
 - CSS should compile to the `/css` folder and will be minified/compressed upon launch.
@@ -22,9 +22,11 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Major breakpoints are set here using the convention `$bp1`, `$bp2` etc.
 - Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
 
+---------------------------------------
+
 ## Styles
 
-- **This is a mobile-first** framework
+- **This is a mobile-first framework**
 - All primary styles lie within the `/core` folder
 - Styles are categorised into separations as per [SMACSS](http://goo.gl/dIB5j)
 
@@ -61,6 +63,8 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 		@include respond-min(39em) {
 			float: right; }
 	}
+	
+---------------------------------------
 
 ## Base
 
@@ -70,6 +74,8 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 #### Read
 - [goo.gl/38esp](http://goo.gl/38esp)
+
+---------------------------------------
 
 ## Layout
 
@@ -96,6 +102,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 `grid-col` starts life as a single column. The class `bp1-col-one-half` means that column becomes one-half at breakpoint 1. `bp2-col-two-thirds` means it becomes two-thirds at breakpoint 2. And so on.
 
 `bp2-col` is simply a namespace / prefix for that breakpoint. Grids are configured in `layout.scss` for each breakpoint, setting the namespace of the grid class to be used.	
+
+---------------------------------------
 
 ## Modules
 
@@ -218,6 +226,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 		}
 	}
 
+---------------------------------------
 
 ## Theme
 
@@ -240,6 +249,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - The classes `.icon-large` and `.icon-pad` can be used to extend icons
 - The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s
 
+---------------------------------------
+
 ## State
 
 - State rules override global styles in a given instance
@@ -248,10 +259,14 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 #### Read
 - [goo.gl/Itlda](http://goo.gl/Itlda)
 
+---------------------------------------
+
 ## CMS
 
 - CMS styles are specific to the CMS (here, WordPress) being used including any plugins
 - If using WordPress, add a `.wp-content` class to the containing element of `<?php the_content(); ?>`
+
+---------------------------------------
 
 ## Modernizr
 
@@ -268,6 +283,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 			/* styles */ }
 	}
 
+---------------------------------------
 
 ## Internet Explorer
 

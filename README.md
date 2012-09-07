@@ -97,10 +97,16 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 ## Modules
 
 - **This is where the bulk of your CSS will go**
-- Modules (e.g. `.panel`) sit inside layout components and can **always** be moved to a different part of the page without breaking
-- Always classes (**not IDs**) to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
-- When building modules consider existing objects, future re-use and create abstractions if necessary
+- This separation contains objects, and modules.
+- **Objects** are abstractions, created as classes to provide one element of styling e.g. `.nav-inline` turns lists inline
+- **Modules** are an extension of objects but are more specific. The two are used together (with classes)
+- Modules (e.g. `.nav-tertiary`) sit inside layout components and can **always** be moved to a different part of the page without breaking
+- When building modules consider existing objects, future reuse and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it
+
+#### Rules
+
+- Always use classes (**not IDs**) to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
 - Always use *theme* to define background, typography, colour styles even if they relate to a module
 - Always use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
 - Always use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
@@ -139,7 +145,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	.nav-inline {
 		@include nav-inline; }
 		
-	// tertiary navigation
+	// tertiary navigation module
 	.nav-tertiary {
 		// global syles
 		margin-bottom: 1.5em;
@@ -160,7 +166,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	        zoom:1; }	
 	}
 	
-	// tertiary navigation
+	// tertiary navigation module
 	.nav-tertiary {
 		// global syles
 		margin-bottom: 1.5em;
@@ -178,8 +184,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 ### Mixd Modules
 
 - `/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup
-- Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
-- This allows for greater re-use of code between projects.
+- Should you produce any potentially reuseable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
+- This allows for greater reuse of code between projects.
 - **Include any mixins** used 
 - Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties)
 - *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling
@@ -191,7 +197,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - **This is where you define appearance**
 - Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
 - Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
-- Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
+- Keeping *theme* separately allows for the extraction and reuse of *modules* between projects
 - **When using media queries** ensure `background-images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
 
 #### Read:
@@ -277,7 +283,7 @@ Listen below are some general rules to adhere to when using this framework or wh
 
 ## Syntax and formatting
 
-Use multi-line CSS to help with version control (diffing single line CSS is a nightmare) and we order CSS declarations by relevance, **not** alphabetically.
+Use multi-line CSS to help with version control (diffing single line CSS is a nightmare) and order CSS declarations by relevance, **not** alphabetically.
 
 Use hyphen delimited, lowercase selectors: `.thisIsBad{}`, `.this_is_also_bad{}` but `.this-is-correct{}`.
 
@@ -317,7 +323,7 @@ When building components try and keep a DRY, OO frame of mind. **Adding classes 
 
 Instead of building dozens of unique components, try and spot repeated design patterns abstract them; build these skeletons as base objects and then peg classes onto these to extend their styling for more unique circumstances.
 
-If you have to build a new component split it into structure (modules) and skin (theme); build the structure of the component using very generic classes so that we can reuse that construct and then use more specific classes to skin it up and add design treatments.
+If you have to build a new component split it into structure (modules) and skin (theme); build the structure of the component using very generic classes to reuse that construct and then use more specific classes to skin it up and add design treatments.
 
 #### Read:
 
@@ -344,11 +350,11 @@ You should never apply any styles to a grid or layout container, they are for la
 
 ## Font sizing
 
-Set a *relevant* default font-size on the `<html>` element to supply global typographic elements. From there, use `ems` to define font sizing &mdash; **do not define any font sizes in pixels**. Define line heights unitlessly everywhere **unless** we are trying to align text to known heights.
+Set a *relevant* default font-size on the `<html>` element to supply global typographic elements. From there, use `ems` to define font sizing &mdash; **do not define any font sizes in pixels**. Define line heights unitlessly everywhere **unless** you are trying to align text to known heights.
 
 Do not use `rems` for font-sizing unless absolutely necessary due to compound nesting. If using `rems` - provide pixel/<`em>` fallback for IE using the Modernizr `.no-remunit` class. 
 
-We want to avoid defining font sizes over and over; to achieve this we have a predefined scale of font sizes tethered to classes. We can recycle these rather than having to declare styles over and over.
+Avoid defining font sizes over and over; to achieve this have a predefined scale of font sizes tethered to classes. Recycle these rather than having to declare styles over and over.
 
 Before writing another font-size declaration, see if a class for it already exists.
 
@@ -370,7 +376,7 @@ Shorthand is good, but easily misused.
 
 Keep selectors efficient and portable.
 
-Heavily location-based selectors are bad for a number of reasons. For example, take `.sidebar h3 span {}`. This selector is too location-based and thus we cannot move that `span` outside of a `h3` outside of `.sidebar` and maintain styling.
+Heavily location-based selectors are bad for a number of reasons. For example, take `.sidebar h3 span {}`. This selector is too location-based and thus that `span` cannot be moved outside of a `h3` outside of `.sidebar` and maintain styling.
 
 Selectors which are too long also introduce performance issues; the more checks in a selector (e.g. `.sidebar h3 span` has three checks, `.content ul p a` has four), the more work the browser has to do.
 
@@ -385,9 +391,9 @@ Make sure styles aren't dependent on location where possible, and make sure sele
 
 ### Over-qualified selectors
 
-An over-qualified selector is one like `div.promo`. We could probably get the same effect from just using `.promo`. Of course sometimes we will _want_ to qualify a class with an element (e.g. if you have a generic `.error` class that needs to look different when applied to different elements (e.g. `.error { color: red; }` `div.error { padding: 14px; }`), but generally avoid it where possible.
+An over-qualified selector is one like `div.promo`. You could probably get the same effect from just using `.promo`. Of course sometimes you will _want_ to qualify a class with an element (e.g. if you have a generic `.error` class that needs to look different when applied to different elements (e.g. `.error { color: red; }` `div.error { padding: 14px; }`), but generally avoid it where possible.
 
-Another example of an over-qualified selector might be `ul.nav li a {}`. As above, we can instantly drop the `ul` and because we know `.nav` is a list, we therefore know that any `a` _must_ be in an `li`, so we can get `ul.nav li a {}` down to just `.nav a{}`.
+Another example of an over-qualified selector might be `ul.nav li a {}`. As above, you can instantly drop the `ul` and because `.nav` is a list, any `a` _must_ be in an `li` &mdash; getting `ul.nav li a {}` down to just `.nav a{}`.
 
 ## Be explicit, don't make assumptions
 
@@ -424,9 +430,9 @@ In this case you _know_ that every `a` in `.promo` needs a blanket rule because 
 
 ## IDs and classes
 
-**Do not use IDs in CSS** at all. They can be used in your markup for JS and fragment-identifiers but use only classes for styling. We don't want to see a single ID in this (or any other) stylesheet.
+**Do not use IDs in CSS** at all. They can be used in your markup for JS and fragment-identifiers but use only classes for styling. Do not use a single ID in this (or any other) stylesheet.
 
-Classes come with the benefit of being reusable (even if we don't want to, we can) and they have a nice, low specificity.
+Classes come with the benefit of being reusable and they have a nice, low specificity.
 
 #### Read:
 
@@ -446,7 +452,7 @@ A magic number is a number which is used because *it just works*. These are bad 
 
 For example, using `.dropdown-nav li:hover ul { top: 37px; }` to move a dropdown to the bottom of the nav on hover is bad, as 37px is a magic number. 37px only works here because in this particular scenario the `.dropdown-nav` happens to be 37px tall.
 
-Instead we should use `.dropdown-nav li:hover ul{ top: 100%; }` which means no matter how tall the `.dropdown-nav` gets, the dropdown will always sit 100% from the top.
+Instead use `.dropdown-nav li:hover ul{ top: 100%; }` which means no matter how tall the `.dropdown-nav` gets, the dropdown will always sit 100% from the top.
 
 Every time you hard code a number think twice; if you can avoid it by using keywords or aliases (i.e. `top:100%` to mean *all the way from the top*) or &mdash; even better &mdash; no measurements at all then you probably should.
 

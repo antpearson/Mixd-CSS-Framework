@@ -25,14 +25,14 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 ## Styles
 
 - **This is a mobile-first** framework
-- All styles lie within the `/core` folder
+- All primary styles lie within the `/core` folder
 - Styles are categorised into separations as per [SMACSS](http://goo.gl/dIB5j)
 
 ## Media Queries
 
 - Write `@media` declarations in context using the methods outlined in [Sass-IE](http://jakearchibald.github.com/sass-ie/)
 - Keeping `@media` queries per selector allows for easier maintenance and the extaction of modules
-- `respond-min` and `respond-max` mixins have been created (in `utils.scss`) to easily produce `min` and `max` media queries
+- `respond-min` and `respond-max` mixins have been created (in `utils.scss`) to easily produce `min` and `max` media queries from inside selectors, allowing nesting
 - Create breakpoints **when content requires**, not based on device or screen size
 - Always set breakpoints in `ems` for fexibility
 - Reference all major breakpoints using the corresponding `$bp` variable
@@ -63,7 +63,7 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 - [Normalize.css](http://necolas.github.com/normalize.css/) is used to create consistency across all browsers
 - Project defaults are set as reasonable starting point, but should be changed if required
-- Helper classes are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left`
+- Helper classes are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left` from any `<ul>` or `<ol>`
 
 **Read:**
 - [goo.gl/38esp](http://goo.gl/38esp)
@@ -106,9 +106,9 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Always use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
 
 **Read:**
-- [goo.gl/QKEuz](http://goo.gl/QKEuz)
-- [goo.gl/0iUwg](http://goo.gl/0iUwg)
 - [goo.gl/tTQJg](http://goo.gl/tTQJg)
+- [goo.gl/0iUwg](http://goo.gl/0iUwg)
+- [goo.gl/QKEuz](http://goo.gl/QKEuz)
 
 ### Default Objects
 
@@ -138,16 +138,16 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
 - Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
 - Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
-- **When using media queries** ensure `background-`images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
+- **When using media queries** ensure `background-images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
 
 **Read:**
 - [goo.gl/ThLKb](http://goo.gl/ThLKb)
 
 ### Icon Fonts
 
-- Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with specific glyphs
+- Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with specific project-specific glyphs
 - When exporting, name the font "Fontello" and upload all font files to `/assets/fonts`
-- Paste icon codes/classes taken from `Fontello-codes.css` in the downloaded zip file, into `theme.scss`
+- Paste icon codes / classes taken from `Fontello-codes.css` in the downloaded zip file, into `theme.scss`
 - Icon classes should be prefixed with `.icon-`
 - The classes `.icon-large` and `.icon-pad` can be used to extend icons
 - The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s
@@ -171,10 +171,10 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Use `.no-` selectors (**always code for better browsers first**)
 - Utilise Sass nesting for browser capabilities e.g.
 
-	.no-svg {
+	``.no-svg {
 		.logo { ...}
 		.sprite { .. }
-	}
+	}``
 
 
 ## Internet Explorer
@@ -187,16 +187,17 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
 - Utilise Sass nesting for browser versions e.g.
 
-	.lt-ie8 {
+	``.lt-ie8 {
 		.fix { ...}
 		.another-fix { .. }
 	
-	}
+	}``
 
 ## Images
 
 - Always aim for resolution independence, using SVG images, icon fonts and CSS where possible
-- Code for better browsers first, then provide fallbacks using Modernizr
+- **Compile all images in a sprite** and utilise the `sprite` mixin
+- When using SVG, code for better browsers first and provide fallbacks using Modernizr
 
 **Read:**
 - [goo.gl/FVHzp](http://goo.gl/FVHzp)

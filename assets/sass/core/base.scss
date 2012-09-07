@@ -66,12 +66,9 @@ textarea, .expandingText { min-height: 8em; }
 html {
 	font-size: 100%;
 	
-	@include respond-min($bp2) {
+	@include respond-min($bp3) {
 		font-size: 125%; }
 		
-	@include respond-min($bp4) {
-		font-size: 137.5%; }
-	
 }
 
 body {
@@ -143,7 +140,6 @@ blockquote {
 	@include respond-min($bp2) {
 		padding-left: 2em;
 		padding-right: 2em; }
-	
 }
 blockquote { @include font-serif; font-style: italic; clear: both; }
 blockquote p { font-size: 1.35em; }
@@ -163,7 +159,8 @@ blockquote p + .source { margin-top: -$baseline; }
 .unset-list-items li { margin-bottom: 0; }
 .unset-dlist { dt { font-weight: normal; } dd { font-style: normal; margin-bottom: 0; }}
 .list-numbers { list-style: decimal; }
-.list-bullets { list-style: disc; }	
+.list-bullets { list-style: disc; }
+.block { display: block; }	
 
 /* -- Specific Text Styles -- */
 .intro { font-size: 1.25em; }

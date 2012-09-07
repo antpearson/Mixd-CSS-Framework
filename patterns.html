@@ -33,7 +33,7 @@
 				</button>
 			</form>
 			<nav role="navigation">
-				<ul class="unset-list nav-primary nav-inline nav-blocked">
+				<ul class="unset-list nav-blocked nav-primary">
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About us</a></li>
 					<li><a href="#">Products</a></li>
@@ -44,21 +44,52 @@
 		</header>
 		<div class="content" role="main">
 		
-			<div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
-				<form method="post" enctype="multipart/form-data" id="gform_1" action="/about/contact/#gf_1">
-					<div class="gform_body">
-						<p class="gform_message"><strong class="flash warning"><span class="icon-exclamation-sign icon-large icon-pad">Please complete the required fields and try again</span></strong></p>
-						<ul id="gform_fields_1" class="gform_fields top_label description_below">
-							<li id="field_1_5" class="gfield gfield_error              gfield_contains_required"><label class="gfield_label" for="input_1_5">Name<span class="gfield_required">(required)</span></label><div class="ginput_container"><input name="input_5" id="input_1_5" type="text" value="" class="medium" tabindex="1"></div><div class="gfield_description validation_message">Please give your name</div></li>
-							<li id="field_1_3" class="gfield"><label class="gfield_label" for="input_1_3">Organisation</label><div class="ginput_container"><input name="input_3" id="input_1_3" type="text" value="" class="medium" tabindex="2"></div></li>
-							<li id="field_1_2" class="gfield gfield_contains_required"><label class="gfield_label" for="input_1_2">Email address<span class="gfield_required">(required)</span></label><div class="ginput_container"><input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="3"></div></li>
-							<li id="field_1_4" class="gfield gfield_contains_required"><label class="gfield_label" for="input_1_4">Your message<span class="gfield_required">(required)</span></label><div class="ginput_container"><textarea name="input_4" id="input_1_4" class="textarea medium" tabindex="4" rows="10" cols="50"></textarea></div></li>
-							<li id="field_1_5" class="gfield"><label class="gfield_label">Newsletter</label><div class="ginput_container"><ul class="gfield_checkbox" id="input_1_5"><li class="gchoice_5_1 checkbox"><input name="input_5.1" type="checkbox" value="This user would like to be added to the newsletter." id="choice_5_1" tabindex="6"><label for="choice_5_1">Tick to sign up for an email newsletter</label></li></ul></div></li>
-						</ul>
-					</div>
-					<div class="gform_footer top_label"> <button type="submit" class="submit" id="gform_submit_button_1">Send message</button></div>
-				</form>
-			</div>		
+			<form method="post" enctype="multipart/form-data" id="gform_1" action="#">
+				<div class="gform_body">
+					<p class="gform_message"><strong class="flash warning"><span class="icon-exclamation-sign icon-large icon-pad">Please complete the required fields and try again</span></strong></p>
+					<ul id="gform_fields_1" class="gform_fields top_label description_below">
+						<li id="field_1_5" class="gfield gfield_error gfield_contains_required">
+							<label class="gfield_label" for="input_1_5">Name<span class="gfield_required">(required)</span></label>
+							<div class="ginput_container">
+								<input name="input_5" id="input_1_5" type="text" value="" class="medium" tabindex="1">
+							</div>
+							<div class="gfield_description validation_message">
+								Please give your name
+							</div>
+						</li>
+						<li id="field_1_3" class="gfield">
+							<label class="gfield_label" for="input_1_3">Organisation</label>
+							<div class="ginput_container"><input name="input_3" id="input_1_3" type="text" value="" class="medium" tabindex="2"></div>
+						</li>
+							<li id="field_1_2" class="gfield gfield_contains_required">
+							<label class="gfield_label" for="input_1_2">Email address<span class="gfield_required">(required)</span></label>
+							<div class="ginput_container">
+								<input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="3">
+							</div>
+						</li>
+						<li id="field_1_4" class="gfield gfield_contains_required">
+							<label class="gfield_label" for="input_1_4">Your message<span class="gfield_required">(required)</span></label>
+							<div class="ginput_container">
+								<textarea name="input_4" id="input_1_4" class="textarea medium" tabindex="4" rows="10" cols="50"></textarea>
+							</div>
+						</li>
+						<li id="field_1_5" class="gfield">
+							<label class="gfield_label">Newsletter</label>
+							<div class="ginput_container">
+							<ul class="gfield_checkbox" id="input_1_5">
+								<li class="gchoice_5_1 checkbox">
+									<input name="input_5.1" type="checkbox" value="This user would like to be added to the newsletter." id="choice_5_1" tabindex="6">
+									<label for="choice_5_1">Tick to sign up for an email newsletter</label>
+								</li>
+							</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="gform_footer top_label">
+					<button type="submit" class="submit" id="gform_submit_button_1">Send message</button>
+				</div>
+			</form>
 			
 			<div id="wp_page_numbers">
 				<ul>
@@ -73,7 +104,7 @@
 		</div>
 		
 		<div class="sidebar" role="complementary">
-			<ul class="unset-list nav-secondary nav-blocked">
+			<ul class="unset-list nav-blocked nav-secondary">
 				<li><a href="#">Sub page 1</a></li>
 				<li><a href="#">Sub page 2</a></li>
 				<li><a href="#">Sub page 3</a></li>
@@ -83,15 +114,15 @@
 		</div>
 		
 		<footer class="footer" role="contentinfo">
-			<ul class="unset-list zero-bottom nav-tertiary nav-inline nav-divided">
+			<ul class="unset-list nav-blocked nav-tertiary">
 				<li><a href="#">Contact us</a></li>
 				<li><a href="#">Privacy &amp; cookies</a></li>
 				<li><a href="#">Terms &amp; conditions</a></li>
 				<li><a href="#">Accessibility</a></li>
 				<li><a href="#">Sitemap</a></li>
 			</ul>
-			<small>
-				Copyright &copy; 2012 Client Name. Created by Mixd &mdash; <a href="http://mixd.co.uk" rel="external">Web Design Harrogate</a>
+			<small class="credit block">
+				Copyright &copy; 2012 Client Name<br /> Created by Mixd &mdash; <a href="http://mixd.co.uk" rel="external">Web Design Harrogate</a>
 			</small>
 		</footer>
 	</div>

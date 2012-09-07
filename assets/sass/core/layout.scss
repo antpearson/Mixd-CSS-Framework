@@ -1,7 +1,7 @@
 /* Container / Inner
 ----------------------------------*/
 .container {
-	opacity: 0; // Fade in container on load with jQuery
+	opacity: 0; // fade in container on load with jQuery
 	margin: 0 auto;
 	padding: 0 1.5em;
 	min-width: 15em;
@@ -9,14 +9,13 @@
 	
 /* Layout Variations
 ----------------------------------*/
-@include respond-min($bp1) {
 
-	/* Flip .media-img to the opposite side by adding .l-media-flipped to .media */
-	.l-media-flipped .media-img {
+// flip .media-img to the opposite side by adding .l-media-flipped to .media
+.l-media-flipped .media-img {
+	@include respond-min($bp1) {
 		float: right;
 		margin-right: 0;
 		margin-left: $media-img-gutter; }
-	
 }
 	
 /* Micro Clearfix - http://goo.gl/5Fvrh
@@ -31,16 +30,7 @@
 /* Proportional Grids - http://goo.gl/JC1Nd
 ----------------------------------*/
 @import "../libs/proportional-grids";
-
-// Setup our grids
-@if $old-ie {
-	@include grid-config-oldie;
-	@include grid-setup-oldie("col");	
-}
-@else {
-	@include grid-config;	
-	@include grid-setup("col");
-}
+@include grids-init("col");
 
 // Define grid changes at breakpoints (with corresponding classes)
 @include respond-min($bp1) {

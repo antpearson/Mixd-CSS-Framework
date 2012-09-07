@@ -94,6 +94,13 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 
 ### Icon Fonts
 
+- Use fontello to compile your icon font with specific glyphs - http://goo.gl/UV0Lm
+- When exporting, name your font "Fontello" and upload font files to /assets/fonts
+- Paste icon codes / classes below, taken from fontello-codes.css in downloaded zip
+- Name & path can be changed via settings in config/vars.sass
+- .icon-large and .icon-pad classes extend icon codes
+- .icon class can be @extended when adding a class isn't reasonable e.g. <li>
+
 ## State
 
 * State rules override other styles in a given instance
@@ -113,10 +120,8 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Utilise Sass nesting for browser capabilities e.g.
 
 	.no-svg {
-	
 		.logo { ...}
 		.sprite { .. }
-	
 	}
 
 
@@ -140,7 +145,6 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Utilise Sass nesting for browser versions e.g.
 
 	.lt-ie8 {
-	
 		.fix { ...}
 		.another-fix { .. }
 	
@@ -179,7 +183,6 @@ Here is the preferred convention and structure for defining CSS rules, comments 
 	/* Tertiary Nav
 	----------------------------------*/
 	.nav-tertiary {
-	
 		a {
 			padding: 0 .75em; }
 			

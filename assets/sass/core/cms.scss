@@ -13,11 +13,11 @@ img.alignright {
 
 /* -- WP caption images -- */
 .wp-caption {
-	text-align: center; margin-bottom: $baseline;
+	text-align: center;
+	margin-bottom: $baseline;
 	
 	img {
-		display: inline;
-	}
+		display: inline; }
 }
 
 .wp-caption-text {
@@ -25,6 +25,21 @@ img.alignright {
 	margin: 0;
 	padding: .5em 0;
 	font-size: .875em; }
+
+/* -- WP images -- */
+.alignleft {
+	@include respond-min($bp1) {
+		float: left;
+		margin-right: $media-img-gutter;
+		margin-bottom: $baseline; }
+}	
+	
+.alignright {
+	@include respond-min($bp1) {
+		float: right;
+		margin-left: $media-img-gutter;
+		margin-bottom: $baseline; }	
+}
 	
 /* Gravity Forms
 ----------------------------------*/

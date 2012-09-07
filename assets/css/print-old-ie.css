@@ -658,6 +658,9 @@ blockquote p + .source {
 .list-bullets {
   list-style: disc; }
 
+.block {
+  display: block; }
+
 /* -- Specific Text Styles -- */
 .intro {
   font-size: 1.25em; }
@@ -773,7 +776,7 @@ blockquote p + .source {
 .islet {
   padding: 0.75em; }
 
-/* Nav Object - http://goo.gl/QjtO6
+/* Nav Objects - http://goo.gl/QjtO6
 ----------------------------------*/
 .nav-inline li,
 .nav-inline a {
@@ -781,13 +784,14 @@ blockquote p + .source {
   *display: inline;
   zoom: 1; }
 
-.nav-floated li {
-  float: left; }
-
 .nav-divided li {
   border-left: 1px solid; }
-.nav-divided :first-child {
-  border-left: none; }
+  .nav-divided li:first-child {
+    border-left: none; }
+    .nav-divided li:first-child a {
+      padding-left: 0; }
+  .nav-divided li:last-child a {
+    padding-right: 0; }
 
 .nav-stacked li {
   display: list-item;
@@ -796,18 +800,16 @@ blockquote p + .source {
   display: block;
   padding: .5em 0; }
 
-/* Tertiary Nav
-----------------------------------*/
-.nav-tertiary a {
-  padding: 0 .75em; }
-.nav-tertiary :first-child a {
-  padding-left: 0; }
-
-/* Blocked Nav Object
-----------------------------------*/
 .nav-blocked a {
   display: block;
   padding: .5em; }
+
+/* Primary Nav
+----------------------------------*/
+/* Tertiary Nav
+----------------------------------*/
+.nav-tertiary {
+  font-size: .875em; }
 
 /* Responsive Search Box
 ----------------------------------*/
@@ -898,14 +900,13 @@ a:visited {
 .nav-blocked a {
   background-color: #F5F5F5; }
 
+/* Footer
+----------------------------------*/
+small {
+  text-align: center; }
+
 /*----------------------------------------------------------------------------------------*/
 /* Icon Fonts
- * Use fontello to compile your icon font with specific glyphs - http://goo.gl/UV0Lm
- * When exporting, name your font "Fontello" and upload font files to /assets/fonts
- * Paste icon codes / classes below, taken from fontello-codes.css in downloaded zip
- * Name & path can be changed via settings in config/vars.sass
- * .icon-large and .icon-pad classes extend icon codes
- * .icon class can be @extended when adding a class isn't reasonable e.g. <li>
 /*----------------------------------------------------------------------------------------*/
 @font-face {
   font-family: "Fontello";
@@ -966,6 +967,7 @@ img.alignright {
   padding: .5em 0;
   font-size: .875em; }
 
+/* -- WP images -- */
 /* Gravity Forms
 ----------------------------------*/
 .validation_message,
@@ -1025,8 +1027,5 @@ img.alignright {
 /*----------------------------------------------------------------------------------------*/
 /* $. MODERNIZR
 ------------------------------------------------------------------------------------------*/
-/* Modernizr styles offer fallbacks for non-supporting browsers
- * Use .no- selectors (code for better browsers first)
-/*----------------------------------------------------------------------------------------*/
 .no-js .container {
   opacity: 1; }

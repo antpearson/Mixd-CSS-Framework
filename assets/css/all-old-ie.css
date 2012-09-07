@@ -661,6 +661,9 @@ blockquote p + .source {
 .list-bullets {
   list-style: disc; }
 
+.block {
+  display: block; }
+
 /* -- Specific Text Styles -- */
 .intro {
   font-size: 1.25em; }
@@ -683,7 +686,6 @@ blockquote p + .source {
 
 /* Layout Variations
 ----------------------------------*/
-/* Flip .media-img to the opposite side by adding .l-media-flipped to .media */
 .l-media-flipped .media-img {
   float: right;
   margin-right: 0;
@@ -839,7 +841,7 @@ blockquote p + .source {
 .islet {
   padding: 0.75em; }
 
-/* Nav Object - http://goo.gl/QjtO6
+/* Nav Objects - http://goo.gl/QjtO6
 ----------------------------------*/
 .nav-inline li,
 .nav-inline a {
@@ -847,13 +849,14 @@ blockquote p + .source {
   *display: inline;
   zoom: 1; }
 
-.nav-floated li {
-  float: left; }
-
 .nav-divided li {
   border-left: 1px solid; }
-.nav-divided :first-child {
-  border-left: none; }
+  .nav-divided li:first-child {
+    border-left: none; }
+    .nav-divided li:first-child a {
+      padding-left: 0; }
+  .nav-divided li:last-child a {
+    padding-right: 0; }
 
 .nav-stacked li {
   display: list-item;
@@ -862,18 +865,39 @@ blockquote p + .source {
   display: block;
   padding: .5em 0; }
 
-/* Tertiary Nav
-----------------------------------*/
-.nav-tertiary a {
-  padding: 0 .75em; }
-.nav-tertiary :first-child a {
-  padding-left: 0; }
-
-/* Blocked Nav Object
-----------------------------------*/
 .nav-blocked a {
   display: block;
   padding: .5em; }
+
+/* Primary Nav
+----------------------------------*/
+.nav-primary li,
+.nav-primary a {
+  display: inline-block;
+  *display: inline;
+  zoom: 1; }
+
+/* Tertiary Nav
+----------------------------------*/
+.nav-tertiary {
+  font-size: .875em;
+  margin-bottom: .5em;
+  text-align: center; }
+  .nav-tertiary a {
+    padding: .25em 1em; }
+  .nav-tertiary li,
+  .nav-tertiary a {
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
+  .nav-tertiary li {
+    border-left: 1px solid; }
+    .nav-tertiary li:first-child {
+      border-left: none; }
+      .nav-tertiary li:first-child a {
+        padding-left: 0; }
+    .nav-tertiary li:last-child a {
+      padding-right: 0; }
 
 /* Responsive Search Box
 ----------------------------------*/
@@ -968,14 +992,18 @@ a:visited {
 .nav-blocked a {
   background-color: #F5F5F5; }
 
+.nav-tertiary li {
+  border-left-color: #999; }
+.nav-tertiary a {
+  background-color: transparent; }
+
+/* Footer
+----------------------------------*/
+small {
+  text-align: center; }
+
 /*----------------------------------------------------------------------------------------*/
 /* Icon Fonts
- * Use fontello to compile your icon font with specific glyphs - http://goo.gl/UV0Lm
- * When exporting, name your font "Fontello" and upload font files to /assets/fonts
- * Paste icon codes / classes below, taken from fontello-codes.css in downloaded zip
- * Name & path can be changed via settings in config/vars.sass
- * .icon-large and .icon-pad classes extend icon codes
- * .icon class can be @extended when adding a class isn't reasonable e.g. <li>
 /*----------------------------------------------------------------------------------------*/
 @font-face {
   font-family: "Fontello";
@@ -1036,6 +1064,17 @@ img.alignright {
   padding: .5em 0;
   font-size: .875em; }
 
+/* -- WP images -- */
+.alignleft {
+  float: left;
+  margin-right: 2em;
+  margin-bottom: 1.5em; }
+
+.alignright {
+  float: right;
+  margin-left: 2em;
+  margin-bottom: 1.5em; }
+
 /* Gravity Forms
 ----------------------------------*/
 .validation_message,
@@ -1095,14 +1134,11 @@ img.alignright {
 /*----------------------------------------------------------------------------------------*/
 /* $. MODERNIZR
 ------------------------------------------------------------------------------------------*/
-/* Modernizr styles offer fallbacks for non-supporting browsers
- * Use .no- selectors (code for better browsers first)
-/*----------------------------------------------------------------------------------------*/
 .no-js .container {
   opacity: 1; }
 
 /*----------------------------------------------------------------------------------------*/
-/* $. IE SPECIFIC
+/* $. IE SPECIFIC STYLES
 ------------------------------------------------------------------------------------------*/
 .lt-ie9 .container {
   width: 960px; }

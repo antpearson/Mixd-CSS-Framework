@@ -1,16 +1,57 @@
-// Typography
-@mixin font-sans {
-	font-family: $font-sans; }
-	
-@mixin font-serif {
-	font-family: $font-serif; }
+// ------------------------------------------------------------------------------
+// Project-Specific Mixins
+// ------------------------------------------------------------------------------
 
-@mixin font-size ($size: 16) {
-	$rem: ($size / 16);
-	font-size: ($size * 1px);
-	font-size: ($rem * 1rem); }
+// begin here
+
+// ------------------------------------------------------------------------------
+// Framework Mixins
+// ------------------------------------------------------------------------------
+
+// Nav Objects
+// ----------------------------------
+
+// make list items inline
+@mixin nav-inline {
+	li,
+	a {
+		display: inline-block;
+		*display:inline;
+        zoom:1; }	
+}
+
+// extends nav-inline with dividers
+@mixin nav-divided {
+	li {
+		border-left: 1px solid;
+		
+		&:first-child {
+			border-left: none;
+			
+			a {
+				padding-left: 0; }
+		}
+		
+		&:last-child {
+			a {
+				padding-right: 0; }
+		}
+	}
+}
+
+// stack nav items together
+@mixin nav-stacked {
+	li {
+		display: list-item;
+		margin-bottom: 0; }
+	
+	a {
+		display: block;
+		padding: .5em 0; }
+}
 
 // Icon Font
+// ----------------------------------
 @mixin icon-font($url: $icon-font-url, $family: $icon-font-family) {
 	@font-face {
 		font-family: $family;
@@ -45,7 +86,21 @@
 	
 }
 
+// Typography
+// ----------------------------------
+@mixin font-sans {
+	font-family: $font-sans; }
+	
+@mixin font-serif {
+	font-family: $font-serif; }
+
+@mixin font-size ($size: 16) {
+	$rem: ($size / 16);
+	font-size: ($size * 1px);
+	font-size: ($rem * 1rem); }
+
 // Hovers
+// ----------------------------------
 @mixin hover ($col) {
 	&:hover, &:active, &:focus {
 		color: $col; }
@@ -64,7 +119,12 @@
 		text-shadow: $shadow; }
 }
 
+// ------------------------------------------------------------------------------
+// General Mixins
+// ------------------------------------------------------------------------------
+
 // Borders
+// ----------------------------------
 @mixin border ($size: 1px, $style: solid) {
 	border: $size $style; }
 
@@ -72,6 +132,7 @@
 	border-#{$where}: $size $style; }	
 
 // Shadows
+// ----------------------------------
 @mixin drop-shadow {
 	@include box-shadow; }
 
@@ -79,6 +140,7 @@
 	@include box-shadow-inset; }
 	
 // Image Replacement
+// ----------------------------------
 @mixin hide-text {
 	text-indent: -9999px;
 	overflow: hidden; }
@@ -95,7 +157,8 @@
 	overflow: hidden;
 	@include sprite; }
 	
-// Pseudo Content	
+// Pseudo Content
+// ----------------------------------	
 @mixin pseudo {
 	display: block;
 	content: ""; }
@@ -131,6 +194,7 @@
 }
 
 // CSS3
+// ----------------------------------
 @mixin box-sizing ($type: border) {
 	-moz-box-sizing: #{$type}-box;
 	-webkit-box-sizing: #{$type}-box;

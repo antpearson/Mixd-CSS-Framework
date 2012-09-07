@@ -82,7 +82,29 @@ $half-gutter: $gutter / 2;
 	
 }
 
-// add support for http://goo.gl/uwyT6
+//-------------------------------------------------------
+// ADDED SUPPORT
+// Mixins to work with http://goo.gl/uwyT6
+//-------------------------------------------------------
+
+// include grids-init to set up your grids with your class
+// i.e. @include grids-init("col");
+@mixin grids-init($class) {
+	
+	@if $old-ie {
+		@include grid-config-oldie;
+		@include grid-setup-oldie($class);	
+	}
+	@else {
+		@include grid-config;	
+		@include grid-setup($class);
+	}
+	
+	
+}
+
+// include grids-include with your class for each breakpoint
+// e.g. respond-min(30em) { @include grid-include("bp1-col"); } 
 @mixin grid-include($class) {
 
 	@if $old-ie {

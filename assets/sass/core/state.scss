@@ -29,6 +29,7 @@ a:visited {
 	position: absolute;
 	width: 1px; }
 
+// Don't hide elements, but if you must!
 %is-shown { display: block; visibility: visible; }
 .is-shown-inline { display: inline; }
 

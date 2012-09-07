@@ -45,7 +45,7 @@ This framework makes use of the following external libraries or services
 ## Media Queries
 
 - Write `@media` declarations in context using the methods outlined in [Sass-IE](http://jakearchibald.github.com/sass-ie/)
-- Keeping `@media` queries per selector allows for easier maintenance and the extaction of modules
+- Keeping `@media` queries per selector allows for easier maintenance and extaction of modules
 - `respond-min` and `respond-max` mixins have been created (in `utils.scss`) to easily produce `min` and `max` media queries from inside selectors, allowing nesting
 - Create breakpoints **when content requires**, not based on device or screen size
 - Always set breakpoints in `ems` for fexibility

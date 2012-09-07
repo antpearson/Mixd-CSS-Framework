@@ -28,20 +28,3 @@ a:visited {
 	padding: 0;
 	position: absolute;
 	width: 1px; }
-
-// Don't hide elements, but if you must!
-%is-shown { display: block; visibility: visible; }
-.is-shown-inline { display: inline; }
-
-@include respond-min($bp1) {
-	.is-bp1-shown { @extend %is-shown }
-}	
-@include respond-min($bp2) {
-	.is-bp2-shown { @extend %is-shown }
-}
-@include respond-min($bp3) {
-	.is-bp3-shown { @extend %is-shown }
-}
-@include respond-min($bp4) {
-	.is-bp4-shown { @extend %is-shown }
-}			

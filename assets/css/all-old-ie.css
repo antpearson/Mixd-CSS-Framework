@@ -966,13 +966,6 @@ a:visited {
   position: absolute;
   width: 1px; }
 
-.is-bp1-shown, .is-bp2-shown, .is-bp3-shown {
-  display: block;
-  visibility: visible; }
-
-.is-shown-inline {
-  display: inline; }
-
 /*----------------------------------------------------------------------------------------*/
 /* $. THEME
 ------------------------------------------------------------------------------------------*/

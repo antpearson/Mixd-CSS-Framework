@@ -22,6 +22,10 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Major breakpoints are set here using the convention `$bp1`, `$bp2` etc.
 - Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
 
+## Media Queries
+
+Write `@media` declarations in context using the methods outlined in [Sass-IE](http://jakearchibald.github.com/sass-ie/).
+
 ## Styles
 
 - Coding small-screen first, all styles lie within the `/core` folder
@@ -72,7 +76,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ### Default Objects
 
-- Navigation objects `.nav-inline`, `.nav-divided` and `.nav-stacked` have been supplied by default, referencing mixins in `mixins.scss`
+- Navigation objects `.nav-inline`, `.nav-divided` and `.nav-stacked` are supplied by default, referencing mixins in `mixins.scss`
 - The `.media` and `.island` objects are also included
 
 **Read:**
@@ -80,6 +84,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - [goo.gl/tTQJg](http://goo.gl/tTQJg) 
 
 ### Media Queries
+
+Modules should contain *all* `@media` queries for that module.
 
 ### Mixd Modules
 

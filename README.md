@@ -1,7 +1,7 @@
 Mixd CSS Framework
 ==================
 
-Mixd's framework for beginning any front end build &mdash; containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library. Users of this framework should follow the guidelines below, which complement its architecture, based around Jonathan Snook's [SMACSS](http://smacss.com/) and Jake Archibald's [Sass-IE](http://jakearchibald.github.com/sass-ie/) concept.
+Here lies Mixd's framework for beginning any front end build &mdash; containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library. Users of this framework should follow the guidelines below, which complement its architecture, based around Jonathan Snook's [SMACSS](http://smacss.com/) and Jake Archibald's [Sass-IE](http://jakearchibald.github.com/sass-ie/) concept.
 
 ## License
 

@@ -24,7 +24,7 @@ This framework makes use of the following external libraries or services
 
 ## Pre-Processing
 
-- **This framework uses [Sass](http://sass-lang.com/)** with working files in the `.scss` files in the `/assets/sass` folder
+- **This framework uses [Sass](http://sass-lang.com/)** with all working files `.scss` files in the `/assets/sass` folder
 - We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac
 - Directly compiled stylesheets sit at root level in the `/sass` folder, with all other separations inside sub folders
 - CSS should compile to the `/css` folder and will be minified/compressed upon launch

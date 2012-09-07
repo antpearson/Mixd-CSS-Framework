@@ -122,11 +122,10 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ### Media Queries
 
-Modules should contain **all** `@media` declarations in context, nested within that module. **Utilise mixins** to create abstractions (objects) to re-include these at a given breakpoint, rather than redefining them.
+- Modules should contain **all** `@media` declarations in context, nested within that module
+- **Utilise mixins** to create abstractions (objects) to re-include these at a given breakpoint, rather than redefining them
 
-#### Example:
-
-**Right**
+#### Right:
 
 	// this object turns lists inline
 	@mixin nav-inline {
@@ -136,18 +135,21 @@ Modules should contain **all** `@media` declarations in context, nested within t
 			*display:inline;
 	        zoom:1; }	
 	}
-	
+	// object class
 	.nav-inline {
 		@include nav-inline; }
-	
+		
+	// tertiary navigation
 	.nav-tertiary {
+		// global syles
+		margin-bottom: 1.5em;
 		// turn .nav-tertiary to an inline list at breakpoint 2
 		@include respond-min($bp2) {
 			@include nav-inline;
 		}
 	}
 
-**Wrong**
+#### Wrong:
 
 	// this object turns lists inline
 	.nav-inline {
@@ -158,7 +160,10 @@ Modules should contain **all** `@media` declarations in context, nested within t
 	        zoom:1; }	
 	}
 	
+	// tertiary navigation
 	.nav-tertiary {
+		// global syles
+		margin-bottom: 1.5em;
 		// turn .nav-tertiary to an inline list at breakpoint 2
 		@include respond-min($bp2) {
 			li,
@@ -172,11 +177,14 @@ Modules should contain **all** `@media` declarations in context, nested within t
 
 ### Mixd Modules
 
-`/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup. Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion. This allows for greater re-use of code between projects.
+- `/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup
+- Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
+- This allows for greater re-use of code between projects.
+- **Include any mixins** used 
+- Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties)
+- *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling
 
-**Include any mixins** used 
-
-Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties). *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling.
+#### Example
 
 ## Theme
 
@@ -215,7 +223,7 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 
 - Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
 - Use `.no-` selectors (**always code for better browsers first**)
-- Utilise Sass nesting for browser capabilities e.g.
+- Utilise Sass nesting for browser capabilities e.g
 
 	.no-svg {
 		.logo { ... }
@@ -231,7 +239,7 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Support for Proportioanal Grids is also added via mixin for each breakpoint
 - **Never polyfill IE with media query support**
 - Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
-- Utilise Sass nesting for browser versions e.g.
+- Utilise Sass nesting for browser versions e.g
 
 	.lt-ie8 {
 		.fix { ... }

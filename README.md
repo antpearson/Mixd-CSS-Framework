@@ -122,7 +122,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Modules sit inside layout components and can be moved to a different part of the page without breaking
 - When building modules consider existing objects, future reuse and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it
-- Always use classes (**not IDs**) to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
+- Always use classes (**never IDs**) to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
 - Always use *theme* to define background, typography, colour styles even if they relate to a module
 - Always use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
 - Always use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module

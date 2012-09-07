@@ -128,45 +128,43 @@ Modules should contain **all** `@media` declarations in context, nested within t
 
 **Right**
 
-// this object turns lists inline
-@mixin nav-inline {
-	li,
-	a {
-		display: inline-block;
-		*display:inline;
-        zoom:1; }	
-}
-
-.nav-tertiary {
-	// turn .nav-tertiary to an inline list at breakpoint 2
-	@include respond-min($bp2) {
-		@include nav-inline;
-	}
-}
-
-**Wrong**
-
-// this object turns lists inline
-.nav-inline {
-	li,
-	a {
-		display: inline-block;
-		*display:inline;
-        zoom:1; }	
-}
-
-.nav-tertiary {
-	// turn .nav-tertiary to an inline list at breakpoint 2
-	@include respond-min($bp2) {
+	// this object turns lists inline
+	@mixin nav-inline {
 		li,
 		a {
 			display: inline-block;
 			*display:inline;
 	        zoom:1; }	
 	}
-}
+	
+	.nav-tertiary {
+		// turn .nav-tertiary to an inline list at breakpoint 2
+		@include respond-min($bp2) {
+			@include nav-inline;
+		}
+	}
 
+**Wrong**
 
+	// this object turns lists inline
+	.nav-inline {
+		li,
+		a {
+			display: inline-block;
+			*display:inline;
+	        zoom:1; }	
+	}
+	
+	.nav-tertiary {
+		// turn .nav-tertiary to an inline list at breakpoint 2
+		@include respond-min($bp2) {
+			li,
+			a {
+				display: inline-block;
+				*display:inline;
+		        zoom:1; }	
+		}
+	}
 
 
 ### Mixd Modules

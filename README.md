@@ -33,7 +33,7 @@ This framework makes use of the following external libraries or services
 
 - **This is a good starting point** (`/sass/config`)
 - Global variables are set in `vars.scss` e.g. colours, font families etc. Place **any variables** you create during the project here
-- Major breakpoints are set here using the convention `$bp1`, `$bp2` etc.
+- Major breakpoints are managed centrally here using the convention `$bp1`, `$bp2` etc.
 - Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
 
 ## General

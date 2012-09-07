@@ -135,7 +135,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 ### Default Objects
 
 - Navigation objects `.nav-inline`, `.nav-divided` and `.nav-stacked` are supplied by default, referencing mixins in `mixins.scss`
-- The `.media` and `.island` objects are also included
+- `.media` and `.island` objects are also included
 
 #### Read
 - [goo.gl/QjtO6](http://goo.gl/QjtO6)

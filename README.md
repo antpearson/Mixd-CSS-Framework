@@ -83,14 +83,20 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Always use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
 - Always use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
 
+**Read:**
+- [goo.gl/QKEuz](http://goo.gl/QKEuz)
+- [goo.gl/0iUwg](http://goo.gl/0iUwg)
+- [goo.gl/tTQJg](http://goo.gl/tTQJg)
+
 ### Default Objects
 
 - Navigation objects `.nav-inline`, `.nav-divided` and `.nav-stacked` are supplied by default, referencing mixins in `mixins.scss`
-- The `.media` and `.island` objects are also included
+- The `.media` and `.island` objects are also included - 
 
 **Read:**
-- [goo.gl/QKEuz](http://goo.gl/QKEuz)
-- [goo.gl/tTQJg](http://goo.gl/tTQJg) 
+- [goo.gl/QjtO6](http://goo.gl/QjtO6)
+- [goo.gl/Xf6MJ](http://goo.gl/Xf6MJ)
+- [goo.gl/1XYHG](http://goo.gl/1XYHG)
 
 ### Media Queries
 
@@ -110,7 +116,7 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
 - Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
 - Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
-- **When using media queries** ensure background images are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
+- **When using media queries** ensure `background-`images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
 
 **Read:**
 - [goo.gl/ThLKb](http://goo.gl/ThLKb)
@@ -118,8 +124,8 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 ### Icon Fonts
 
 - Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with specific glyphs
-- When exporting, name your font "Fontello" and upload font files to `/assets/fonts`
-- Paste icon codes/classes taken from `Fontello-codes.css` in downloaded zip, into `theme.scss`
+- When exporting, name the font "Fontello" and upload all font files to `/assets/fonts`
+- Paste icon codes/classes taken from `Fontello-codes.css` in the downloaded zip file, into `theme.scss`
 - Icon classes should be prefixed with `.icon-`
 - The classes `.icon-large` and `.icon-pad` can be used to extend icons
 - The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s

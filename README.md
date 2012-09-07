@@ -208,7 +208,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - `/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup
 - Should you produce any potentially reuseable/useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
 - This allows for greater reuse of code between projects.
-- Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties)
+- Modules should **only** contain structure and layout (defined by explicit CSS properties) with **no theme styles** 
 - *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling
 - If necessary, **include any mixins** used within a module so it can be dropped in to any new project without missing dependencies
 - When using new modules check for existing mixins and/or refactor if necessary

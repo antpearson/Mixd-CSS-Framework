@@ -18,17 +18,25 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 ## Configuration
 
 - **This is a good starting point** (`/config`)
-- Global variables are set in `vars.scss` e.g. colours, font families etc. Place **any variables** you create during the project here`
+- Global variables are set in `vars.scss` e.g. colours, font families etc. Place **any variables** you create during the project here
 - Major breakpoints are set here using the convention `$bp1`, `$bp2` etc.
 - Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
 
 ## Media Queries
 
-Write `@media` declarations in context using the methods outlined in [Sass-IE](http://jakearchibald.github.com/sass-ie/).
+- Write `@media` declarations in context using the methods outlined in [Sass-IE](http://jakearchibald.github.com/sass-ie/)
+- Keeping `@media` queries per selector allows for easier maintenance and the extaction of modules
+- `respond-min` and `respond-max` mixins have been created (in `utils.scss`) to easily create `min` and `max` media queries
+- Reference all major breakpoints using the corresponding `$bp` variable
+- **Never** separate media queries into their own stylesheet / per breakpoint
+- **Keeping to this process is vital** due to how the framework compiles styles for old Internet Explorer
+
+**Example**
 
 ## Styles
 
-- Coding small-screen first, all styles lie within the `/core` folder
+- **This is a mobile-first** framework
+- All styles lie within the `/core` folder
 - Styles are categorised into separations as per [SMACSS](http://smacss.com/):
 
 ## Base

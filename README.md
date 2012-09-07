@@ -201,41 +201,20 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 #### Example
 
-	/* Tertiary Nav
+	/* List Block
 	----------------------------------*/
-	
-	// define mixin above
-	@mixin nav-divided {
+	// useful object mixin
+	@mixin list-two-cols {
 		li {
-			border-left: 1px solid;
-			
-			&amp;:first-child {
-				border-left: none;
-				
-				a {
-					padding-left: 0; }
-			}
-			
-			&amp;:last-child {
-				a {
-					padding-right: 0; }
-			}
-		}
+			float: left;
+			width: 50%; }
 	}
 	
 	// Module
-	.nav-tertiary {
-		font-size: .875em;
-		
-		@include respond-min(44em) {
-			margin-bottom: .5em;
-			text-align: center;
-			
-			a {
-				padding: .25em 1em; }
-			
-			// to be included here
-			@include nav-divided;
+	.list-block {
+		@include respond-min($bp1) {
+			// change list to two columns at breakpoint 1
+			@include list-two-cols;
 		}
 	}
 

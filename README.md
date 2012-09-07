@@ -27,12 +27,25 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Write `@media` declarations in context using the methods outlined in [Sass-IE](http://jakearchibald.github.com/sass-ie/)
 - Keeping `@media` queries per selector allows for easier maintenance and the extaction of modules
 - `respond-min` and `respond-max` mixins have been created (in `utils.scss`) to easily produce `min` and `max` media queries
+- Create breakpoints **when content requires**, not based on device or screen size
+- Always set breakpoints in `ems` for fexibility
 - Reference all major breakpoints using the corresponding `$bp` variable
 - Work primarily mobile-first, unless using a `max-width` query will bring significantly leaner code and **does not** include any background images or fonts
 - **Never** separate media queries into their own stylesheet / per breakpoint
 - **Keeping to this process is vital** due to how the framework compiles styles for old Internet Explorer
 
+**Read:**
+- [goo.gl/uwyT6](http://goo.gl/uwyT6)
+- [goo.gl/yG00v](http://goo.gl/yG00v)
+
 **Example**
+
+	.media-img {
+		@include respond-min($bp1) {
+			float: left;
+			margin-bottom: 0; }
+	}
+
 
 ## Styles
 
@@ -91,7 +104,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 ### Default Objects
 
 - Navigation objects `.nav-inline`, `.nav-divided` and `.nav-stacked` are supplied by default, referencing mixins in `mixins.scss`
-- The `.media` and `.island` objects are also included - 
+- The `.media` and `.island` objects are also included
 
 **Read:**
 - [goo.gl/QjtO6](http://goo.gl/QjtO6)
@@ -100,7 +113,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ### Media Queries
 
-Modules should contain *all* `@media` queries for that module.
+Modules should contain **all** `@media` declarations in context, nested within that module.
 
 ### Mixd Modules
 

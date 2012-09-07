@@ -22,9 +22,7 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Major breakpoints are set here using the convention `$bp1`, `$bp2` etc.
 - Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
 
----------------------------------------
-
-## Styles
+## General
 
 - **This is a mobile-first framework**
 - All primary styles lie within the `/core` folder
@@ -63,8 +61,6 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 		@include respond-min(39em) {
 			float: right; }
 	}
-	
----------------------------------------
 
 ## Base
 
@@ -74,8 +70,6 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 #### Read
 - [goo.gl/38esp](http://goo.gl/38esp)
-
----------------------------------------
 
 ## Layout
 
@@ -102,8 +96,6 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 `grid-col` starts life as a single column. The class `bp1-col-one-half` means that column becomes one-half at breakpoint 1. `bp2-col-two-thirds` means it becomes two-thirds at breakpoint 2. And so on.
 
 `bp2-col` is simply a namespace / prefix for that breakpoint. Grids are configured in `layout.scss` for each breakpoint, setting the namespace of the grid class to be used.	
-
----------------------------------------
 
 ## Modules
 
@@ -226,7 +218,6 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 		}
 	}
 
----------------------------------------
 
 ## Theme
 
@@ -249,8 +240,6 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - The classes `.icon-large` and `.icon-pad` can be used to extend icons
 - The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s
 
----------------------------------------
-
 ## State
 
 - State rules override global styles in a given instance
@@ -259,14 +248,10 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 #### Read
 - [goo.gl/Itlda](http://goo.gl/Itlda)
 
----------------------------------------
-
 ## CMS
 
 - CMS styles are specific to the CMS (here, WordPress) being used including any plugins
 - If using WordPress, add a `.wp-content` class to the containing element of `<?php the_content(); ?>`
-
----------------------------------------
 
 ## Modernizr
 
@@ -283,17 +268,16 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 			/* styles */ }
 	}
 
----------------------------------------
 
 ## Internet Explorer
 
-* IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop) in `ie.scss`
-* When you add a new breakpoint you wish to include in IE &mdash; include it in `ie.scss`
-* Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`
-* Support for Proportioanal Grids is also added via mixin for each breakpoint
-* **Never polyfill IE with media query support**
-* Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
-* Utilise Sass nesting for browser versions
+- IE8 and below is served styles via `all-old-ie.scss`
+- **Styles are compiled automatically** with media queries stripped-out
+- Set which layout you want old IE to take using the `$mqs-up-to` variable in `all-old-ie.scss`
+- **Never polyfill IE with media query support**
+- Add additional IE styles / fixes to the bottom of `all-old-ie.scss` using relevant classes on the `<html>` element
+- A print stylesheet (`print-old-ie.scss`) is also created for IE, containing global typographic / layout styles. These are then overwritten by `print.css` as per modern browsers, meaning you only have to worry about working with one print stylesheet
+- Utilise Sass nesting for browser versions
 
 #### Example
 

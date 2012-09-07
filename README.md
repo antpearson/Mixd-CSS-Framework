@@ -31,7 +31,7 @@ This framework makes use of the following external libraries or services
 
 ## Configuration
 
-- **This is a good starting point** (`/config`)
+- **This is a good starting point** (`/sass/config`)
 - Global variables are set in `vars.scss` e.g. colours, font families etc. Place **any variables** you create during the project here
 - Major breakpoints are set here using the convention `$bp1`, `$bp2` etc.
 - Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
@@ -39,7 +39,7 @@ This framework makes use of the following external libraries or services
 ## General
 
 - **This is a mobile-first framework**
-- All primary styles lie within the `/core` folder
+- All primary styles lie within the `/sass/core` folder
 - Styles are categorised into separations as per [SMACSS](http://goo.gl/dIB5j)
 
 ## Media Queries

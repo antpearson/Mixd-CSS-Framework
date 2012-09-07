@@ -78,6 +78,7 @@ This framework makes use of the following external libraries or services
 
 ## Base
 
+- *base.scss*
 - [Normalize.css](http://necolas.github.com/normalize.css/) is used to create consistency across all browsers
 - Project defaults are set as reasonable starting point, but should be changed if required
 - Helper classes are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left` from any `<ul>` or `<ol>`
@@ -87,6 +88,7 @@ This framework makes use of the following external libraries or services
 
 ## Layout
 
+- *layout.scss*
 - Layout rules define major content areas or layout components e.g. `.container` or grids
 - Use the `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
 - *Layout* is reserved for layout components only. Use nested elements and target modules within *theme* for appearance
@@ -113,6 +115,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Modules
 
+- *modules.scss*
 - **This is where the bulk of your CSS will go** and contains objects &amp; modules
 - **Objects** are abstractions, created as classes to provide one element of styling e.g. `.nav-inline` turns lists inline
 - **Modules** are an extension of objects but are more specific e.g. `.nav-tertiary`. The two are used / work together
@@ -232,10 +235,11 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Theme
 
+- *theme.scss*
 - **This is where you define appearance**
 - Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
 - Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
-- Keeping *theme* separately allows for the extraction and reuse of *modules* between projects
+- Keeping *theme* separately allows for the extraction and reuse of *modules* between projects, and the re-skinning of existing templates more easily
 - **When using media queries** ensure `background-images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
 - Themed modules should contain **all** `@media` declarations in context, nested within that module ([as per Modules](#media-queries-1))
 
@@ -253,6 +257,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## State
 
+- *state.scss*
 - State rules override global styles in a given instance
 - Always use `.is-` prefix when indicating specific state e.g. `.is-shown`, `.is-current`
 
@@ -261,11 +266,13 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## CMS
 
+- *cms.scss*
 - CMS styles are specific to the CMS (here, WordPress) being used including any plugins
 - If using WordPress, add a `.wp-content` class to the containing element of `<?php the_content(); ?>`
 
 ## Modernizr
 
+- *modernizr.scss*
 * Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
 * Use `.no-` selectors (**always code for better browsers first**)
 * Utilise Sass nesting for browser capabilities
@@ -282,6 +289,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Internet Explorer
 
+- *all-old-ie.scss*
 - IE8 and below is served styles via `all-old-ie.scss`
 - **Styles are compiled automatically** with media queries stripped-out
 - Set which layout you want old IE to take using the `$mqs-up-to` variable in `all-old-ie.scss`
@@ -312,7 +320,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Javascript
 
-- Place **all** JavaScript within `assets/js/all.js` with plugins at the top and in the section below. Javascript will be minified/compressed upon launch
+- */assets/js/all.js*
+- Place **all** JavaScript here with plugins at the top and in the section below. Javascript will be minified/compressed upon launch
 - To minimise http requests, **do not load in any additional JavaScript files**. Place all Javascript into `all.js` 
 - [Modernizr](http://modernizr.com/) is included to determine browser capabilities and provide appropriate fallbacks
 - [Selectivizr](http://selectivizr.com/) is included to add attribute / pseudo selector support in old IE

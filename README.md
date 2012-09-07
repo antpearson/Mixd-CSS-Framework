@@ -236,8 +236,9 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 * Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
 * Use `.no-` selectors (**always code for better browsers first**)
-* Utilise Sass nesting for browser capabilities e.g.
+* Utilise Sass nesting for browser capabilities
 
+#### Example
 
 	.no-svg {
 		.logo {
@@ -255,8 +256,9 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 * Support for Proportioanal Grids is also added via mixin for each breakpoint
 * **Never polyfill IE with media query support**
 * Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
-* Utilise Sass nesting for browser versions e.g.
+* Utilise Sass nesting for browser versions
 
+#### Example
 
 	.lt-ie9 {
 		.fix {

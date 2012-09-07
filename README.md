@@ -22,6 +22,12 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Major breakpoints are set here using the convention `$bp1`, `$bp2` etc.
 - Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
 
+## Styles
+
+- **This is a mobile-first** framework
+- All styles lie within the `/core` folder
+- Styles are categorised into separations as per [SMACSS](http://goo.gl/dIB5j)
+
 ## Media Queries
 
 - Write `@media` declarations in context using the methods outlined in [Sass-IE](http://jakearchibald.github.com/sass-ie/)
@@ -30,7 +36,8 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Create breakpoints **when content requires**, not based on device or screen size
 - Always set breakpoints in `ems` for fexibility
 - Reference all major breakpoints using the corresponding `$bp` variable
-- Work primarily mobile-first, unless using a `max-width` query will bring significantly leaner code and **does not** include any background images or fonts
+- Use minor breakpoints as you see fit on a case-by-case basis
+- Work primarily mobile-first, unless using a `max-width` query will bring significantly leaner code and it **does not** contain any background images or fonts
 - **Never** separate media queries into their own stylesheet / per breakpoint
 - **Keeping to this process is vital** due to how the framework compiles styles for old Internet Explorer
 
@@ -41,32 +48,31 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 **Example**
 
 	.media-img {
-		//global syles
+		// global syles
 		margin-bottom: 1.5em;
-		// at breakpoint 1
+		// at major breakpoint 1
 		@include respond-min($bp1) {
 			float: left;
 			margin-bottom: 0; }
+		// at different minor breakpoint
+		@include respond-min(39em) {
+			float: right; }
 	}
-
-
-## Styles
-
-- **This is a mobile-first** framework
-- All styles lie within the `/core` folder
-- Styles are categorised into separations as per [SMACSS](http://smacss.com/):
 
 ## Base
 
 - [Normalize.css](http://necolas.github.com/normalize.css/) is used to create consistency across all browsers
-- Project defaults are then set as reasonable starting point, but should be changed if needed
+- Project defaults are set as reasonable starting point, but should be changed if required
 - Helper classes are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left`
+
+**Read:**
+- [goo.gl/38esp](http://goo.gl/38esp)
 
 ## Layout
 
-- Layout rules define major content areas e.g. container, header, footer and grids.
-- Use `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
-- *Layout* is reserved for layout components only, use nested elements and target modules within *theme* for appearance
+- Layout rules define major content areas or layout components e.g. `.container` or grids
+- Use the `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
+- *Layout* is reserved for layout components only. Use nested elements and target modules within *theme* for appearance
 
 **Read:**
 * [goo.gl/S5inY](http://goo.gl/S5inY)

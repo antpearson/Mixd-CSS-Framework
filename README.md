@@ -8,12 +8,26 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/deed.en_US)
 - You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)
 
+## External Libraries
+
+This framework makes use of the following external libraries or services
+
+- [Normalize.css](http://necolas.github.com/normalize.css/)
+- [Proportional Grids](https://github.com/mattberridge/Proportional-Grids/)
+- [Fontello](http://fontello.com/)
+- [jQuery](http://jquery.com/)
+- [Modernizr](http://modernizr.com/)
+- [Selectivizr](http://selectivizr.com/)
+- [jQuery Placeholder](https://github.com/mathiasbynens/jquery-placeholder)
+- [FitVids](http://fitvidsjs.com/)
+- [ExpandingTextareas](https://github.com/bgrins/ExpandingTextareas)
+
 ## Pre-Processing
 
 - **This framework uses [Sass](http://sass-lang.com/)** with working files in the `.scss` files in the `/assets/sass` folder
 - We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac
 - Directly compiled stylesheets sit at root level in the `/sass` folder, with all other separations inside sub folders
-- CSS should compile to the `/css` folder and will be minified/compressed upon launch.
+- CSS should compile to the `/css` folder and will be minified/compressed upon launch
 
 ## Configuration
 
@@ -105,9 +119,6 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Modules sit inside layout components and can be moved to a different part of the page without breaking
 - When building modules consider existing objects, future reuse and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it
-
-#### Rules
-
 - Always use classes (**not IDs**) to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
 - Always use *theme* to define background, typography, colour styles even if they relate to a module
 - Always use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
@@ -292,7 +303,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Images
 
-- Always aim for resolution independence, using SVG images, icon fonts and CSS where possible
+- Always aim for resolution independence, using SVG images, icon fonts and CSS wherever possible
 - **Compile all images in a sprite** and utilise the `sprite` mixin
 - When using SVG, code for better browsers first and provide fallbacks using Modernizr
 
@@ -301,17 +312,15 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Javascript
 
-## External Libraries
+- Place **all** JavaScript within `assets/js/all.js` with plugins at the top and in the section below. Javascript will be minified/compressed upon launch
+- To minimise http requests, **do not load in any additional JavaScript files**. Place all Javascript into `all.js` 
+- [Modernizr](http://modernizr.com/) is included to determine browser capabilities and provide appropriate fallbacks
+- [Selectivizr](http://selectivizr.com/) is included to add attribute / pseudo selector support in old IE
+- Other plugins included by default are [jQuery Placeholder](https://github.com/mathiasbynens/jquery-placeholder), [FitVids](http://fitvidsjs.com/) and [ExpandingTextareas](https://github.com/bgrins/ExpandingTextareas)
 
-This framework makes use of the following external libraries or services
-
-- [Normalize.css](http://necolas.github.com/normalize.css/)
-- [Proportional Grids](https://github.com/mattberridge/Proportional-Grids/)
-- [Modernizr](http://modernizr.com/)
-- [Selectivizr](http://selectivizr.com/)
-- [Fontello](http://fontello.com/)
 
 ## Pattern library
+- `patterns.html` contains common modules or components
 
 ---------------------------------------
 

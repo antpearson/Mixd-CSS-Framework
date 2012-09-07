@@ -52,7 +52,7 @@ This framework makes use of the following external libraries or services
 - Reference all major breakpoints using the corresponding `$bp` variable
 - Use minor breakpoints as you see fit on a case-by-case basis
 - Work primarily mobile-first, unless using a `max-width` query will bring significantly leaner code and it **does not** contain any background images or fonts
-- **Never** separate media queries into their own stylesheet / per breakpoint
+- **Never** separate media queries into their own stylesheet/per breakpoint
 - **Keeping to this process is vital** due to how the framework compiles styles for old Internet Explorer
 
 #### Read
@@ -111,14 +111,14 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	
 `grid-col` starts life as a single column. The class `bp1-col-one-half` means that column becomes one-half at breakpoint 1. `bp2-col-two-thirds` means it becomes two-thirds at breakpoint 2. And so on.
 
-`bp2-col` is simply a namespace / prefix for that breakpoint. Grids are configured in `layout.scss` for each breakpoint, setting the namespace of the grid class to be used.	
+`bp2-col` is simply a namespace/prefix for that breakpoint. Grids are configured in `layout.scss` for each breakpoint, setting the namespace of the grid class to be used.	
 
 ## Modules
 
 - *modules.scss*
 - **This is where the bulk of your CSS will go** and contains objects &amp; modules
 - **Objects** are abstractions, created as classes to provide one element of styling e.g. `.nav-inline` turns lists inline
-- **Modules** are an extension of objects but are more specific e.g. `.nav-tertiary`. The two are used / work together
+- **Modules** are an extension of objects but are more specific e.g. `.nav-tertiary`. The two are used/work together
 - Modules sit inside layout components and can be moved to a different part of the page without breaking
 - When building modules consider existing objects, future reuse and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it
@@ -206,7 +206,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 ### Mixd Modules
 
 - `/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup
-- Should you produce any potentially reuseable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
+- Should you produce any potentially reuseable/useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
 - This allows for greater reuse of code between projects.
 - Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties)
 - *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling
@@ -250,7 +250,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 - Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with specific project-specific glyphs
 - When exporting, name the font "Fontello" and upload all font files to `/assets/fonts`
-- Paste icon codes / classes taken from `Fontello-codes.css` in the downloaded zip file, into `theme.scss`
+- Paste icon codes/classes taken from `Fontello-codes.css` in the downloaded zip file, into `theme.scss`
 - Icon classes should be prefixed with `.icon-`
 - The classes `.icon-large` and `.icon-pad` can be used to extend icons
 - The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s
@@ -294,8 +294,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - **Styles are compiled automatically** with media queries stripped-out
 - Set which layout you want old IE to take using the `$mqs-up-to` variable in `all-old-ie.scss`
 - **Never polyfill IE with media query support**
-- Add additional IE styles / fixes to the bottom of `all-old-ie.scss` using relevant classes on the `<html>` element
-- A print stylesheet (`print-old-ie.scss`) is also created for IE, containing global typographic / layout styles. These are then overwritten by `print.css` as per modern browsers, meaning you only have to worry about working with one print stylesheet
+- Add additional IE styles/fixes to the bottom of `all-old-ie.scss` using relevant classes on the `<html>` element
+- A print stylesheet (`print-old-ie.scss`) is also created for IE, containing global typographic/layout styles. These are then overwritten by `print.css` as per modern browsers, meaning you only have to worry about working with one print stylesheet
 - Utilise Sass nesting for browser versions
 
 #### Example
@@ -324,7 +324,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Place **all** JavaScript here with plugins at the top and in the section below. Javascript will be minified/compressed upon launch
 - To minimise http requests, **do not load in any additional JavaScript files**. Place all Javascript into `all.js` 
 - [Modernizr](http://modernizr.com/) is included to determine browser capabilities and provide appropriate fallbacks
-- [Selectivizr](http://selectivizr.com/) is included to add attribute / pseudo selector support in old IE
+- [Selectivizr](http://selectivizr.com/) is included to add attribute/pseudo selector support in old IE
 - Other plugins in operation by default are [jQuery Placeholder](https://github.com/mathiasbynens/jquery-placeholder), [FitVids](http://fitvidsjs.com/) and [ExpandingTextareas](https://github.com/bgrins/ExpandingTextareas)
 
 

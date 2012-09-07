@@ -234,33 +234,38 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Modernizr
 
-- Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
-- Use `.no-` selectors (**always code for better browsers first**)
-- Utilise Sass nesting for browser capabilities e.g.
+* Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
+* Use `.no-` selectors (**always code for better browsers first**)
+* Utilise Sass nesting for browser capabilities e.g.
 
-					.no-svg {
-						.logo {
-							/* styles */ }
-						.sprite {
-							/* styles */ }
-					}
+
+	.no-svg {
+		.logo {
+			/* styles */ }
+		.sprite {
+			/* styles */ }
+	}
+
 
 ## Internet Explorer
 
-- IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop) in `ie.scss`
-- When you add a new breakpoint you wish to include in IE &mdash; include it in `ie.scss`
-- Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`
-- Support for Proportioanal Grids is also added via mixin for each breakpoint
-- **Never polyfill IE with media query support**
-- Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
-- Utilise Sass nesting for browser versions e.g.
+* IE8 and below is served a fixed-width, 960px wide container compiling styles from each breakpoint (up to desktop) in `ie.scss`
+* When you add a new breakpoint you wish to include in IE &mdash; include it in `ie.scss`
+* Older IE (below IE7) recieves a fixed-width *mobile* version via styles in `oldie.scss`
+* Support for Proportioanal Grids is also added via mixin for each breakpoint
+* **Never polyfill IE with media query support**
+* Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
+* Utilise Sass nesting for browser versions e.g.
 
-					.lt-ie9 {
-						.fix {
-							/* styles */ }
-						.another-fix {
-							/* styles */ }
-					}
+
+	.lt-ie9 {
+		.fix {
+			/* styles */ }
+		.another-fix {
+			/* styles */ }
+	}
+
+
 
 ## Images
 

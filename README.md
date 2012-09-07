@@ -197,50 +197,46 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties)
 - *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling
 - If necessary, **include any mixins** used within a module so it can be dropped in to any new project without missing dependencies
-- When using new modules check for existing mixins and/or refactor if necessary  
+- When using new modules check for existing mixins and/or refactor if necessary
 
 #### Example
 
-	@mixin responsive-search-box {
+	/* Tertiary Nav
+	----------------------------------*/
 	
-		/*
-		<form class="search" action="/search/" method="get" role="search">
-			<label for="site_search">Search</label>
-			<span><input type="search" name="for" id="site_search" placeholder="Search the site"></span>
-			<button type="submit">
-				Search
-			</button>
-		</form>
-		*/
-		
-		.search {
-			position: relative;
+	// define mixin above
+	@mixin nav-divided {
+		li {
+			border-left: 1px solid;
 			
-			label {
-				height: 0;
-				padding: 0;
-				overflow: hidden; }
+			&amp;:first-child {
+				border-left: none;
 				
-			span {
-				display: block;
-				margin-right: 5.25em }
+				a {
+					padding-left: 0; }
+			}
 			
-			input {
-				outline: 0; }
+			&amp;:last-child {
+				a {
+					padding-right: 0; }
+			}
+		}
+	}
+	
+	// Module
+	.nav-tertiary {
+		font-size: .875em;
+		
+		@include respond-min(44em) {
+			margin-bottom: .5em;
+			text-align: center;
 			
-			input,
-			button {
-				height: 2.25em; }
-				
-			button {
-				position: absolute;
-				top: 0;
-				right: 0;
-				width: 5em;
-				@include box-sizing; }			
-		
-		}	
-		
+			a {
+				padding: .25em 1em; }
+			
+			// to be included here
+			@include nav-divided;
+		}
 	}
 
 

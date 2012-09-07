@@ -137,6 +137,9 @@ Modules should contain **all** `@media` declarations in context, nested within t
 	        zoom:1; }	
 	}
 	
+	.nav-inline {
+		@include nav-inline; }
+	
 	.nav-tertiary {
 		// turn .nav-tertiary to an inline list at breakpoint 2
 		@include respond-min($bp2) {

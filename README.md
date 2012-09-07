@@ -146,7 +146,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 - Modules should contain **all** `@media` declarations in context, nested within that module
 - This allows a developer to instantly see how a modules changes, with one point of reference for *layout* (`modules.scss`), and one for *theme* (`theme.scss`)
-- **Utilise mixins** to create abstractions (objects) and re-include these at a given breakpoint, rather than redefining them
+- **Utilise mixins** to create abstractions and re-include these at a given breakpoint, rather than redefining them
 
 #### Correct:
 

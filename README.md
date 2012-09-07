@@ -26,7 +26,7 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 - Write `@media` declarations in context using the methods outlined in [Sass-IE](http://jakearchibald.github.com/sass-ie/)
 - Keeping `@media` queries per selector allows for easier maintenance and the extaction of modules
-- `respond-min` and `respond-max` mixins have been created (in `utils.scss`) to easily create `min` and `max` media queries
+- `respond-min` and `respond-max` mixins have been created (in `utils.scss`) to easily produce `min` and `max` media queries
 - Reference all major breakpoints using the corresponding `$bp` variable
 - **Never** separate media queries into their own stylesheet / per breakpoint
 - **Keeping to this process is vital** due to how the framework compiles styles for old Internet Explorer
@@ -107,6 +107,7 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
 - Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
 - Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
+- **When using media queries** ensure background images are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
 
 **Read:**
 - [goo.gl/ThLKb](http://goo.gl/ThLKb)

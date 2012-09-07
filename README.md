@@ -316,11 +316,14 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - To minimise http requests, **do not load in any additional JavaScript files**. Place all Javascript into `all.js` 
 - [Modernizr](http://modernizr.com/) is included to determine browser capabilities and provide appropriate fallbacks
 - [Selectivizr](http://selectivizr.com/) is included to add attribute / pseudo selector support in old IE
-- Other plugins included by default are [jQuery Placeholder](https://github.com/mathiasbynens/jquery-placeholder), [FitVids](http://fitvidsjs.com/) and [ExpandingTextareas](https://github.com/bgrins/ExpandingTextareas)
+- Other plugins in operation by default are [jQuery Placeholder](https://github.com/mathiasbynens/jquery-placeholder), [FitVids](http://fitvidsjs.com/) and [ExpandingTextareas](https://github.com/bgrins/ExpandingTextareas)
 
 
-## Pattern library
-- `patterns.html` contains common modules or components
+## Mixd Pattern library
+- `patterns.html` contains markup for common modules or components used within projects
+- Check here before writing markup to see if you can reuse an existing module
+- Should you produce any potentially reuseable/useful markup, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
+- This allows for greater reuse of code between projects.
 
 ---------------------------------------
 

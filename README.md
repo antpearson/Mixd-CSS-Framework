@@ -48,13 +48,16 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 #### Example:
 
 	.media-img {
+	
 		// global syles
 		margin-bottom: 1.5em;
+		
 		// at major breakpoint 1
 		@include respond-min($bp1) {
 			float: left;
 			margin-bottom: 0; }
-		// at different minor breakpoint
+			
+		// at different, minor breakpoint
 		@include respond-min(39em) {
 			float: right; }
 	}
@@ -140,14 +143,17 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 			*display:inline;
 	        zoom:1; }	
 	}
+	
 	// object class
 	.nav-inline {
 		@include nav-inline; }
 		
 	// tertiary navigation module
 	.nav-tertiary {
+	
 		// global syles
 		margin-bottom: 1.5em;
+		
 		// turn .nav-tertiary to an inline list at breakpoint 2
 		@include respond-min($bp2) {
 			@include nav-inline;
@@ -167,8 +173,10 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	
 	// tertiary navigation module
 	.nav-tertiary {
+	
 		// global syles
 		margin-bottom: 1.5em;
+		
 		// turn .nav-tertiary to an inline list at breakpoint 2
 		@include respond-min($bp2) {
 			li,
@@ -228,14 +236,14 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 - Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
 - Use `.no-` selectors (**always code for better browsers first**)
-- Utilise Sass nesting for browser capabilities e.g
+- Utilise Sass nesting for browser capabilities e.g.
 
-	.no-svg {
-		.logo {
-			/* styles */ }
-		.sprite {
-			/* styles */ }
-	}
+					.no-svg {
+						.logo {
+							/* styles */ }
+						.sprite {
+							/* styles */ }
+					}
 
 ## Internet Explorer
 
@@ -245,14 +253,14 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Support for Proportioanal Grids is also added via mixin for each breakpoint
 - **Never polyfill IE with media query support**
 - Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
-- Utilise Sass nesting for browser versions e.g
+- Utilise Sass nesting for browser versions e.g.
 
-	.lt-ie9 {
-		.fix {
-			/* styles */ }
-		.another-fix {
-			/* styles */ }
-	}
+					.lt-ie9 {
+						.fix {
+							/* styles */ }
+						.another-fix {
+							/* styles */ }
+					}
 
 ## Images
 

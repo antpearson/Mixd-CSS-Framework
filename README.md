@@ -41,11 +41,11 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - **Never** separate media queries into their own stylesheet / per breakpoint
 - **Keeping to this process is vital** due to how the framework compiles styles for old Internet Explorer
 
-**Read:**
+#### Read:
 - [goo.gl/uwyT6](http://goo.gl/uwyT6)
 - [goo.gl/yG00v](http://goo.gl/yG00v)
 
-**Example**
+#### Example:
 
 	.media-img {
 		// global syles
@@ -65,7 +65,7 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Project defaults are set as reasonable starting point, but should be changed if required
 - Helper classes are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left` from any `<ul>` or `<ol>`
 
-**Read:**
+#### Read:
 - [goo.gl/38esp](http://goo.gl/38esp)
 
 ## Layout
@@ -74,8 +74,8 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Use the `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
 - *Layout* is reserved for layout components only. Use nested elements and target modules within *theme* for appearance
 
-**Read:**
-* [goo.gl/S5inY](http://goo.gl/S5inY)
+#### Read:
+- [goo.gl/S5inY](http://goo.gl/S5inY)
 
 ### Proportional Grids
 
@@ -105,7 +105,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Always use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
 - Always use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
 
-**Read:**
+#### Read:
 - [goo.gl/tTQJg](http://goo.gl/tTQJg)
 - [goo.gl/0iUwg](http://goo.gl/0iUwg)
 - [goo.gl/QKEuz](http://goo.gl/QKEuz)
@@ -115,14 +115,59 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Navigation objects `.nav-inline`, `.nav-divided` and `.nav-stacked` are supplied by default, referencing mixins in `mixins.scss`
 - The `.media` and `.island` objects are also included
 
-**Read:**
+#### Read:
 - [goo.gl/QjtO6](http://goo.gl/QjtO6)
 - [goo.gl/Xf6MJ](http://goo.gl/Xf6MJ)
 - [goo.gl/1XYHG](http://goo.gl/1XYHG)
 
 ### Media Queries
 
-Modules should contain **all** `@media` declarations in context, nested within that module.
+Modules should contain **all** `@media` declarations in context, nested within that module. **Utilise mixins** to create abstractions (objects) to re-include these at a given breakpoint, rather than redefining them.
+
+#### Example:
+
+**Right**
+
+// this object turns lists inline
+@mixin nav-inline {
+	li,
+	a {
+		display: inline-block;
+		*display:inline;
+        zoom:1; }	
+}
+
+.nav-tertiary {
+	// turn .nav-tertiary to an inline list at breakpoint 2
+	@include respond-min($bp2) {
+		@include nav-inline;
+	}
+}
+
+**Wrong**
+
+// this object turns lists inline
+.nav-inline {
+	li,
+	a {
+		display: inline-block;
+		*display:inline;
+        zoom:1; }	
+}
+
+.nav-tertiary {
+	// turn .nav-tertiary to an inline list at breakpoint 2
+	@include respond-min($bp2) {
+		li,
+		a {
+			display: inline-block;
+			*display:inline;
+	        zoom:1; }	
+	}
+}
+
+
+
 
 ### Mixd Modules
 
@@ -140,7 +185,7 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
 - **When using media queries** ensure `background-images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
 
-**Read:**
+#### Read:
 - [goo.gl/ThLKb](http://goo.gl/ThLKb)
 
 ### Icon Fonts
@@ -157,7 +202,7 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - State rules override global styles in a given instance
 - Always use `.is-` prefix when indicating specific state e.g. `.is-shown`, `.is-current`
 
-**Read:**
+#### Read:
 - [goo.gl/Itlda](http://goo.gl/Itlda)
 
 ## CMS
@@ -171,10 +216,10 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Use `.no-` selectors (**always code for better browsers first**)
 - Utilise Sass nesting for browser capabilities e.g.
 
-	``.no-svg {
-		.logo { ...}
+	.no-svg {
+		.logo { ... }
 		.sprite { .. }
-	}``
+	}
 
 
 ## Internet Explorer
@@ -187,11 +232,10 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Serve additional IE7 &amp; 8 styles **only** in `ie.scss` using relevant classes on the `<html>` element
 - Utilise Sass nesting for browser versions e.g.
 
-	``.lt-ie8 {
-		.fix { ...}
+	.lt-ie8 {
+		.fix { ... }
 		.another-fix { .. }
-	
-	}``
+	}
 
 ## Images
 
@@ -199,7 +243,7 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - **Compile all images in a sprite** and utilise the `sprite` mixin
 - When using SVG, code for better browsers first and provide fallbacks using Modernizr
 
-**Read:**
+#### Read:
 - [goo.gl/FVHzp](http://goo.gl/FVHzp)
 
 ## Javascript
@@ -266,7 +310,7 @@ Instead of building dozens of unique components, try and spot repeated design pa
 
 If you have to build a new component split it into structure (modules) and skin (theme); build the structure of the component using very generic classes so that we can reuse that construct and then use more specific classes to skin it up and add design treatments.
 
-**Read:**
+#### Read:
 
 * [csswizardry.com/&hellip;/the-nav-abstraction](http://csswizardry.com/2011/09/the-nav-abstraction)
 * [stubbornella.org/&hellip;/the-media-object-saves-hundreds-of-lines-of-code](http://stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code)
@@ -285,7 +329,7 @@ You should never apply any styles to a grid or layout container, they are for la
 
 **Never use pixels** unless unavoidable. Use a combination of `ems`, `rems` and percentages. Only use `rems` if you need to reference a base measure e.g. to make padding equal more easily 
 
-**Read:**
+#### Read:
 
 * [csswizardry.com/&hellip;/measuring-and-sizing-uis-2011-style](http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style)
 
@@ -299,7 +343,7 @@ We want to avoid defining font sizes over and over; to achieve this we have a pr
 
 Before writing another font-size declaration, see if a class for it already exists.
 
-**Read:**
+#### Read:
 
 * [csswizardry.com/&hellip;/pragmatic-practical-font-sizing-in-css](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css)
 
@@ -325,7 +369,7 @@ Make sure styles aren't dependent on location where possible, and make sure sele
 
 **Remember:** classes are neither semantic or insemantic; they are sensible or insensible! Stop stressing about *semantic* class names and pick something sensible and futureproof.
 
-**Read:**
+#### Read:
 
 * [speakerdeck.com/&hellip;/breaking-good-habits](http://speakerdeck.com/u/csswizardry/p/breaking-good-habits)
 * [csswizardry.com/&hellip;/writing-efficient-css-selectors](http://csswizardry.com/2011/09/writing-efficient-css-selectors)
@@ -375,7 +419,7 @@ In this case you _know_ that every `a` in `.promo` needs a blanket rule because 
 
 Classes come with the benefit of being reusable (even if we don't want to, we can) and they have a nice, low specificity.
 
-**Read:**
+#### Read:
 
 * [csswizardry.com/&hellip;/when-using-ids-can-be-a-pain-in-the-class](http://csswizardry.com/2011/09/when-using-ids-can-be-a-pain-in-the-class)
 

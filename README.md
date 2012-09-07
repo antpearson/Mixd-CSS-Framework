@@ -96,11 +96,10 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Modules
 
-- **This is where the bulk of your CSS will go**
-- This separation contains objects, and modules.
+- **This is where the bulk of your CSS will go** and contains objects &amp; modules.
 - **Objects** are abstractions, created as classes to provide one element of styling e.g. `.nav-inline` turns lists inline
-- **Modules** are an extension of objects but are more specific. The two are used together (with classes)
-- Modules (e.g. `.nav-tertiary`) sit inside layout components and can **always** be moved to a different part of the page without breaking
+- **Modules** are an extension of objects but are more specific e.g. `.nav-tertiary`. The two are used / work together (with classes)
+- Modules sit inside layout components and can **always** be moved to a different part of the page without breaking
 - When building modules consider existing objects, future reuse and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it
 

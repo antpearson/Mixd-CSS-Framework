@@ -28,6 +28,7 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Keeping `@media` queries per selector allows for easier maintenance and the extaction of modules
 - `respond-min` and `respond-max` mixins have been created (in `utils.scss`) to easily produce `min` and `max` media queries
 - Reference all major breakpoints using the corresponding `$bp` variable
+- Work primarily mobile-first, unless using a `max-width` query will bring significantly leaner code and **does not** include any background images or fonts
 - **Never** separate media queries into their own stylesheet / per breakpoint
 - **Keeping to this process is vital** due to how the framework compiles styles for old Internet Explorer
 
@@ -99,6 +100,8 @@ Modules should contain *all* `@media` queries for that module.
 
 `/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup. Should you produce any potentially re-useable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion. This allows for greater re-use of code between projects.
 
+**Include any mixins** used 
+
 Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties). *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling.
 
 ## Theme
@@ -117,12 +120,13 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 - Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with specific glyphs
 - When exporting, name your font "Fontello" and upload font files to `/assets/fonts`
 - Paste icon codes/classes taken from `Fontello-codes.css` in downloaded zip, into `theme.scss`
+- Icon classes should be prefixed with `.icon-`
 - The classes `.icon-large` and `.icon-pad` can be used to extend icons
 - The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s
 
 ## State
 
-- State rules override default styles in a given instance
+- State rules override global styles in a given instance
 - Always use `.is-` prefix when indicating specific state e.g. `.is-shown`, `.is-current`
 
 **Read:**
@@ -130,13 +134,13 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 
 ## CMS
 
-- CMS styles are specific to the CMS (WordPress) being used, including any plugins
+- CMS styles are specific to the CMS (here, WordPress) being used including any plugins
 - If using WordPress, add a `.wp-content` class to the containing element of `<?php the_content(); ?>`
 
 ## Modernizr
 
 - Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
-- Use `.no-` selectors (always code for better browsers first)
+- Use `.no-` selectors (**always code for better browsers first**)
 - Utilise Sass nesting for browser capabilities e.g.
 
 	.no-svg {
@@ -144,15 +148,6 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 		.sprite { .. }
 	}
 
-
-## Breakpoints
-
-- Each breakpoint has its own separation within `/states`
-- **Create breakpoints when content requires**, not for specific devices or screen-sizes
-- Four breakpoints are set up by default &mdash; primarily work small-screen upwards using `min-width`
-- Each breakpoint should have its own separate stylesheet with **one `@media` query per breakpoint**, rather than multiple `@media` queries per element
-- Use a prefix for breakpoint-specific classes (e.g. `.bp1-cols-full`) to serve styles *only* at a given breakpoint upwards
-- Breakpoint separations follow the same structural organisation (sections) as outlined above
 
 ## Internet Explorer
 
@@ -169,6 +164,14 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 		.another-fix { .. }
 	
 	}
+
+## Images
+
+- Always aim for resolution independence, using SVG images, icon fonts and CSS where possible
+- Code for better browsers first, then provide fallbacks using Modernizr
+
+**Read:**
+- [goo.gl/FVHzp](http://goo.gl/FVHzp)
 
 ## Javascript
 

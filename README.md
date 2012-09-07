@@ -99,10 +99,10 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Modules
 
-- **This is where the bulk of your CSS will go** and contains objects &amp; modules.
+- **This is where the bulk of your CSS will go** and contains objects &amp; modules
 - **Objects** are abstractions, created as classes to provide one element of styling e.g. `.nav-inline` turns lists inline
-- **Modules** are an extension of objects but are more specific e.g. `.nav-tertiary`. The two are used / work together (with classes)
-- Modules sit inside layout components and can **always** be moved to a different part of the page without breaking
+- **Modules** are an extension of objects but are more specific e.g. `.nav-tertiary`. The two are used / work together
+- Modules sit inside layout components and can be moved to a different part of the page without breaking
 - When building modules consider existing objects, future reuse and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it
 
@@ -131,7 +131,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 ### Media Queries
 
 - Modules should contain **all** `@media` declarations in context, nested within that module
-- **Utilise mixins** to create abstractions (objects) to re-include these at a given breakpoint, rather than redefining them
+- This allows a developer to instantly see how a modules changes, with one point of reference for *layout* (`modules.scss`), and one for *theme* (`theme.scss`)
+- **Utilise mixins** to create abstractions (objects) and re-include these at a given breakpoint, rather than redefining them
 
 #### Correct:
 
@@ -193,11 +194,55 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - `/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup
 - Should you produce any potentially reuseable / useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
 - This allows for greater reuse of code between projects.
-- **Include any mixins** used 
 - Modules should **only** contain structure and layout with **no theme styles** (defined by explicit CSS properties)
 - *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling
+- If necessary, **include any mixins** used within a module so it can be dropped in to any new project without missing dependencies
+- When using new modules check for existing mixins and/or refactor if necessary  
 
 #### Example
+
+	@mixin responsive-search-box {
+	
+		/*
+		<form class="search" action="/search/" method="get" role="search">
+			<label for="site_search">Search</label>
+			<span><input type="search" name="for" id="site_search" placeholder="Search the site"></span>
+			<button type="submit">
+				Search
+			</button>
+		</form>
+		*/
+		
+		.search {
+			position: relative;
+			
+			label {
+				height: 0;
+				padding: 0;
+				overflow: hidden; }
+				
+			span {
+				display: block;
+				margin-right: 5.25em }
+			
+			input {
+				outline: 0; }
+			
+			input,
+			button {
+				height: 2.25em; }
+				
+			button {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 5em;
+				@include box-sizing; }			
+		
+		}	
+		
+	}
+
 
 ## Theme
 
@@ -206,6 +251,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
 - Keeping *theme* separately allows for the extraction and reuse of *modules* between projects
 - **When using media queries** ensure `background-images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
+- Themed modules should contain **all** `@media` declarations in context, nested within that module ([as per Modules](#media-queries-1))
 
 #### Read
 - [goo.gl/ThLKb](http://goo.gl/ThLKb)

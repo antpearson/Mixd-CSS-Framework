@@ -1,7 +1,7 @@
 Mixd CSS Framework
 ==================
 
-Mixd's framework for beginning any front end build &mdash; containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library. Users of this framework should follow the guidelines below, which complement its architecture **based around Jonathan Snook's [SMACSS](http://smacss.com/)**
+Mixd's framework for beginning any front end build &mdash; containing HTML5, Sass &amp; CSS files, jQuery and a pattern / module library. Users of this framework should follow the guidelines below, which complement its architecture, based around Jonathan Snook's [SMACSS](http://smacss.com/) and Jake Archibald's [Sass-IE](http://jakearchibald.github.com/sass-ie/) concept.
 
 ## License
 
@@ -13,19 +13,19 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 - Code CSS via [Sass](http://sass-lang.com/) using the `.scss` files in the `/assets/sass` folder, then compile to CSS
 - We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac
 - Directly compiled stylesheets sit at root level in the `/sass` folder, with all other separations inside sub folders
-- CSS should compile to the `/css` folder and will be minified upon launch.
+- CSS should compile to the `/css` folder and will be minified/compressed upon launch.
 
 ## Configuration
 
 - **This is a good starting point** (`/config`)
-- Global variables are set in `vars.scss` e.g. colours, font families etc.
-- Place **any variables** you use during the project here, and **any mixins** within `mixins.scss`
-- Import any external mixin libraries within `includes.scss`
+- Global variables are set in `vars.scss` e.g. colours, font families etc. Place **any variables** you create during the project here`
+- Major breakpoints are set here using the convention `$bp1`, `$bp2` etc.
+- Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
 
-## Global styles
+## Styles
 
-- Coding small-screen first, all default styles sit within the `/global` folder
-- Global styles are categorised into separations as per [SMACSS](http://smacss.com/): 
+- Coding small-screen first, all styles lie within the `/core` folder
+- Styles are categorised into separations as per [SMACSS](http://smacss.com/):
 
 ## Base
 
@@ -37,7 +37,7 @@ Mixd's framework for beginning any front end build &mdash; containing HTML5, Sas
 
 - Layout rules define major content areas e.g. container, header, footer and grids.
 - Use `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
-- *Layout* is reserved for layout components only, use nested elements or target modules within *theme* for appearance
+- *Layout* is reserved for layout components only, use nested elements and target modules within *theme* for appearance
 
 **Read:**
 * [goo.gl/S5inY](http://goo.gl/S5inY)
@@ -55,26 +55,31 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	    </div>
 	</div>
 	
-Here, `grid-col` starts life as a single column. The class `bp1-col-one-half` means that column becomes one-half at breakpoint 1. `bp2-col-two-thirds` means it becomes two-thirds at breakpoint 2. And so on.
+`grid-col` starts life as a single column. The class `bp1-col-one-half` means that column becomes one-half at breakpoint 1. `bp2-col-two-thirds` means it becomes two-thirds at breakpoint 2. And so on.
 
 `bp2-col` is simply a namespace / prefix for that breakpoint. Grids are configured in `layout.scss` for each breakpoint, setting the namespace of the grid class to be used.	
 
 ## Modules
 
-- **This is where the bulk of your css will go**
-- Modules (e.g. `.panel`) lie inside layout components and can **always** be moved to a different part of the page without breaking
-- Use classes to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
-- Objects are re-useable abstractions that do one job. First, look for existing objects to help you build a new module
-- Common modules are included by default and explained
-- When building modules, consider re-use and create abstractions if necessary
-- **Don't modify a base object** once created. Either extend it for your module or don't use it.
-- Use *theme* to define background, typography, colour styles even if they relate to a module
-- Use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
-- Use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
+- **This is where the bulk of your CSS will go**
+- Modules (e.g. `.panel`) sit inside layout components and can **always** be moved to a different part of the page without breaking
+- Always classes (**not IDs**) to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
+- When building modules consider existing objects, future re-use and create abstractions if necessary
+- **Don't modify a base object** once created. Either extend it for your module or don't use it
+- Always use *theme* to define background, typography, colour styles even if they relate to a module
+- Always use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
+- Always use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
+
+### Default Objects
+
+- Navigation objects `.nav-inline`, `.nav-divided` and `.nav-stacked` have been supplied by default, referencing mixins in `mixins.scss`
+- The `.media` and `.island` objects are also included
 
 **Read:**
 - [goo.gl/QKEuz](http://goo.gl/QKEuz)
-- [goo.gl/tTQJg](http://goo.gl/tTQJg)
+- [goo.gl/tTQJg](http://goo.gl/tTQJg) 
+
+### Media Queries
 
 ### Mixd Modules
 
@@ -86,32 +91,32 @@ Modules should **only** contain structure and layout with **no theme styles** (d
 
 - **This is where you define appearance**
 - Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
-- Use explicit properties e.g. `border-color` **not** `border` to style elements specifically
+- Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
 - Keeping *theme* separately allows for the extraction and re-use of *modules* between projects
 
 **Read:**
-* [goo.gl/ThLKb](http://goo.gl/ThLKb)
+- [goo.gl/ThLKb](http://goo.gl/ThLKb)
 
 ### Icon Fonts
 
-- Use fontello to compile your icon font with specific glyphs - http://goo.gl/UV0Lm
-- When exporting, name your font "Fontello" and upload font files to /assets/fonts
-- Paste icon codes / classes below, taken from fontello-codes.css in downloaded zip
-- Name & path can be changed via settings in config/vars.sass
-- .icon-large and .icon-pad classes extend icon codes
-- .icon class can be @extended when adding a class isn't reasonable e.g. <li>
+- Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with specific glyphs
+- When exporting, name your font "Fontello" and upload font files to `/assets/fonts`
+- Paste icon codes/classes taken from `Fontello-codes.css` in downloaded zip, into `theme.scss`
+- The classes `.icon-large` and `.icon-pad` can be used to extend icons
+- The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s
 
 ## State
 
-* State rules override other styles in a given instance
-* Use .is- prefix when indicating specific state e.g. .is-shown, .is-current
-* READ MORE: http://goo.gl/Itlda
+- State rules override default styles in a given instance
+- Always use `.is-` prefix when indicating specific state e.g. `.is-shown`, `.is-current`
+
+**Read:**
+- [goo.gl/Itlda](http://goo.gl/Itlda)
 
 ## CMS
 
 - CMS styles are specific to the CMS (WordPress) being used, including any plugins
-- Add .wp-content class to the containing element of the WordPress body
-
+- If using WordPress, add a `.wp-content` class to the containing element of `<?php the_content(); ?>`
 
 ## Modernizr
 

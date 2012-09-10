@@ -24,7 +24,8 @@ This framework makes use of the following external libraries or services
 
 ## General
 
-- **This is a mobile-first framework and uses [Sass](http://sass-lang.com/)** 
+- **This is a mobile-first framework**
+- **This framework uses [Sass](http://sass-lang.com/)** to generate CSS 
 - All site assets must be placed within the `/assets/` folder
 - Working `.scss` / Sass files are found in the `/assets/sass` folder
 - All primary styles are placed in the `/core` folder

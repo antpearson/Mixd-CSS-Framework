@@ -284,7 +284,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 ## Modernizr
 
 - *modernizr.scss*
-* Styles in `modernizr.scss` offer fallbacks for non-supporting browsers
+* Modernizr styles offer fallbacks for non-supporting browsers
 * Use `.no-` selectors (**always code for better browsers first**)
 * Utilise Sass nesting for browser capabilities
 

@@ -46,7 +46,7 @@ This framework makes use of the following external libraries or services
 
 ## Configuration
 
-- *`/config`*
+- *`/assets/sass/config`*
 - **This is a good starting point** 
 - Global variables are set in `vars.scss` e.g. colours, font families etc. Place **any variables** you create during the project here
 - Major breakpoints are managed centrally here using the convention `$bp1`, `$bp2` etc.
@@ -88,7 +88,7 @@ This framework makes use of the following external libraries or services
 
 ## Base
 
-- *base.scss*
+- *`/assets/sass/core/base.scss`*
 - [Normalize.css](http://necolas.github.com/normalize.css/) is used to create consistency across all browsers
 - *Project Defaults* are set as reasonable starting point, but should be changed if required
 - *Helper Classes* are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left` from any `<ul>` or `<ol>`
@@ -98,7 +98,7 @@ This framework makes use of the following external libraries or services
 
 ## Layout
 
-- *layout.scss*
+- *`/assets/sass/core/layout.scss`*
 - Layout rules define major content areas or layout components e.g. header, container or grids
 - Use the `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
 - *Layout* is reserved for layout components only and should only be styled as such
@@ -126,7 +126,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Modules
 
-- *modules.scss*
+- *`/assets/sass/core/modules.scss`*
 - **This is where the bulk of your CSS will go** and contains objects &amp; modules
 - **Objects** are abstractions, created as classes to provide one re-useable element of styling e.g. `.nav-inline` turns lists inline
 - **Modules** are an extension of objects but are more specific parts of a page e.g. `.nav-tertiary`. The two are used/work together
@@ -217,7 +217,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ### Mixd Modules
 
-- `/libs/mixd-modules.scss` contains mixins for common modules and details of accompanying markup
+- *`/assets/sass/libs/mixd-modules.scss`*
+- The Mixd Module Library contains mixins for common modules and details of accompanying markup
 - Should you produce any potentially reuseable/useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
 - This allows for greater reuse of code between projects.
 - Modules should **only** contain structure and layout (defined by explicit CSS properties) with **no theme styles** 
@@ -247,7 +248,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Theme
 
-- *theme.scss*
+- */assets/sass/core/theme.scss*
 - **This is where you define appearance**
 - Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
 - Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
@@ -269,7 +270,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## State
 
-- *state.scss*
+- *`/assets/sass/core/state.scss`*
 - State rules override global styles in a given instance
 - Always use `.is-` prefix when indicating specific state e.g. `.is-shown`, `.is-current`
 
@@ -278,13 +279,13 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## CMS
 
-- *cms.scss*
+- *`/assets/sass/core/cms.scss`*
 - CMS styles are specific to the CMS (here, WordPress) being used including any plugins
 - If using WordPress, add a `.wp-content` class to the containing element of `<?php the_content(); ?>`
 
 ## Modernizr
 
-- *modernizr.scss*
+- */assets/sass/core/modernizr.scss*
 * Modernizr styles offer fallbacks for non-supporting browsers
 * Use `.no-` selectors (**always code for better browsers first**)
 * Utilise Sass nesting for browser capabilities
@@ -302,7 +303,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Internet Explorer
 
-- *all-old-ie.scss*
+- *`/assets/sass/core/all-old-ie.scss`*
 - IE8 and below is served styles via `all-old-ie.scss`
 - **Styles are compiled automatically** with media queries stripped-out
 - Set which layout you want old IE to take using the `$mqs-up-to` variable in `all-old-ie.scss`
@@ -334,7 +335,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Javascript
 
-- */assets/js/all.js*
+- *`/assets/js/all.js`*
 - Place **all** JavaScript here with plugins at the top and functions in the section below. Javascript will be minified/compressed upon launch
 - To minimise http requests, **do not** load-in any additional JavaScript files. Place **all** Javascript within `all.js` 
 - [Modernizr](http://modernizr.com/) is included to determine browser capabilities and provide appropriate fallbacks
@@ -343,7 +344,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 
 ## Mixd Pattern library
-- `patterns.html` contains markup for common modules or components used within projects
+- *`patterns.html`*
+- The Mxd Pattern Library contains markup for common modules or components used within projects
 - Check here before writing markup to see if you can reuse an existing module
 - Should you produce any potentially reuseable/useful markup, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
 - This allows for greater reuse of code between projects.

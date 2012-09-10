@@ -1,7 +1,7 @@
 Mixd CSS Framework
 ==================
 
-Here lies Mixd's framework for beginning any front end build &mdash; containing HTML5, Sass &amp; CSS files, jQuery and a pattern/module library. Users of this framework should follow the guidelines below which complement its architecture, based around Jonathan Snook's [SMACSS](http://smacss.com/) and Jake Archibald's [Sass-IE](http://jakearchibald.github.com/sass-ie/) concept.
+Here lies Mixd's framework for beginning any front end build &mdash; containing HTML, Sass &amp; CSS files, jQuery and a pattern/module library. Users of this framework should follow the guidelines below which complement its architecture, based around Jonathan Snook's [SMACSS](http://smacss.com/) and Jake Archibald's [Sass-IE](http://jakearchibald.github.com/sass-ie/) concept.
 
 ## License
 
@@ -22,25 +22,34 @@ This framework makes use of the following external libraries or services
 - [FitVids](http://fitvidsjs.com/)
 - [ExpandingTextareas](https://github.com/bgrins/ExpandingTextareas)
 
+## General
+
+- **This is a mobile-first framework and uses [Sass](http://sass-lang.com/)** 
+- All site assets must be placed within the `/assets/` folder
+- Working `.scss` / Sass files are found in the `/assets/sass` folder
+- All primary styles are placed in the `/core` folder
+- Styles are categorised into separations as per [SMACSS](http://goo.gl/dIB5j)
+- Practise OOCSS principles and **never be afraid to use CSS classes** where appropriate
+
+#### Read
+* [goo.gl/q1rR5](http://goo.gl/q1rR5)
+
 ## Pre-Processing
 
-- **This framework uses [Sass](http://sass-lang.com/)** with all working files `.scss` files in the `/assets/sass` folder
+- `/assets/sass`
 - We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac
-- Directly compiled stylesheets sit at root level in the `/sass` folder, with all other separations inside sub folders
-- CSS should compile to the `/css` folder and will be minified/compressed upon launch
+- Directly compiled stylesheets sit at root level, with all other separations inside sub folders
+- CSS must compile to the `/assets/css` folder and will be minified/compressed upon launch
+- Helper mixins have been provided in the `/config` folder under `mixins.scss` &mdash; to speed up development in common areas e.g. outputting `background-image` gradients with all vendor prefixes
+- Utilise these as you see fit or consider using [Compass](http://compass-style.org/) for more comprehensive mixins libraries
 
 ## Configuration
 
-- **This is a good starting point** (`/sass/config`)
+- *`/config`*
+- **This is a good starting point** 
 - Global variables are set in `vars.scss` e.g. colours, font families etc. Place **any variables** you create during the project here
 - Major breakpoints are managed centrally here using the convention `$bp1`, `$bp2` etc.
 - Mixins are defined in `mixins.scss`. Place **any mixins** you create during the project here under *Project-Specific Mixins*
-
-## General
-
-- **This is a mobile-first framework**
-- All primary styles lie within the `/sass/core` folder
-- Styles are categorised into separations as per [SMACSS](http://goo.gl/dIB5j)
 
 ## Media Queries
 
@@ -52,7 +61,7 @@ This framework makes use of the following external libraries or services
 - Reference all major breakpoints using the corresponding `$bp` variable
 - Use minor breakpoints as you see fit on a case-by-case basis
 - Work primarily mobile-first, unless using a `max-width` query will bring significantly leaner code and it **does not** contain any background images or fonts
-- **Never** separate media queries into their own stylesheet/per breakpoint
+- Never separate media queries into their own stylesheet/per breakpoint
 - **Keeping to this process is vital** due to how the framework compiles styles for old Internet Explorer
 
 #### Read
@@ -71,7 +80,7 @@ This framework makes use of the following external libraries or services
 			float: left;
 			margin-bottom: 0; }
 			
-		// at different, minor breakpoint
+		// at a different, minor breakpoint
 		@include respond-min(39em) {
 			float: right; }
 	}
@@ -80,8 +89,8 @@ This framework makes use of the following external libraries or services
 
 - *base.scss*
 - [Normalize.css](http://necolas.github.com/normalize.css/) is used to create consistency across all browsers
-- Project defaults are set as reasonable starting point, but should be changed if required
-- Helper classes are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left` from any `<ul>` or `<ol>`
+- *Project Defaults* are set as reasonable starting point, but should be changed if required
+- *Helper Classes* are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left` from any `<ul>` or `<ol>`
 
 #### Read
 - [goo.gl/38esp](http://goo.gl/38esp)
@@ -89,9 +98,10 @@ This framework makes use of the following external libraries or services
 ## Layout
 
 - *layout.scss*
-- Layout rules define major content areas or layout components e.g. `.container` or grids
+- Layout rules define major content areas or layout components e.g. header, container or grids
 - Use the `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
-- *Layout* is reserved for layout components only. Use nested elements and target modules within *theme* for appearance
+- *Layout* is reserved for layout components only and should only be styled as such
+- Use nested elements and target modules within *theme* for appearance
 
 #### Read
 - [goo.gl/S5inY](http://goo.gl/S5inY)
@@ -117,8 +127,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 - *modules.scss*
 - **This is where the bulk of your CSS will go** and contains objects &amp; modules
-- **Objects** are abstractions, created as classes to provide one element of styling e.g. `.nav-inline` turns lists inline
-- **Modules** are an extension of objects but are more specific e.g. `.nav-tertiary`. The two are used/work together
+- **Objects** are abstractions, created as classes to provide one re-useable element of styling e.g. `.nav-inline` turns lists inline
+- **Modules** are an extension of objects but are more specific parts of a page e.g. `.nav-tertiary`. The two are used/work together
 - Modules sit inside layout components and can be moved to a different part of the page without breaking
 - When building modules consider existing objects, future reuse and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it
@@ -144,8 +154,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ### Media Queries
 
-- Modules should contain **all** `@media` declarations in context, nested within that module
-- This allows a developer to instantly see how a modules changes, with one point of reference for *layout* (`modules.scss`), and one for *theme* (`theme.scss`)
+- Modules should contain **all** `@media` declarations in context, nested within each module
+- This allows a developer to instantly see how a modules changes, with one point of reference for *layout* (`modules.scss`) and one for *theme* (`theme.scss`)
 - **Utilise mixins** to create abstractions and re-include these at a given breakpoint, rather than redefining them
 
 #### Correct:
@@ -196,6 +206,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 		@include respond-min($bp2) {
 			li,
 			a {
+				// redefining what's above
 				display: inline-block;
 				*display:inline;
 		        zoom:1; }	
@@ -210,7 +221,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - This allows for greater reuse of code between projects.
 - Modules should **only** contain structure and layout (defined by explicit CSS properties) with **no theme styles** 
 - *Theme* for each module can then be added on a per-project basis, with a full view of that project's cascade prior to styling
-- If necessary, **include any mixins** used within a module so it can be dropped in to any new project without missing dependencies
+- If necessary, **include any mixins** used within a module so it can be added to any new project without missing dependencies
 - When using new modules check for existing mixins and/or refactor if necessary
 
 #### Example
@@ -241,14 +252,14 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
 - Keeping *theme* separately allows for the extraction and reuse of *modules* between projects, and the re-skinning of existing templates more easily
 - **When using media queries** ensure `background-images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
-- Themed modules should contain **all** `@media` declarations in context, nested within that module ([as per Modules](#media-queries-1))
+- Themed modules should contain **all** `@media` declarations in context, nested within that module ([as per *Modules*](#media-queries-1))
 
 #### Read
 - [goo.gl/ThLKb](http://goo.gl/ThLKb)
 
 ### Icon Fonts
 
-- Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with specific project-specific glyphs
+- Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with project-specific glyphs
 - When exporting, name the font "Fontello" and upload all font files to `/assets/fonts`
 - Paste icon codes/classes taken from `Fontello-codes.css` in the downloaded zip file, into `theme.scss`
 - Icon classes should be prefixed with `.icon-`
@@ -295,7 +306,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - Set which layout you want old IE to take using the `$mqs-up-to` variable in `all-old-ie.scss`
 - **Never polyfill IE with media query support**
 - Add additional IE styles/fixes to the bottom of `all-old-ie.scss` using relevant classes on the `<html>` element
-- A print stylesheet (`print-old-ie.scss`) is also created for IE, containing global typographic/layout styles. These are then overwritten by `print.css` as per modern browsers, meaning you only have to worry about working with one print stylesheet
+- A print stylesheet `print-old-ie.scss` is created for IE, containing global typographic/layout styles. These are then overwritten by `print.css` as per modern browsers, meaning you only have to worry about working with one print stylesheet
 - Utilise Sass nesting for browser versions
 
 #### Example
@@ -321,8 +332,8 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 ## Javascript
 
 - */assets/js/all.js*
-- Place **all** JavaScript here with plugins at the top and in the section below. Javascript will be minified/compressed upon launch
-- To minimise http requests, **do not load in any additional JavaScript files**. Place all Javascript into `all.js` 
+- Place **all** JavaScript here with plugins at the top and functions in the section below. Javascript will be minified/compressed upon launch
+- To minimise http requests, **do not** load-in any additional JavaScript files. Place **all** Javascript within `all.js` 
 - [Modernizr](http://modernizr.com/) is included to determine browser capabilities and provide appropriate fallbacks
 - [Selectivizr](http://selectivizr.com/) is included to add attribute/pseudo selector support in old IE
 - Other plugins in operation by default are [jQuery Placeholder](https://github.com/mathiasbynens/jquery-placeholder), [FitVids](http://fitvidsjs.com/) and [ExpandingTextareas](https://github.com/bgrins/ExpandingTextareas)

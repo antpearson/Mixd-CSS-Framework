@@ -36,7 +36,7 @@ This framework makes use of the following external libraries or services
 
 ## Pre-Processing
 
-- `/assets/sass`
+- *`/assets/sass`*
 - We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac
 - Directly compiled stylesheets sit at root level, with all other separations inside sub folders
 - CSS must compile to the `/assets/css` folder and will be minified/compressed upon launch
@@ -293,6 +293,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	.no-svg {
 		.logo {
 			/* styles */ }
+			
 		.sprite {
 			/* styles */ }
 	}
@@ -314,6 +315,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	.lt-ie9 {
 		.fix {
 			/* styles */ }
+			
 		.another-fix {
 			/* styles */ }
 	}

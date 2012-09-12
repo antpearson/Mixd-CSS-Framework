@@ -329,7 +329,8 @@ table {
 /* General Defaults
 /*----------------------------------------------------------------------------------------*/
 html {
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased; }
 
 /* -- Selections -- */
 ::-moz-selection {

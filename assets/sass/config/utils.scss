@@ -16,11 +16,12 @@ $mqs-up-to: false !default;
 	}
 	
 }
+
 @mixin respond-max($width) {
 
 	@if $old-ie-print != true {
 		@if $mqs-up-to {
-			@if $mqs-up-to >= $width {
+			@if $mqs-up-to <= $width {
 				@content;	
 			}
 		}

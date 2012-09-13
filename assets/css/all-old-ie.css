@@ -722,14 +722,6 @@ blockquote p + .source {
   .half-gutter .grid-col {
     padding-left: 1.5em; }
 
-.lt-ie8 .grid-wrap {
-  margin-left: 0; }
-.lt-ie8 .grid-col {
-  padding: 0;
-  margin-left: 5%; }
-  .lt-ie8 .grid-col:first-child {
-    margin-left: 0; }
-
 .col-full {
   width: 100%; }
 
@@ -747,6 +739,27 @@ blockquote p + .source {
 
 .col-three-quarters {
   width: 75%; }
+
+.lt-ie8 .grid-wrap {
+  margin-left: 0; }
+.lt-ie8 .grid-col {
+  padding: 0;
+  margin-left: 5%; }
+  .lt-ie8 .grid-col:first-child {
+    margin-left: 0; }
+
+.lt-ie8 .col-full {
+  width: 99.95%; }
+.lt-ie8 .col-one-half {
+  width: 47.45%; }
+.lt-ie8 .col-one-third {
+  width: 29.55%; }
+.lt-ie8 .col-two-thirds {
+  width: 64.95%; }
+.lt-ie8 .col-one-quarter {
+  width: 19.95%; }
+.lt-ie8 .col-three-quarters {
+  width: 74.95%; }
 
 .bp1-col-full {
   width: 100%; }

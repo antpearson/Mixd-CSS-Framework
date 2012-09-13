@@ -32,7 +32,7 @@
 @import "../libs/proportional-grids";
 @include grids-init("col");
 
-// Define grid changes at breakpoints (with corresponding classes)
+// define grid changes at breakpoints (with corresponding classes)
 @include respond-min($bp1) {
 	@include grid-include("bp1-col");
 }

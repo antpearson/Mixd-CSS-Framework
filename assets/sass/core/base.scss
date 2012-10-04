@@ -17,11 +17,13 @@ pre { overflow-x: auto; }
 address { white-space: pre-line; }
 
 /* -- Embedded -- */
-img { display: block; margin: 0 auto; font-style: italic; color: #666; vertical-align: middle; height: auto; }
+img { display: block; margin: 0 auto; font-style: italic; color: #666; vertical-align: middle; }
+img[width] { width: auto !important; }
+img[height] { height: auto !important; }
 img, audio, canvas, embed, object, video { max-width: 100%; }
 iframe { display: block; }
 // Google maps image bug
-iframe[foo*="maps.google"] img { max-width: auto; margin: auto; }
+iframe[src*="maps.google"] img { max-width: auto; margin: auto; }
 
 /* -- Tables -- */
 table { width: 100%; }

@@ -375,8 +375,13 @@ img {
   margin: 0 auto;
   font-style: italic;
   color: #666;
-  vertical-align: middle;
-  height: auto; }
+  vertical-align: middle; }
+
+img[width] {
+  width: auto !important; }
+
+img[height] {
+  height: auto !important; }
 
 img, audio, canvas, embed, object, video {
   max-width: 100%; }
@@ -384,7 +389,7 @@ img, audio, canvas, embed, object, video {
 iframe {
   display: block; }
 
-iframe[foo*="maps.google"] img {
+iframe[src*="maps.google"] img {
   max-width: auto;
   margin: auto; }
 
@@ -1073,13 +1078,6 @@ small {
 /*----------------------------------------------------------------------------------------*/
 /* $. CMS
 ------------------------------------------------------------------------------------------*/
-/* -- Ensure all WP images are responsive -- */
-.wp-content img,
-.wp-post-image,
-.wp-post-thumb,
-img[class*="wp-image"] {
-  width: auto !important; }
-
 /* -- Generic image styling -- */
 img.alignleft,
 img.alignright {

@@ -1016,15 +1016,15 @@ a:active, a:focus {
   position: relative;
   top: 1px; }
 
-/* Hovers
-----------------------------------*/
-a:hover {
-  color: #222222; }
-
 /* Visited
 ----------------------------------*/
 a:visited {
   color: #316cb2; }
+
+/* Hovers
+----------------------------------*/
+a:hover {
+  color: #222222; }
 
 /* Show / Hide Elements
 ----------------------------------*/

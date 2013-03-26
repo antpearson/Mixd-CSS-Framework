@@ -46,7 +46,7 @@
 		padding: .75em 0;
 		
 		ul {
-			@extend .unset-list;
+			@extend .list--unset;
 			@extend .cf;
 			margin-bottom: 0; }
 		

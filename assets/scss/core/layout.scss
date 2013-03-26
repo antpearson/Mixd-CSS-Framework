@@ -1,0 +1,9 @@
+/* Container / Inner
+----------------------------------*/
+.container {
+	opacity: 0; // fade in container on load with jQuery
+	margin: 0 auto;
+	padding: 0 1.5em;
+	min-width: 15em;
+	max-width: $container-max-width; }
+	

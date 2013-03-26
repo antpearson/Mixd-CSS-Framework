@@ -3,30 +3,11 @@
 
 /* Media Object - http://goo.gl/Xf6MJ
 ----------------------------------*/
-/*
-<div class="media cf">
-	<img class="media-img" src="..." />
-	<div class="media-body">
-		<p>...</p>
-	</div>
-</div>
-
-- OR -
-
-<div class="media cf">
-	<div class="media-img">
-		<h2>...</h2>
-	</div>
-	<div class="media-body">
-		<p>...</p>
-	</div>
-</div>
-*/
 
 .media {
 	margin-bottom: $baseline; }
 	
-.media-img img {
+.media__img img {
 	margin-bottom: $baseline;
 	
 	@include respond-min($bp1) {
@@ -34,24 +15,18 @@
 }
 
 
-.media-body {
+.media__body {	
 	@include respond-min($bp1) {
-		/* basic usage */
-		/*overflow: hidden;*/
-		
-		// OR
-		
-		/* if box-shadow needed - http://goo.gl/INzhl */
-		display: table-cell;
-	    width: 10000px;
-	    *width: auto;
-	    *zoom:1; }
+		overflow: hidden;
+	}
+
+	&:last-child{
+		margin-bottom: 0;
+	}
 }
 
-.media-body :last-child {
-	margin-bottom: 0; }	
 
-.media-img {
+.media__img {
 	@include respond-min($bp1) {
 		float: left;
 		margin-bottom: 0;
@@ -73,33 +48,40 @@
 	
 /* Nav Objects - http://goo.gl/QjtO6
 ----------------------------------*/
-.nav-inline { @include nav-inline; }
-.nav-divided { @include nav-divided; }
-.nav-stacked { @include nav-stacked; }
+
+.nav{
+	@extend .list--unset, .cf;
+}
+
+.nav--inline { @include nav-inline; }
+.nav--divided { @include nav-divided; }
+.nav--stacked { @include nav-stacked; }
 	
 // create blocked links
-.nav-blocked a {
+.nav--blocked a {
 	display: block;
-	padding: .5em; }
+	padding: .5em;
+	background-color: #F5F5F5; 
+}
 
 /* Primary Nav
 ----------------------------------*/
-.nav-primary {
+.nav--primary {
 	@include respond-min($bp1) {
 		@include nav-inline; }
 }
 
 /* Tertiary Nav
 ----------------------------------*/
-.nav-tertiary {
+.nav--tertiary {
 	font-size: .875em;
 	
 	@include respond-min(44em) {
 		margin-bottom: .5em;
 		text-align: center;
+
 		
-		a {
-			padding: .25em 1em; }
+		a { padding: .25em 1em; }
 
 		@include nav-inline;
 		@include nav-divided;

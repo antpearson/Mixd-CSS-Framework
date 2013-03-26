@@ -23,7 +23,7 @@
 // extends nav-inline with dividers
 @mixin nav-divided {
 	li {
-		border-left: 1px solid;
+		border-left: 1px solid $color-keyline;
 		
 		&:first-child {
 			border-left: none;
@@ -62,8 +62,8 @@
 	}
 	
 	.icon:before,
-	[class^="icon-"]:before,
-	[class*=" icon-"]:before {
+	[class^="icon--"]:before,
+	[class*=" icon--"]:before {
 	    font-family: $icon-font-family;
 	    font-weight: normal;
 	    font-style: normal;
@@ -75,13 +75,13 @@
 		line-height: 1em;
 	    top: 1px; }
 	    
-	.icon-large:before {
+	.icon--large:before {
 		vertical-align: middle;
 		font-size: 1.35em;
 		line-height: 1.2em;
 		padding-right: .2em; } 
 	
-	.icon-pad:before {
+	.icon--pad:before {
 		padding-right: .3em; }		
 	
 }

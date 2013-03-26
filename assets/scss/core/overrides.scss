@@ -1,0 +1,59 @@
+/*----------------------------------------------------------------------------------------*\
+/* Helper Classes
+\*----------------------------------------------------------------------------------------*/
+
+.push--top 		{ margin-top: $baseline; }
+.push--bottom 	{ margin-bottom: $baseline; }
+
+.zero--top 		{ margin-top: 0 !important; }
+.zero--bottom 	{ margin-bottom: 0 !important; }
+
+.weight--light      { font-weight:300 !important; }
+.weight--normal     { font-weight:400 !important; }
+.weight--semibold   { font-weight:600 !important; }
+
+.list--unset 			{ list-style: none !important; margin-left: 0 !important; }
+.unset--list-items li 	{ margin-bottom: 0 !important; }
+.list--numbers 			{ list-style: decimal !important; }
+.list--bullets 			{ list-style: disc !important; }
+
+/* Theme Classes
+----------------------------------*/
+.brand {
+	color: $color-brand; }
+	
+.brand--bg {
+	background-color: $color-brand; } 	
+
+/* Micro Clearfix - http://goo.gl/5Fvrh
+----------------------------------*/
+.cf {
+	zoom : 1;
+	
+	&:before, &:after { content: ""; display: table; }
+	&:after { clear : both; }
+}	
+
+
+
+/*----------------------------------------------------------------------------------------*\
+ Specific text styles
+\*----------------------------------------------------------------------------------------*/
+
+.intro { font-size: 1.25em; }
+.headline { border-bottom: 1px solid $color-keyline; padding-bottom: .45em; }
+
+/*----------------------------------------------------------------------------------------*\
+ Style trumps (error states etc.)
+\*----------------------------------------------------------------------------------------*/
+
+.is-hidden { display: none; visibility: hidden; }
+.is-vhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px; }

@@ -1,7 +1,7 @@
 @import "../libs/normalize";
-/*----------------------------------------------------------------------------------------*/
-/* General Defaults
-/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*\
+  General Defaults
+\*----------------------------------------------------------------------------------------*/
 html { overflow-y: scroll; -webkit-font-smoothing: antialiased; }
 
 /* -- Selections -- */
@@ -62,9 +62,9 @@ textarea { resize: vertical; }
 // expandingText jQuery plugin
 textarea, .expandingText { min-height: 8em; }
 
-/*----------------------------------------------------------------------------------------*/
-/* Project Defaults
-/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*\
+ Project Defaults
+\*----------------------------------------------------------------------------------------*/
 html {
 	font-size: 100%;
 	
@@ -78,10 +78,6 @@ body {
 	line-height: 1.5;
 	color: $color-text;
 	background-color: $color-background; }
-
-a {
-	text-decoration: none;
-	color: $color-link; }
 
 /* -- Vertical Rhythm -- */
 h1, h2, h3, h4, h5, h6 { margin-bottom: .65em; margin-top: $baseline; }
@@ -149,21 +145,34 @@ blockquote p + .source { margin-top: -$baseline; }
 .source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; }
 .source:before { content:"\2013\0020"; }
 
-/*----------------------------------------------------------------------------------------*/
-/* Helper Classes
-/*----------------------------------------------------------------------------------------*/
-.push-top { margin-top: $baseline; }
-.push-bottom, .baseline { margin-bottom: $baseline; }
-.zero-top { margin-top: 0; }
-.zero-bottom { margin-bottom: 0; }
-.unbold { font-weight: normal; }
-.unset-list { list-style: none; margin-left: 0; }
-.unset-list-items li { margin-bottom: 0; }
-.unset-dlist { dt { font-weight: normal; } dd { font-style: normal; margin-bottom: 0; }}
-.list-numbers { list-style: decimal; }
-.list-bullets { list-style: disc; }
-.block { display: block; }	
+a:active, a:focus { position: relative; top: 1px; }
 
-/* -- Specific Text Styles -- */
-.intro { font-size: 1.25em; }
-.headline { border-bottom: 1px solid $color-keyline; padding-bottom: .45em; }
+/* Links
+----------------------------------*/
+
+a {
+	text-decoration: none;
+	color: $color-link; }
+
+/* -- visited -- */
+a:visited {
+	color: $color-link; }
+	
+.btn:visited {
+	@extend .btn; }
+
+/* -- hovers -- */
+a:hover {
+	color: $color-link-hover; }
+
+%reset-hover {
+	@include hover-reset; }
+
+/*----------------------------------------------------------------------------------------*/
+/* Asset Fonts
+/*----------------------------------------------------------------------------------------*/
+@charset "UTF-8";
+@include icon-font;
+
+// place icon font classes/codes here
+

@@ -76,12 +76,18 @@
 .nav--tertiary {
 	font-size: .875em;
 	
-	@include respond-min(44em) {
+	@include respond-min($bp2) {
 		margin-bottom: .5em;
 		text-align: center;
 
+		li{
+			border-left-color: #999;
+		}
 		
-		a { padding: .25em 1em; }
+		a { 
+			padding: .25em 1em;
+			background-color: transparent;
+		}
 
 		@include nav-inline;
 		@include nav-divided;

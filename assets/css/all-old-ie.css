@@ -976,8 +976,11 @@ a:hover {
   font-size: .875em;
   margin-bottom: .5em;
   text-align: center; }
+  .nav--tertiary li {
+    border-left-color: #999; }
   .nav--tertiary a {
-    padding: .25em 1em; }
+    padding: .25em 1em;
+    background-color: transparent; }
   .nav--tertiary li,
   .nav--tertiary a {
     display: inline-block;

@@ -94,7 +94,7 @@
 }
 
 $grid-direction: left !default; // switch to 'right' for rtl
-$grid-gutter: 20px !default; // can be px, em, or %
+$grid-gutter: 2em !default; // can be px, em, or %
 
 
 /* Grid core
@@ -166,6 +166,17 @@ $grid-gutter: 20px !default; // can be px, em, or %
     letter-spacing: normal; /* 5 */
     word-spacing: normal; /* 5 */
     text-rendering: auto; /* 5 */
+}
+
+/**
+ * Modifier: Half usual gutter
+ * Allows for grids with half the usual gutter width
+ */
+
+.grid--half-gutter{
+    .grid__cell{
+        padding: 0 0.25 * $grid-gutter;
+    }
 }
 
 /**

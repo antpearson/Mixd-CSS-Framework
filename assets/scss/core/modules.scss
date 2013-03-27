@@ -5,18 +5,20 @@
 ----------------------------------*/
 
 .media {
-	margin-bottom: $baseline; }
+	margin-bottom: $baseline;
+	@extend .cf; }
 	
-.media__img img {
+.media__img img,
+img.media__img {
 	margin-bottom: $baseline;
 	
-	@include respond-min($bp1) {
+	@include respond-min($bp2) {
 		margin-bottom: 0; }	
 }
 
 
 .media__body {	
-	@include respond-min($bp1) {
+	@include respond-min($bp2) {
 		overflow: hidden;
 	}
 
@@ -27,17 +29,29 @@
 
 
 .media__img {
-	@include respond-min($bp1) {
+	@include respond-min($bp2) {
 		float: left;
 		margin-bottom: 0;
 		margin-right: $media-img-gutter; }
+}
+
+.media--flipped{
+	.media__img {
+		@include respond-min($bp2) {
+			float: right;
+			margin-right:0;
+			margin-left: $media-img-gutter;
+ 		}
+	}
 }
 	
 /* Island Object - http://goo.gl/1XYHG
 ----------------------------------*/
 .island {
 	padding: $island-padding;
-	
+	background-color:$color-comp;
+	margin-bottom:1em;
+
 	> :last-child {
 		margin-bottom: 0; }
 }
@@ -93,6 +107,16 @@
 		@include nav-divided;
 	}
 }
+/* Tertiary Nav
+----------------------------------*/
+
+/* Inserts
+----------------------------------*/
+
+.flash {
+	display: block;
+	background-color: #F4F5F5;
+	padding: .5em .8em; }
 
 /* Misc
 ----------------------------------*/

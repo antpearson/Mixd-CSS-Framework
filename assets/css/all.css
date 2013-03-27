@@ -1055,6 +1055,11 @@ a:hover {
         .nav--tertiary li:last-child a {
           padding-right: 0; } }
 
+/* Misc
+----------------------------------*/
+.credit {
+  text-align: center; }
+
 /* Responsive Search Box
 ----------------------------------*/
 /*
@@ -1128,6 +1133,9 @@ a:hover {
 
 .list--bullets {
   list-style: disc !important; }
+
+.block {
+  display: block; }
 
 /* Theme Classes
 ----------------------------------*/

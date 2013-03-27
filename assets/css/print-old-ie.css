@@ -868,6 +868,11 @@ a:hover {
 .nav--tertiary {
   font-size: .875em; }
 
+/* Misc
+----------------------------------*/
+.credit {
+  text-align: center; }
+
 /* Responsive Search Box
 ----------------------------------*/
 /*
@@ -941,6 +946,9 @@ a:hover {
 
 .list--bullets {
   list-style: disc !important; }
+
+.block {
+  display: block; }
 
 /* Theme Classes
 ----------------------------------*/

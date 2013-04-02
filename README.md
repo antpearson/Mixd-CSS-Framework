@@ -46,7 +46,7 @@ This framework makes use of the following external libraries or services
 
 ## Configuration
 
-- *`/assets/sass/config`*
+- *`/assets/scss/config`*
 - **This is a good starting point** 
 - Global variables are set in `vars.scss` e.g. colours, font families etc. Place **any variables** you create during the project here
 - Major breakpoints are managed centrally here using the convention `$bp1`, `$bp2` etc.
@@ -112,7 +112,7 @@ Contrary to to guidelines set out in SMACSS, this framework does not include `th
 
 ### Layout
 
-- */assets/sass/core/layout.scss*
+- */assets/scss/core/layout.scss*
 - Layout rules define major content areas or layout components e.g. header, container or grids
 - *Layout* is reserved for layout components only and should only be styled as such
 
@@ -142,7 +142,7 @@ This framework uses Nicolas Gallagher's [Griddle](http://necolas.github.com/grid
 
 ### Modules
 
-- */assets/sass/core/modules.scss*
+- */assets/scss/core/modules.scss*
 - **This is where the bulk of your CSS will go** and contains objects &amp; modules
 - **Objects** are abstractions, created as classes to provide one re-useable element of styling e.g. `.nav--inline` turns lists inline
 - **Modules** are an extension of objects but are more specific parts of a page e.g. `.nav--tertiary`. The two are used/work together

@@ -13,7 +13,7 @@ Here lies Mixd's framework for beginning any front end build &mdash; containing 
 This framework makes use of the following external libraries or services
 
 - [Normalize.css](http://necolas.github.com/normalize.css/)
-- [Proportional Grids](https://github.com/mattberridge/Proportional-Grids/)
+- [Griddle](http://necolas.github.com/griddle/)
 - [Fontello](http://fontello.com/)
 - [jQuery](http://jquery.com/)
 - [Modernizr](http://modernizr.com/)
@@ -27,9 +27,9 @@ This framework makes use of the following external libraries or services
 - **This is a mobile-first framework**
 - **This framework uses [Sass](http://sass-lang.com/)** to generate CSS 
 - All site assets must be placed within the `/assets/` folder
-- Working `.scss` / Sass files are found in the `/assets/sass` folder
+- Working `.scss` / Sass files are found in the `/assets/scss` folder
 - All primary styles are placed in the `/core` folder
-- Styles are categorised into separations as per [SMACSS](http://goo.gl/dIB5j)
+- HTML Classes follow [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) naming conventions
 - Practise OOCSS principles and **never be afraid to use CSS classes** where appropriate
 
 #### Read
@@ -37,7 +37,7 @@ This framework makes use of the following external libraries or services
 
 ## Pre-Processing
 
-- *`/assets/sass`*
+- *`/assets/scss`*
 - We recommend [CodeKit](http://incident57.com/codekit/) as a compiler for Mac
 - Directly compiled stylesheets sit at root level, with all other separations inside sub folders
 - CSS must compile to the `/assets/css` folder and will be minified/compressed upon launch
@@ -71,7 +71,7 @@ This framework makes use of the following external libraries or services
 
 #### Example:
 
-	.media-img {
+	.media__img {
 	
 		// global syles
 		margin-bottom: 1.5em;
@@ -86,80 +86,94 @@ This framework makes use of the following external libraries or services
 			float: right; }
 	}
 
-## Base
+## Core partials
 
-- */assets/sass/core/base.scss*
+Although this framework doesn't strictly follow the [SMACSS](http://smacss.com/) categorision pattern, it is heavily infuenced by it's methodology. As long as you stick to the practices set out in SMACSS, you won't go wrong.
+
+Contrary to to guidelines set out in SMACSS, this framework does not include `theme` and `state` stylesheets, instead these abstractions should be included with `modules.scss` in a logical cascading order. This helps keep all modular code in context whilst maintaining the cascading benefits of the SMACSS method.
+
+### Base
+
+- */assets/scss/core/base.scss*
 - [Normalize.css](http://necolas.github.com/normalize.css/) is used to create consistency across all browsers
 - *Project Defaults* are set as reasonable starting point, but should be changed if required
-- *Helper Classes* are used to alter global typographic styles when required or unset defaults e.g. `.unset-list` removes `list-style` and `margin-left` from any `<ul>` or `<ol>`
 
-#### Read
+#### Icon Fonts
+
+- Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with project-specific glyphs
+- When exporting, name the font "Fontello" and upload all font files to `/assets/fonts`
+- Paste icon codes/classes taken from `Fontello-codes.css` in the downloaded zip file, into `theme.scss`
+- Icon classes should be prefixed with `.icon-`
+- The classes `.icon-large` and `.icon-pad` can be used to extend icons
+- The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s
+
+##### Read
 - [goo.gl/38esp](http://goo.gl/38esp)
 
-## Layout
+### Layout
 
 - */assets/sass/core/layout.scss*
 - Layout rules define major content areas or layout components e.g. header, container or grids
-- Use the `.l-` class prefix when indicating layout changes above the default e.g. `.l-full-width`
 - *Layout* is reserved for layout components only and should only be styled as such
-- Use nested elements and target modules within *theme* for appearance
 
-#### Read
+##### Read
 - [goo.gl/S5inY](http://goo.gl/S5inY)
 
-### Proportional Grids
+#### Griddle
 
-This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/blog/proportional-grids) for layout. Classes are used on each grid column to determine which proportion is taken at which breakpoint e.g.
+This framework uses Nicolas Gallagher's [Griddle](http://necolas.github.com/griddle/) for layout. Grids are created at each breakpoint within `layout.scss` and defined using classes on each grid column to determine which proportion is taken at which breakpoint e.g.
 
-	<div class="grid-wrap">
-	    <div class="grid-col bp1-col-one-half bp2-col-two-thirds">
-	        <p>Column 1</p>
-	    </div>
-	    <div class="grid-col bp1-col-one-half bp2-col-one-third">
-	        <p>Column 2</p>
-	    </div>
+	<div class="grid">
+		<article class="grid__cell unit-1-2--bp2 unit-1-3--bp4">
+				<h3 class="zero--top">one of three</h3>
+				<p>This unit is one-of-two after $bp2 and one of 3 after $bp4.</p>
+		</article>
+
+		<article class="grid__cell unit-1-2--bp2 unit-1-3--bp4">
+				<h3 class="zero--top">one of three</h3>
+				<p>This unit is one-of-two after $bp2 and one of 3 after $bp4.</p>
+		</article>
+
+		<article class="grid__cell unit-1-2--bp2 unit-1-3--bp4">
+				<h3 class="zero--top">one of three</h3>
+				<p>This unit is one-of-two after $bp2 and one of 3 after $bp4.</p>
+		</article>
 	</div>
-	
-`grid-col` starts life as a single column. The class `bp1-col-one-half` means that column becomes one-half at breakpoint 1. `bp2-col-two-thirds` means it becomes two-thirds at breakpoint 2. And so on.
 
-`bp2-col` is simply a namespace/prefix for that breakpoint. Grids are configured in `layout.scss` for each breakpoint, setting the namespace of the grid class to be used.	
-
-## Modules
+### Modules
 
 - */assets/sass/core/modules.scss*
 - **This is where the bulk of your CSS will go** and contains objects &amp; modules
-- **Objects** are abstractions, created as classes to provide one re-useable element of styling e.g. `.nav-inline` turns lists inline
-- **Modules** are an extension of objects but are more specific parts of a page e.g. `.nav-tertiary`. The two are used/work together
+- **Objects** are abstractions, created as classes to provide one re-useable element of styling e.g. `.nav--inline` turns lists inline
+- **Modules** are an extension of objects but are more specific parts of a page e.g. `.nav--tertiary`. The two are used/work together
 - Modules sit inside layout components and can be moved to a different part of the page without breaking
 - When building modules consider existing objects, future reuse and create abstractions if necessary
 - **Don't modify a base object** once created. Either extend it for your module or don't use it
-- Always use classes (**never IDs**) to define modules and prefix any child elements e.g. `.panel-heading` inside `.panel`, `.nav-item` inside `.nav`
-- Always use *theme* to define background, typography, colour styles even if they relate to a module
-- Always use explicit properties e.g. `border-width`, `border-style`, then define `border-color` in *theme*
-- Always use *state* to define e.g. `:hover`, `:active` styles even if they relate to a module
+- Always use classes (**never IDs**) to define modules.
+- Always define background, typography, colour and other 'theme' styling as separate abstractions *after* thier related module
+- Always define element states such as `:hover` and `:focus` *after* both the module and theme styles
 
-#### Read
-- [goo.gl/tTQJg](http://goo.gl/tTQJg)
+##### Read
 - [goo.gl/0iUwg](http://goo.gl/0iUwg)
 - [goo.gl/QKEuz](http://goo.gl/QKEuz)
 
-### Default Objects
+#### Default Objects
 
 - Navigation objects `.nav-inline`, `.nav-divided` and `.nav-stacked` are supplied by default, referencing mixins in `mixins.scss`
 - `.media` and `.island` objects are also included
 
-#### Read
+##### Read
 - [goo.gl/QjtO6](http://goo.gl/QjtO6)
 - [goo.gl/Xf6MJ](http://goo.gl/Xf6MJ)
 - [goo.gl/1XYHG](http://goo.gl/1XYHG)
 
-### Media Queries
+#### Media Queries
 
 - Modules should contain **all** `@media` declarations in context, nested within each module
 - This allows a developer to instantly see how a modules changes, with one point of reference for *layout* in `modules.scss` and one for *theme* in `theme.scss`
 - **Utilise mixins** to create abstractions and re-include these at a given breakpoint, rather than redefining them
 
-#### Correct:
+##### Correct:
 
 	// this object turns lists inline
 	@mixin nav-inline {
@@ -186,7 +200,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 		}
 	}
 
-#### Incorrect:
+##### Incorrect:
 
 	// this object turns lists inline
 	.nav-inline {
@@ -215,9 +229,9 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	}
 
 
-### Mixd Modules
+#### Mixd Modules
 
-- */assets/sass/libs/mixd-modules.scss*
+- */assets/scss/libs/mixd-modules.scss*
 - The Mixd Module Library contains mixins for common modules and details of accompanying markup
 - Should you produce any potentially reuseable/useful modules, update this file in the [master repository](https://github.com/Mixd/Mixd-CSS-Framework) after project completion
 - This allows for greater reuse of code between projects.
@@ -226,7 +240,7 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 - If necessary, **include any mixins** used within a module so it can be added to any new project without missing dependencies
 - When using new modules check for existing mixins and/or refactor if necessary
 
-#### Example
+##### Example
 
 	/* List Block
 	----------------------------------*/
@@ -245,47 +259,23 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 		}
 	}
 
+### Overrides
 
-## Theme
+- */assets/scss/libs/overrides.scss*
+- Contains helper classes and style trumps which will always want to override previously  defined styles.
+- Helper Classes are used to alter global typographic styles when required or unset defaults e.g. `.list-unset` removes `list-style` and `margin-left` from any `<ul>` or `<ol>`
+- Style trumps are used when you want to globally override and elements style, e.g. error states which would always be displayed in red.
+- `!important` is used often here, as you'll *always* want these rules to trump out previously defined rules.
 
-- */assets/sass/core/theme.scss*
-- **This is where you define appearance**
-- Theme rules define look and feel e.g. tyopgraphy, background, colour etc.
-- Always use explicit properties e.g. `border-color` **not** `border` to style elements specifically
-- Keeping *theme* separately allows for the extraction and reuse of *modules* between projects, and the re-skinning of existing templates more easily
-- **When using media queries** ensure `background-images` and `@font-face` are **only** referenced via `min-width` queries (to stop loading of unrequired assets)
-- Themed modules should contain **all** `@media` declarations in context, nested within that module ([as per *Modules*](#media-queries-1))
+### CMS
 
-#### Read
-- [goo.gl/ThLKb](http://goo.gl/ThLKb)
-
-### Icon Fonts
-
-- Use [Fontello](http://goo.gl/UV0Lm) to compile your icon font with project-specific glyphs
-- When exporting, name the font "Fontello" and upload all font files to `/assets/fonts`
-- Paste icon codes/classes taken from `Fontello-codes.css` in the downloaded zip file, into `theme.scss`
-- Icon classes should be prefixed with `.icon-`
-- The classes `.icon-large` and `.icon-pad` can be used to extend icons
-- The `.icon` class can be `@extended` when adding a class isn't reasonable e.g. on lots of `<li>`'s
-
-## State
-
-- */assets/sass/core/state.scss*
-- State rules override global styles in a given instance
-- Always use `.is-` prefix when indicating specific state e.g. `.is-shown`, `.is-current`
-
-#### Read
-- [goo.gl/Itlda](http://goo.gl/Itlda)
-
-## CMS
-
-- */assets/sass/core/cms.scss*
+- */assets/scss/core/cms.scss*
 - CMS styles are specific to the CMS (here, WordPress) being used including any plugins
 - If using WordPress, add a `.wp-content` class to the containing element of `<?php the_content(); ?>`
 
-## Modernizr
+### Modernizr
 
-- */assets/sass/core/modernizr.scss*
+- */assets/scss/core/modernizr.scss*
 * Modernizr styles offer fallbacks for non-supporting browsers
 * Use `.no-` selectors (**always code for better browsers first**)
 * Utilise Sass nesting for browser capabilities
@@ -301,9 +291,9 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 	}
 
 
-## Internet Explorer
+### Internet Explorer
 
-- */assets/sass/core/all-old-ie.scss*
+- */assets/scss/all-old-ie.scss*
 - IE8 and below is served styles via `all-old-ie.scss`
 - **Styles are compiled automatically** with media queries stripped-out
 - Set which layout you want old IE to take using the `$mqs-up-to` variable in `all-old-ie.scss`
@@ -322,8 +312,6 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 			/* styles */ }
 	}
 
-
-
 ## Images
 
 - Always aim for resolution independence, using SVG images, icon fonts and CSS wherever possible
@@ -335,9 +323,9 @@ This framework uses Matt Berridge's [Proportional Grids](http://builtbyboon.com/
 
 ## Javascript
 
-- */assets/js/all.js*
-- Place **all** JavaScript here with plugins at the top and functions in the section below. Javascript will be minified/compressed upon launch
-- To minimise http requests, **do not** load-in any additional JavaScript files. Place **all** Javascript within `all.js` 
+- */assets/js/scripts.js*
+- Plugins are stored in a separate file `assets/js/plugins.js` and imported into `scripts.js` using Codekit.
+- To minimise http requests, **do not** load-in any additional JavaScript files. Use codekit to include partials into `scripts.js`.
 - [Modernizr](http://modernizr.com/) is included to determine browser capabilities and provide appropriate fallbacks
 - [Selectivizr](http://selectivizr.com/) is included to add attribute/pseudo selector support in old IE
 - Other plugins in operation by default are [jQuery Placeholder](https://github.com/mathiasbynens/jquery-placeholder), [FitVids](http://fitvidsjs.com/) and [ExpandingTextareas](https://github.com/bgrins/ExpandingTextareas)
@@ -360,15 +348,13 @@ Listen below are some general rules to adhere to when using this framework or wh
 
 Use multi-line CSS to help with version control (diffing single line CSS is a nightmare) and order CSS declarations by relevance, **not** alphabetically.
 
-Use hyphen delimited, lowercase selectors: `.thisIsBad{}`, `.this_is_also_bad{}` but `.this-is-correct{}`.
-
 Always use a trailing semi-colon on the last declaration in a ruleset to avoid any potential confusion and syntax errors over the life of the document.
 
 Here is the preferred convention and structure for defining CSS rules, comments and nested elements within Sass:
 
 	/* Tertiary Nav
 	----------------------------------*/
-	.nav-tertiary {
+	.nav--tertiary {
 		a {
 			padding: 0 .75em; }
 			
@@ -378,9 +364,29 @@ Here is the preferred convention and structure for defining CSS rules, comments 
 	
 	/* Blocked Nav Object
 	----------------------------------*/
-	.nav-blocked a {
+	.nav--blocked a {
 		display: block;
 		padding: .5em; }
+
+### BEM Syntax
+
+The framework uses the [BEM](http://bem.info) methodology for class naming. The notation used in this framework is heavily influenced by Harry Roberts' [MindBEMding article](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/).
+
+- Use single hyphens to deliminate blocks: `.thisIsBad{}`, `.this_is_also_bad{}` but `.this-is-correct{}`.
+- Use double underscores for descendants of a block i.e. `.block__element`.
+- Use double hyphens for block modifiers i.e. `.block--modifier`
+
+#### Example:
+
+	.media{} /* Block */
+	.media__img /* Element */
+	.media--flipped /* Modifier */
+
+#### Read
+
+- [bem.info](http://bem.info)
+- [csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+- [nicolasgallagher.com/about-html-semantics-front-end-architecture/](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 
 ## Comments
 

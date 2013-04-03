@@ -1061,9 +1061,8 @@ img.media__img {
 /*----------------------------------------------------------------------------------------*\
  $.OVERRIDES
 \*----------------------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------------------*\
- $.Helper Classes
-\*----------------------------------------------------------------------------------------*/
+/* Helper classes
+----------------------------------*/
 .push-top {
   margin-top: 1.5em; }
 
@@ -1098,16 +1097,14 @@ img.media__img {
 .block {
   display: block; }
 
-/* Theme Classes
-----------------------------------*/
+/* Theme Classes */
 .brand-text {
   color: #663399; }
 
 .brand-bg {
   background-color: #663399; }
 
-/* Micro Clearfix - http://goo.gl/5Fvrh
-----------------------------------*/
+/* Micro Clearfix - http://goo.gl/5Fvrh */
 .cf, .media, .nav, #wp_page_numbers ul {
   zoom: 1; }
   .cf:before, .media:before, .nav:before, #wp_page_numbers ul:before, .cf:after, .media:after, .nav:after, #wp_page_numbers ul:after {
@@ -1116,9 +1113,8 @@ img.media__img {
   .cf:after, .media:after, .nav:after, #wp_page_numbers ul:after {
     clear: both; }
 
-/*----------------------------------------------------------------------------------------*\
- $.Specific text styles
-\*----------------------------------------------------------------------------------------*/
+/* Specific text styles
+----------------------------------*/
 .intro {
   font-size: 1.25em; }
 
@@ -1126,9 +1122,8 @@ img.media__img {
   border-bottom: 1px solid #999999;
   padding-bottom: .45em; }
 
-/*----------------------------------------------------------------------------------------*\
- $.Style trumps (error states etc.)
-\*----------------------------------------------------------------------------------------*/
+/* Style trumps (error states etc.)
+----------------------------------*/
 .is-hidden {
   display: none;
   visibility: hidden; }

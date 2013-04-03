@@ -1,6 +1,5 @@
-/*----------------------------------------------------------------------------------------*\
- $.Helper Classes
-\*----------------------------------------------------------------------------------------*/
+/* Helper classes
+----------------------------------*/
 
 .push-top 		{ margin-top: $baseline; }
 .push-bottom 	{ margin-bottom: $baseline; }
@@ -18,16 +17,16 @@
 
 .block {display: block;}
 
-/* Theme Classes
-----------------------------------*/
+/* Theme Classes */
+
 .brand-text {
 	color: $color-brand; }
 	
 .brand-bg {
 	background-color: $color-brand; } 	
 
-/* Micro Clearfix - http://goo.gl/5Fvrh
-----------------------------------*/
+/* Micro Clearfix - http://goo.gl/5Fvrh */
+
 .cf {
 	zoom : 1;
 	
@@ -35,16 +34,15 @@
 	&:after { clear : both; }
 }	
 
-/*----------------------------------------------------------------------------------------*\
- $.Specific text styles
-\*----------------------------------------------------------------------------------------*/
+/* Specific text styles
+----------------------------------*/
 
 .intro { font-size: 1.25em; }
 .headline { border-bottom: 1px solid $color-keyline; padding-bottom: .45em; }
 
-/*----------------------------------------------------------------------------------------*\
- $.Style trumps (error states etc.)
-\*----------------------------------------------------------------------------------------*/
+
+/* Style trumps (error states etc.)
+----------------------------------*/
 
 .is-hidden { display: none; visibility: hidden; }
 .is-vhidden {

@@ -1,6 +1,3 @@
-// Import Mixd modules
-@import "../libs/_mixd-modules";	
-
 /* Media Object - http://goo.gl/Xf6MJ
 ----------------------------------*/
 
@@ -124,7 +121,3 @@ img.media__img {
 .credit{
 	text-align:center;
 }
-	
-/* Responsive Search Box
-----------------------------------*/
-@include responsive-search-box;

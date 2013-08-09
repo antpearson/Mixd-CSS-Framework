@@ -9,7 +9,7 @@
 
 /* Grids (Griddle - http://goo.gl/P1JKB)
 ----------------------------------*/
-@import "../libs/griddle";
+@import "../libs/_griddle";
 
 // Create 2, 3, 6 and 12 column grids
 @include griddle-build(2);

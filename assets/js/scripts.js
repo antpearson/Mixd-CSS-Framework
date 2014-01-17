@@ -1,5 +1,3 @@
-// @codekit-prepend "plugins.js"
-
 // Document Ready
 $(document).ready(function() {
 	// HTML5 placeholder support
